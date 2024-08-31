@@ -7,7 +7,7 @@
       net6.0-windows;
       net48;
     </TargetFrameworks>
-    <StartupObject>ViewVb.My.MyApplication</StartupObject>
+    <StartupObject>AsfEditor.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
