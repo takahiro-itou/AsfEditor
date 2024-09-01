@@ -33,7 +33,7 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
     With m_currentInfo
         txtStartTime.Text = .sStartTime
         txtEndTime.Text = .sEndTime
-    End Function
+    End With
 
     setTargetInfo = True
 End Function
