@@ -25,18 +25,51 @@ Partial Class MainView
         Dim resources As System.ComponentModel.ComponentResourceManager = _
             New System.ComponentModel.ComponentResourceManager(GetType(MainView))
 
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+
         Me.mnuMain = New System.Windows.Forms.MenuStrip()
         Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileAdd = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileRemove = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileClear = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileSep0 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuFileOutput = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileWorkDir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuFileSep0 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuFileExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuRun = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuRunCommand = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditTime = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuEditPerform = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
 
         Me.dlgOpen = New System.Windows.Forms.OpenFileDialog()
+        Me.dlgSave = New System.Windows.Forms.SaveFileDialog()
 
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtCommand = New System.Windows.Forms.TextBox()
-        Me.btnRun = New System.Windows.Forms.Button()
-        Me.txtOutput = New System.Windows.Forms.TextBox()
+        Me.fraInput = New System.Windows.Forms.GroupBox()
+        Me.colConcat = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.colFileName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colStart = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colEnd = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDuration = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvInputs = New System.Windows.Forms.DataGridView()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnUp = New System.Windows.Forms.Button()
+        Me.btnDown = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
+
+        Me.fraOutput = New System.Windows.Forms.GroupBox()
+        Me.lblOutFile = New System.Windows.Forms.Label()
+        Me.txtOutFile = New System.Windows.Forms.TextBox()
+        Me.btnOutput = New System.Windows.Forms.Button()
+        Me.lblWorkDir = New System.Windows.Forms.Label()
+        Me.txtWorkDir = New System.Windows.Forms.TextBox()
+        Me.btnWorkDir = New System.Windows.Forms.Button()
+        Me.btnPerform = New System.Windows.Forms.Button()
 
         Me.mnuMain.SuspendLayout()
         Me.SuspendLayout()
@@ -120,17 +153,45 @@ Partial Class MainView
         Me.PerformLayout()
     End Sub
 
-    Friend WithEvents mnuMain As MenuStrip
-    Friend WithEvents mnuFile As ToolStripMenuItem
-    Friend WithEvents mnuFileExit As ToolStripMenuItem
-    Friend WithEvents mnuRun As ToolStripMenuItem
-    Friend WithEvents mnuRunCommand As ToolStripMenuItem
+    Friend WithEvents mnuMain As System.Windows.Forms.MenuStrip
+    Friend WithEvents mnuFile As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileAdd As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileRemove As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileClear As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileSep0 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents mnuFileOutput As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileWorkDir As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuFileSep1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents mnuFileExit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuEdit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuEditTime As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuEditPerform As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mnuHelp As System.Windows.Forms.ToolStripMenuItem
 
-    Friend WithEvents dlgOpen As OpenFileDialog
+    Friend WithEvents dlgOpen As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents dlgSave As SaveFileDialog
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtCommand As TextBox
-    Friend WithEvents btnRun As Button
-    Friend WithEvents txtOutput As TextBox
+    Friend WithEvents fraInput As System.Windows.Forms.GroupBox
+    Friend WithEvents dgvInputs As System.Windows.Forms.DataGridView
+    Friend WithEvents btnAdd As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
+    Friend WithEvents btnRemove As System.Windows.Forms.Button
+    Friend WithEvents btnUp As System.Windows.Forms.Button
+    Friend WithEvents btnDown As System.Windows.Forms.Button
+    Friend WithEvents btnEdit As System.Windows.Forms.Button
+    Friend WithEvents fraOutput As System.Windows.Forms.GroupBox
+    Friend WithEvents lblOutFile As System.Windows.Forms.Label
+    Friend WithEvents txtOutFile As System.Windows.Forms.TextBox
+    Friend WithEvents btnOutput As System.Windows.Forms.Button
+    Friend WithEvents lblWorkDir As System.Windows.Forms.Label
+    Friend WithEvents txtWorkDir As System.Windows.Forms.TextBox
+    Friend WithEvents btnWorkDir As System.Windows.Forms.Button
+    Friend WithEvents btnPerform As System.Windows.Forms.Button
+
+    Friend WithEvents colConcat As DataGridViewCheckBoxColumn
+    Friend WithEvents colFileName As DataGridViewTextBoxColumn
+    Friend WithEvents colStart As DataGridViewTextBoxColumn
+    Friend WithEvents colEnd As DataGridViewTextBoxColumn
+    Friend WithEvents colDuration As DataGridViewTextBoxColumn
 
 End Class
