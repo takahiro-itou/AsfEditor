@@ -17,9 +17,9 @@ Dim bResult As Boolean
     Using process As New System.Diagnostics.Process()
         With process
             With .StartInfo
-                .Arguments = arguments
+                .Arguments = sArguments
                 .CreateNoWindow = True
-                .FileName = command
+                .FileName = sCommand
                 .RedirectStandardInput = False
                 .RedirectStandardError = True
                 .RedirectStandardOutput = True
@@ -48,7 +48,7 @@ Dim bResult As Boolean
         End With
     End Using
 
-    runCommand = bResult
+    launchProcess = bResult
 End Function
 
 
@@ -78,18 +78,20 @@ Dim bResult As Boolean
         workFiles(i) = outWork
     Next
 
-    bResult = runConcatCommand(workFiles, outFile, workDir)
+    bResult = runConcatCommand(workFiles, lastInputs, outFile, workDir)
     performVideoEdit = bResult
 End Function
 
 
 Public Function runConcatCommand(
         ByVal workFiles() As String,
+        ByVal lastInputs As Integer,
         ByVal outFile As String,
         ByVal workDir As String) As Boolean
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
+Dim i As Integer
 Dim sbArgs As System.Text.StringBuilder
 Dim str2 As String
 Dim enc As System.Text.Encoding
@@ -100,7 +102,7 @@ Dim bResult As Boolean
     workCatFile = workDir & "workconcatlist.txt"
 
     Using sw As New System.IO.StreamWriter(workCatFile, False, enc)
-        For i = 0 To viInputs.Length - 1
+        For i = 0 To lastInputs
             sw.WriteLine("file '" & workFiles(i) & "'")
         Next i
     End Using

@@ -211,6 +211,7 @@ Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
     handleEditButton()
 End Sub
 
+
 Private Sub dgvInputs_CellDoubleClick(
         sender As Object, e As DataGridViewCellEventArgs) _
     Handles dgvInputs.CellDoubleClick
@@ -220,7 +221,8 @@ Private Sub dgvInputs_CellDoubleClick(
 ''    グリッドビューのセルをダブルクリック
 ''--------------------------------------------------------------------
     handleEditButton()
-editButtonHandler()
+End Sub
+
 
 Private Sub mnuFileAdd_Click(sender As Object, e As EventArgs) Handles _
             mnuFileAdd.Click
