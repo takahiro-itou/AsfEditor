@@ -15,9 +15,7 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''
 ''--------------------------------------------------------------------
 
-''--------------------------------------------------------------------
-''
-''-------------------------------------------------------------------
+End Function
 
 
 Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles _
