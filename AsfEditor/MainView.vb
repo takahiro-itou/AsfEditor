@@ -84,6 +84,78 @@ Dim srcInfo As InputInfo
 End Sub
 
 
+Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles _
+            btnAdd.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    openInputFile()
+End Sub
+
+
+Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles _
+            btnClear.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    clearFileList()
+End Sub
+
+
+Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles _
+            btnDown.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+
+End Sub
+
+
+Private Sub btnPerform_Click(sender As Object, e As EventArgs) Handles _
+            btnPerform.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+
+End Sub
+
+
+Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles _
+            btnRemove.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    removeFileFromList()
+End Sub
+
+
+Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles _
+            btnUp.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+
+End Sub
+
+
+Private Sub btnOutput_Click(sender As Object, e As EventArgs) Handles _
+            btnOutput.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    showSaveFileDialog(txtOutFile)
+End Sub
+
+
+Private Sub btnWorkDir_Click(sender As Object, e As EventArgs) Handles _
+            btnWorkDir.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    showSaveFileDialog(txtWorkDir)
+End Sub
+
+
 Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
             btnEdit.Click, mnuEditTime.Click
 ''--------------------------------------------------------------------
@@ -107,13 +179,58 @@ Dim selIndex As Integer
 End Sub
 
 
+Private Sub mnuFileAdd_Click(sender As Object, e As EventArgs) Handles _
+            mnuFileAdd.Click
+''--------------------------------------------------------------------
+''    メニュー「ファイル」－「追加」
+''--------------------------------------------------------------------
+    openInputFile()
+End Sub
+
+
+Private Sub mnuFileClear_Click(sender As Object, e As EventArgs) Handles _
+            mnuFileClear.Click
+''--------------------------------------------------------------------
+''    メニュー「ファイル」－「クリア」
+''--------------------------------------------------------------------
+    clearFileList()
+End Sub
+
+
 Private Sub mnuFileExit_Click(sender As Object, e As EventArgs) Handles _
             mnuFileExit.Click
 ''--------------------------------------------------------------------
 ''    メニュー「ファイル」－「終了」
 ''--------------------------------------------------------------------
-
     Application.Exit()
 End Sub
+
+
+Private Sub mnuFileOutput_Click(sender As Object, e As EventArgs) Handles _
+    mnuFileOutput.Click
+''--------------------------------------------------------------------
+''    メニュー「ファイル」－「出力」
+''--------------------------------------------------------------------
+    showSaveFileDialog(txtOutFile)
+End Sub
+
+
+Private Sub mnuFileRemove_Click(sender As Object, e As EventArgs) Handles _
+            mnuFileRemove.Click
+''--------------------------------------------------------------------
+''    メニュー「ファイル」－「削除」
+''--------------------------------------------------------------------
+    removeFileFromList()
+End Sub
+
+
+Private Sub mnuFileWorkDir_Click(sender As Object, e As EventArgs) Handles _
+            mnuFileWorkDir.Click
+''--------------------------------------------------------------------
+''    メニュー「ファイル」－「作業ディレクトリ」
+''--------------------------------------------------------------------
+    showSaveFileDialog(txtWorkDir)
+End Sub
+
 
 End Class
