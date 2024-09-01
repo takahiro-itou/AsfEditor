@@ -358,6 +358,26 @@
     <value>...</value>
   </data>
 
+  <metadata name="dlgOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 16</value>
+  </metadata>
+  <data name="&gt;&gt;dlgOpen.Name" xml:space="preserve">
+    <value>dlgOpen</value>
+  </data>
+  <data name="&gt;&gt;dlgOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+
+  <metadata name="dlgSave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>232, 16</value>
+  </metadata>
+  <data name="&gt;&gt;dlgSave.Name" xml:space="preserve">
+    <value>dlgSave</value>
+  </data>
+  <data name="&gt;&gt;dlgSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+
   <data name="&gt;&gt;mnuEdit.Name" xml:space="preserve">
     <value>mnuEdit</value>
   </data>
@@ -522,7 +542,7 @@
   </data>
 
   <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>16, 16</value>
   </metadata>
   <data name="&gt;&gt;mnuMain.Name" xml:space="preserve">
     <value>mnuMain</value>
