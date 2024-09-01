@@ -219,6 +219,58 @@ Partial Class MainView
         btnEdit.UseVisualStyleBackColor = True
 
         '
+        ' fraOutput
+        '
+        resources.ApplyResources(fraOutput, "fraOutput")
+        fraOutput.Controls.Add(lblOutFile)
+        fraOutput.Controls.Add(txtOutFile)
+        fraOutput.Controls.Add(btnOutput)
+        fraOutput.Controls.Add(lblWorkDir)
+        fraOutput.Controls.Add(txtWorkDir)
+        fraOutput.Controls.Add(btnWorkDir)
+        fraOutput.Controls.Add(btnPerform)
+        fraOutput.Name = "fraOutput"
+        fraOutput.TabStop = False
+        '
+        ' lblOutFile
+        '
+        resources.ApplyResources(lblOutFile, "lblOutFile")
+        lblOutFile.Name = "lblOutFile"
+        '
+        ' txtOutFile
+        '
+        resources.ApplyResources(txtOutFile, "txtOutFile")
+        txtOutFile.Name = "txtOutFile"
+        '
+        ' btnOutput
+        '
+        resources.ApplyResources(btnOutput, "btnOutput")
+        btnOutput.Name = "btnOutput"
+        btnOutput.UseVisualStyleBackColor = True
+        '
+        ' lblWorkDir
+        '
+        resources.ApplyResources(lblWorkDir, "lblWorkDir")
+        lblWorkDir.Name = "lblWorkDir"
+        '
+        ' txtWorkDir
+        '
+        resources.ApplyResources(txtWorkDir, "txtWorkDir")
+        txtWorkDir.Name = "txtWorkDir"
+        '
+        ' btnWorkDir
+        '
+        resources.ApplyResources(btnWorkDir, "btnWorkDir")
+        btnWorkDir.Name = "btnWorkDir"
+        btnWorkDir.UseVisualStyleBackColor = True
+        '
+        ' btnPerform
+        '
+        resources.ApplyResources(btnPerform, "btnPerform")
+        btnPerform.Name = "btnPerform"
+        btnPerform.UseVisualStyleBackColor = True
+
+        '
         ' colConcat
         '
         resources.ApplyResources(colConcat, "colConcat")
