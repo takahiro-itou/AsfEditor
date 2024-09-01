@@ -4,7 +4,7 @@ Private m_nInputCount As Integer
 Private m_viInputList() As InputInfo
 
 
-Private Function addFileToList(ByVal fileName As Strign) As Boolean
+Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
