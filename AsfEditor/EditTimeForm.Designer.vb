@@ -134,6 +134,24 @@ Partial Class EditTimeForm
         resources.ApplyResources(btnSeekEnd, "btnSeekEnd")
         btnSeekEnd.Name = "btnSeekEnd"
         btnSeekEnd.UseVisualStyleBackColor = True
+        '
+        ' btnApply
+        '
+        resources.ApplyResources(btnApply, "btnApply")
+        btnApply.Name = "btnApply"
+        btnApply.UseVisualStyleBackColor = True
+        '
+        ' btnOK
+        '
+        resources.ApplyResources(btnOK, "btnOK")
+        btnOK.Name = "btnOK"
+        btnOK.UseVisualStyleBackColor = True
+        '
+        ' btnCancel
+        '
+        resources.ApplyResources(btnCancel, "btnCancel")
+        btnCancel.Name = "btnCancel"
+        btnCancel.UseVisualStyleBackColor = True
 
         '
         ' EditTimeForm
