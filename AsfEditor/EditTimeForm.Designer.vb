@@ -48,6 +48,37 @@ Partial Class EditTimeForm
         CType(trbPos, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
 
+        '
+        ' picVideo
+        '
+        resources.ApplyResources(picVideo, "picVideo")
+        picVideo.BorderStyle = BorderStyle.Fixed3D
+        picVideo.Name = "picVideo"
+        picVideo.TabStop = False
+        '
+        ' btnPlay
+        '
+        resources.ApplyResources(btnPlay, "btnPlay")
+        btnPlay.Name = "btnPlay"
+        btnPlay.UseVisualStyleBackColor = True
+        '
+        ' btnStop
+        '
+        resources.ApplyResources(btnStop, "btnStop")
+        btnStop.Name = "btnStop"
+        btnStop.UseVisualStyleBackColor = True
+        '
+        ' trbPos
+        '
+        resources.ApplyResources(trbPos, "trbPos")
+        trbPos.Name = "trbPos"
+        '
+        ' lblPos
+        '
+        resources.ApplyResources(lblPos, "lblPos")
+        lblPos.BackColor = SystemColors.Window
+        lblPos.Name = "lblPos"
+
 
         '
         ' EditTimeForm
