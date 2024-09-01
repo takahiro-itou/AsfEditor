@@ -358,4 +358,192 @@
     <value>...</value>
   </data>
 
+  <data name="&gt;&gt;mnuEdit.Name" xml:space="preserve">
+    <value>mnuEdit</value>
+  </data>
+  <data name="&gt;&gt;mnuEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
+  </data>
+  <data name="mnuEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+
+  <data name="&gt;&gt;mnuEditPerform.Name" xml:space="preserve">
+    <value>mnuEditPerform</value>
+  </data>
+  <data name="&gt;&gt;mnuEditPerform.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuEditPerform.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
+  </data>
+  <data name="mnuEditPerform.Text" xml:space="preserve">
+    <value>&amp;Perform Edit</value>
+  </data>
+
+  <data name="&gt;&gt;mnuEditTime.Name" xml:space="preserve">
+    <value>mnuEditTime</value>
+  </data>
+  <data name="&gt;&gt;mnuEditTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuEditTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 22</value>
+  </data>
+  <data name="mnuEditTime.Text" xml:space="preserve">
+    <value>Edit &amp;Time Interval</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFile.Name" xml:space="preserve">
+    <value>mnuFile</value>
+  </data>
+  <data name="&gt;&gt;mnuFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileAdd.Name" xml:space="preserve">
+    <value>mnuFileAdd</value>
+  </data>
+  <data name="&gt;&gt;mnuFileAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileAdd.Text" xml:space="preserve">
+    <value>&amp;Add File</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileClear.Name" xml:space="preserve">
+    <value>mnuFileClear</value>
+  </data>
+  <data name="&gt;&gt;mnuFileClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileClear.Text" xml:space="preserve">
+    <value>&amp;Clear</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileExit.Name" xml:space="preserve">
+    <value>mnuFileExit</value>
+  </data>
+  <data name="&gt;&gt;mnuFileExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileExit.Text" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileOutput.Name" xml:space="preserve">
+    <value>mnuFileOutput</value>
+  </data>
+  <data name="&gt;&gt;mnuFileOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileOutput.Text" xml:space="preserve">
+    <value>&amp;Output</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileRemove.Name" xml:space="preserve">
+    <value>mnuFileRemove</value>
+  </data>
+  <data name="&gt;&gt;mnuFileRemove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileRemove.Text" xml:space="preserve">
+    <value>&amp;Remove File</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileSep0.Name" xml:space="preserve">
+    <value>mnuFileSep0</value>
+  </data>
+  <data name="&gt;&gt;mnuFileSep0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileSep0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileSep1.Name" xml:space="preserve">
+    <value>mnuFileSep1</value>
+  </data>
+  <data name="&gt;&gt;mnuFileSep1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileSep1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+
+  <data name="&gt;&gt;mnuFileWorkDir.Name" xml:space="preserve">
+    <value>mnuFileWorkDir</value>
+  </data>
+  <data name="&gt;&gt;mnuFileWorkDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuFileWorkDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="mnuFileWorkDir.Text" xml:space="preserve">
+    <value>&amp;Work Dir</value>
+  </data>
+
+  <data name="&gt;&gt;mnuHelp.Name" xml:space="preserve">
+    <value>mnuHelp</value>
+  </data>
+  <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+
+  <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="&gt;&gt;mnuMain.Name" xml:space="preserve">
+    <value>mnuMain</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="mnuMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnuMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>752, 24</value>
+  </data>
+  <data name="mnuMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+
 </root>
