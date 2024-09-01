@@ -358,6 +358,114 @@
     <value>...</value>
   </data>
 
+  <metadata name="colConcat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;colConcat.Name" xml:space="preserve">
+    <value>colConcat</value>
+  </data>
+  <data name="&gt;&gt;colConcat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="colConcat.HeaderText" xml:space="preserve">
+    <value>Concat</value>
+  </data>
+  <data name="colConcat.MinimumWidth" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="colConcat.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+
+  <metadata name="colDuration.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;colDuration.Name" xml:space="preserve">
+    <value>colDuration</value>
+  </data>
+  <data name="&gt;&gt;colDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="colDuration.HeaderText" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+
+  <metadata name="colEnd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;colEnd.Name" xml:space="preserve">
+    <value>colEnd</value>
+  </data>
+  <data name="&gt;&gt;colEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="colEnd.HeaderText" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="colEnd.MinimumWidth" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+
+  <metadata name="colFileName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;colFileName.Name" xml:space="preserve">
+    <value>colFileName</value>
+  </data>
+  <data name="&gt;&gt;colFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="colFileName.HeaderText" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="colFileName.MinimumWidth" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="colFileName.Width" type="System.Int32, mscorlib">
+    <value>280</value>
+  </data>
+
+  <metadata name="colStart.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;colStart.Name" xml:space="preserve">
+    <value>colStart</value>
+  </data>
+  <data name="&gt;&gt;colStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="colStart.HeaderText" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="colStart.MinimumWidth" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+
+  <data name="&gt;&gt;dgvInputs.Name" xml:space="preserve">
+    <value>dgvInputs</value>
+  </data>
+  <data name="&gt;&gt;dgvInputs.Parent" xml:space="preserve">
+    <value>fraInput</value>
+  </data>
+  <data name="&gt;&gt;dgvInputs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvInputs.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="dgvInputs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvInputs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 24</value>
+  </data>
+  <data name="dgvInputs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>688, 240</value>
+  </data>
+  <data name="dgvInputs.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+
   <metadata name="dlgOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 16</value>
   </metadata>
