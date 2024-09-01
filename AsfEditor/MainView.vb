@@ -108,7 +108,6 @@ Private Function showSaveFileDialog(
 ''
 ''--------------------------------------------------------------------
 Dim selFile As String
-Dim sepDir As String = "\"  ' " ディレクトリの区切り
 
     With dlgSave
         .DefaultExt = ".wmv"
@@ -123,7 +122,7 @@ Dim sepDir As String = "\"  ' " ディレクトリの区切り
     End With
 
     If bDir Then
-        selFile = System.IO.Path.GetDirectoryName(selFile) & sepDir
+        selFile = uniformDirName(System.IO.Path.GetDirectoryName(selFile))
     End If
 
     targetTextBox.Text = selFile
@@ -236,11 +235,13 @@ Private Sub btnOutput_Click(sender As Object, e As EventArgs) Handles _
 ''    メニュー「ファイル」－「出力」
 ''--------------------------------------------------------------------
 Dim selFile As String
-Dim sepDir As String = "\"  ' " ディレクトリの区切り
+Dim selDir As String
 
     selFile = showSaveFileDialog(txtOutFile, False)
+
     If txtWorkDir.Text = "" And selFile <> "" Then
-        txtWorkDir.Text = System.IO.Path.GetDirectoryName(selFile) & sepDir
+        selDir = uniformDirName(System.IO.Path.GetDirectoryName(selFile))
+        txtWorkDir.Text = selDir
     End If
 
 End Sub

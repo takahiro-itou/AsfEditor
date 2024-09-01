@@ -36,10 +36,12 @@ Dim bResult As Boolean
 
             ' txtOutput.Text = output
             .WaitForExit()
-            textErr = textErr & .ExitCode
+            textErr = textErr & .ExitCode & vbCrLf
 
             If .ExitCode <> 0 Then
-                MessageBox.Show(textErr)
+                MessageBox.Show(
+                    sCommand & vbCrLf & sArguments & vbCrLf &
+                    "STDERR: " & vbCrLf & textErr)
                 bResult = False
             Else
                 bResult = True
@@ -62,13 +64,9 @@ Public Function performVideoEdit(
 Dim i As Integer, lastInputs As Integer
 Dim outWork As String
 Dim workFiles() as String
-Dim sepDir As String = "\"  ' " ディレクトリの区切り
 Dim bResult As Boolean
 
-    If workDir <> "" And Right$(workDir, 1) = sepDir Then
-        ' ディレクトリの末尾に \ を追加しておく
-        workDir = workDir & sepDir
-    End If
+    workDir = uniformDirName(workDir)
 
     lastInputs = viInputs.Length - 1
     ReDim workFiles(lastInputs)
@@ -143,7 +141,7 @@ Dim bResult As Boolean
         .Append(""" -accurate_seek  -i """)
         .Append(viSrcInfo.sFileName)
         .Append("""  -c:v copy -c:a copy  -avoid_negative_ts make_zero")
-        .Append("""  -y -loglevel verbose  """)
+        .Append("  -y -loglevel verbose  """)
         .Append(workOutFile)
         .Append("""")
     End With

@@ -8,6 +8,7 @@ Public Class InputInfo
     Public bConcat As Boolean
 End Class
 
+
 Public Function getMiliSeconds(ByVal sTimeText As String) As Long
 ''--------------------------------------------------------------------
 ''
@@ -46,6 +47,7 @@ Dim nParts1 As Integer
     getMiliSeconds = ((tpHour * 60 + tpMin) * 60 + tpSec) * 1000 + tpMs
 End Function
 
+
 Public Function getTimeTextFromMiliSeconds(ByVal msTime As Long) As String
 ''--------------------------------------------------------------------
 ''
@@ -64,8 +66,26 @@ Dim tpQuat As Long
     tpHour = (tpQuat \ 60)
 
     getTimeTextFromMiliSeconds = String.Format(
-            "{0:00}:{1:00}:{2:00}.{3:000}", tpHour, tpMin, tpSec, tpMs)
+            "{0:00}:{1:00}:{2:00}.{3:000}", tpHour, tpMin, tpSec, tpMs
+    )
 End Function
+
+
+Public Function uniformDirName(ByVal strDir As String) As String
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+Dim sepDir As String
+
+    sepDir = "\"  ' " ディレクトリの区切り
+    If strDir <> "" And Right$(strDir, 1) = sepDir Then
+        ' ディレクトリの末尾に \ を追加しておく
+        strDir = strDir & sepDir
+    End If
+
+    uniformDirName = strDir
+End Function
+
 
 Public Function setTimeInfo(
         ByVal targetInfo As InputInfo,
@@ -92,5 +112,6 @@ Dim tmEnd As Long
 
     setTimeInfo = True
 End Function
+
 
 End Module
