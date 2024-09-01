@@ -78,6 +78,30 @@ Partial Class EditTimeForm
         resources.ApplyResources(lblPos, "lblPos")
         lblPos.BackColor = SystemColors.Window
         lblPos.Name = "lblPos"
+        '
+        ' btnSetStart
+        '
+        resources.ApplyResources(btnSetStart, "btnSetStart")
+        btnSetStart.Name = "btnSetStart"
+        btnSetStart.UseVisualStyleBackColor = True
+        '
+        ' btnRewind
+        '
+        resources.ApplyResources(btnRewind, "btnRewind")
+        btnRewind.Name = "btnRewind"
+        btnRewind.UseVisualStyleBackColor = True
+        '
+        ' btnForward
+        '
+        resources.ApplyResources(btnForward, "btnForward")
+        btnForward.Name = "btnForward"
+        btnForward.UseVisualStyleBackColor = True
+        '
+        ' btnSetEnd
+        '
+        resources.ApplyResources(btnSetEnd, "btnSetEnd")
+        btnSetEnd.Name = "btnSetEnd"
+        btnSetEnd.UseVisualStyleBackColor = True
 
 
         '
