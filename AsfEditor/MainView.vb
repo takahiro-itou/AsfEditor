@@ -63,6 +63,23 @@ Private Sub updateGridView()
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
+Dim i As Integer
+Dim srcInfo As InputInfo
+
+    With dlgInputs
+        .Rows.Clear()
+
+        For i = 0 To m_nInputCount - 1
+            srcInfo = m_viInputList(i)
+            .Rows.Add(
+                srcIinfo.bConcat,
+                srcInfo.sFileName,
+                srcInfo.sStartTime,
+                srcInfo.sEndTime,
+                srcInfo.sTimeDuration
+            )
+        Next i
+    End With
 
 End Sub
 
