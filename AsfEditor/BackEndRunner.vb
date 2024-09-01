@@ -18,30 +18,31 @@ Dim bResult As Boolean
         With process
             With .StartInfo
                 .Arguments = sArguments
-                .CreateNoWindow = True
+                .CreateNoWindow = False
                 .FileName = sCommand
                 .RedirectStandardInput = False
-                .RedirectStandardError = True
-                .RedirectStandardOutput = True
+                .RedirectStandardError = False
+                .RedirectStandardOutput = False
                 .UseShellExecute = False
                 .WorkingDirectory = workDir
             End With
 
             .Start()
 
-            readerOut = .StandardOutput
-            readerErr = .StandardError
-            textOut = readerOut.ReadToEnd()
-            textErr = readerErr.ReadToEnd()
+            ' readerOut = .StandardOutput
+            ' readerErr = .StandardError
+            ' textOut = readerOut.ReadToEnd()
+            ' textErr = readerErr.ReadToEnd()
+            textOut = ""
+            textErr = ""
 
-            ' txtOutput.Text = output
             .WaitForExit()
             textErr = textErr & .ExitCode & vbCrLf
 
             If .ExitCode <> 0 Then
                 MessageBox.Show(
                     sCommand & vbCrLf & sArguments & vbCrLf &
-                    "STDERR: " & vbCrLf & textErr)
+                    "ERR: " & vbCrLf & textErr)
                 bResult = False
             Else
                 bResult = True
@@ -107,7 +108,7 @@ Dim bResult As Boolean
 
     sbArgs = New System.Text.StringBuilder()
     With sbArgs
-        .Append("- f concat -accurate_seek -safe 0 -i """)
+        .Append("-f concat -accurate_seek -safe 0 -i """)
         .Append(workCatFile)
         .Append("""  -c:v copy -c:a copy -map 0:v -map 0:a")
         .Append("  -y -loglevel verbose  """)
@@ -136,9 +137,9 @@ Dim bResult As Boolean
     With sbArgs
         .Append(" -ss ")
         .Append(viSrcInfo.sStartTime)
-        .Append(" -t """)
+        .Append(" -t ")
         .Append(viSrcInfo.sTimeDuration)
-        .Append(""" -accurate_seek  -i """)
+        .Append(" -accurate_seek  -i """)
         .Append(viSrcInfo.sFileName)
         .Append("""  -c:v copy -c:a copy  -avoid_negative_ts make_zero")
         .Append("  -y -loglevel verbose  """)
@@ -148,7 +149,7 @@ Dim bResult As Boolean
 
     str2 = sbArgs.ToString()
     bResult = launchProcess("ffmpeg", str2, workDir)
-    runSegmentCommand = launchProcess("ffmpeg", str2, workDir)
+    runSegmentCommand = bResult
 End Function
 
 

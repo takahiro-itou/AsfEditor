@@ -78,7 +78,7 @@ Public Function uniformDirName(ByVal strDir As String) As String
 Dim sepDir As String
 
     sepDir = "\"  ' " ディレクトリの区切り
-    If strDir <> "" And Right$(strDir, 1) = sepDir Then
+    If strDir <> "" And Right$(strDir, 1) <> sepDir Then
         ' ディレクトリの末尾に \ を追加しておく
         strDir = strDir & sepDir
     End If
