@@ -30,46 +30,46 @@ Partial Class MainView
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
 
-        Me.mnuMain = New System.Windows.Forms.MenuStrip()
-        Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileAdd = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileRemove = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileClear = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileSep0 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuFileOutput = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileWorkDir = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuFileSep0 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuFileExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuEditTime = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuEditPerform = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
+        mnuMain = New System.Windows.Forms.MenuStrip()
+        mnuFile = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileAdd = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileRemove = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileClear = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileSep0 = New System.Windows.Forms.ToolStripSeparator()
+        mnuFileOutput = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileWorkDir = New System.Windows.Forms.ToolStripMenuItem()
+        mnuFileSep1 = New System.Windows.Forms.ToolStripSeparator()
+        mnuFileExit = New System.Windows.Forms.ToolStripMenuItem()
+        mnuEdit = New System.Windows.Forms.ToolStripMenuItem()
+        mnuEditTime = New System.Windows.Forms.ToolStripMenuItem()
+        mnuEditPerform = New System.Windows.Forms.ToolStripMenuItem()
+        mnuHelp = New System.Windows.Forms.ToolStripMenuItem()
 
-        Me.dlgOpen = New System.Windows.Forms.OpenFileDialog()
-        Me.dlgSave = New System.Windows.Forms.SaveFileDialog()
+        dlgOpen = New System.Windows.Forms.OpenFileDialog()
+        dlgSave = New System.Windows.Forms.SaveFileDialog()
 
-        Me.fraInput = New System.Windows.Forms.GroupBox()
-        Me.colConcat = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.colFileName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colStart = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colEnd = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDuration = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvInputs = New System.Windows.Forms.DataGridView()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnRemove = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnUp = New System.Windows.Forms.Button()
-        Me.btnDown = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
+        fraInput = New System.Windows.Forms.GroupBox()
+        colConcat = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        colFileName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        colStart = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        colEnd = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        colDuration = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        dgvInputs = New System.Windows.Forms.DataGridView()
+        btnAdd = New System.Windows.Forms.Button()
+        btnRemove = New System.Windows.Forms.Button()
+        btnClear = New System.Windows.Forms.Button()
+        btnUp = New System.Windows.Forms.Button()
+        btnDown = New System.Windows.Forms.Button()
+        btnEdit = New System.Windows.Forms.Button()
 
-        Me.fraOutput = New System.Windows.Forms.GroupBox()
-        Me.lblOutFile = New System.Windows.Forms.Label()
-        Me.txtOutFile = New System.Windows.Forms.TextBox()
-        Me.btnOutput = New System.Windows.Forms.Button()
-        Me.lblWorkDir = New System.Windows.Forms.Label()
-        Me.txtWorkDir = New System.Windows.Forms.TextBox()
-        Me.btnWorkDir = New System.Windows.Forms.Button()
-        Me.btnPerform = New System.Windows.Forms.Button()
+        fraOutput = New System.Windows.Forms.GroupBox()
+        lblOutFile = New System.Windows.Forms.Label()
+        txtOutFile = New System.Windows.Forms.TextBox()
+        btnOutput = New System.Windows.Forms.Button()
+        lblWorkDir = New System.Windows.Forms.Label()
+        txtWorkDir = New System.Windows.Forms.TextBox()
+        btnWorkDir = New System.Windows.Forms.Button()
+        btnPerform = New System.Windows.Forms.Button()
 
         mnuMain.SuspendLayout()
         fraInput.SuspendLayout()
@@ -80,8 +80,8 @@ Partial Class MainView
         '
         ' mnuMain
         '
-        resources.ApplyResources(Me.mnuMain, "mnuMain")
         Me.mnuMain.Items.AddRange(New ToolStripItem() {mnuFile, mnuEdit, mnuHelp})
+        resources.ApplyResources(Me.mnuMain, "mnuMain")
         Me.mnuMain.Name = "mnuMain"
         '
         ' mnuFile
@@ -92,64 +92,64 @@ Partial Class MainView
         '
         ' mnuFileAdd
         '
-        resources.ApplyResources(mnuFileAdd, "mnuFileAdd")
         mnuFileAdd.Name = "mnuFileAdd"
+        resources.ApplyResources(mnuFileAdd, "mnuFileAdd")
         '
         ' mnuFileRemove
         '
-        resources.ApplyResources(mnuFileRemove, "mnuFileRemove")
         mnuFileRemove.Name = "mnuFileRemove"
+        resources.ApplyResources(mnuFileRemove, "mnuFileRemove")
         '
         ' mnuFileClear
         '
-        resources.ApplyResources(mnuFileClear, "mnuFileClear")
         mnuFileClear.Name = "mnuFileClear"
+        resources.ApplyResources(mnuFileClear, "mnuFileClear")
         '
         ' mnuFileSep0
         '
-        resources.ApplyResources(mnuFileSep0, "mnuFileSep0")
         mnuFileSep0.Name = "mnuFileSep0"
+        resources.ApplyResources(mnuFileSep0, "mnuFileSep0")
         '
         ' mnuFileOutput
         '
-        resources.ApplyResources(mnuFileOutput, "mnuFileOutput")
         mnuFileOutput.Name = "mnuFileOutput"
+        resources.ApplyResources(mnuFileOutput, "mnuFileOutput")
         '
         ' mnuFileWorkDir
         '
-        resources.ApplyResources(mnuFileWorkDir, "mnuFileWorkDir")
         mnuFileWorkDir.Name = "mnuFileWorkDir"
+        resources.ApplyResources(mnuFileWorkDir, "mnuFileWorkDir")
         '
         ' mnuFileSep1
         '
-        resources.ApplyResources(mnuFileSep1, "mnuFileSep1")
         mnuFileSep1.Name = "mnuFileSep1"
+        resources.ApplyResources(mnuFileSep1, "mnuFileSep1")
         '
         ' mnuFileExit
         '
-        resources.ApplyResources(mnuFileExit, "mnuFileExit")
         mnuFileExit.Name = "mnuFileExit"
+        resources.ApplyResources(mnuFileExit, "mnuFileExit")
         '
         ' mnuEdit
         '
-        resources.ApplyResources(mnuEdit, "mnuEdit")
         mnuEdit.DropDownItems.AddRange(New ToolStripItem() {mnuEditTime, mnuEditPerform})
         mnuEdit.Name = "mnuEdit"
+        resources.ApplyResources(mnuEdit, "mnuEdit")
         '
         ' mnuEditTime
         '
-        resources.ApplyResources(mnuEditTime, "mnuEditTime")
         mnuEditTime.Name = "mnuEditTime"
+        resources.ApplyResources(mnuEditTime, "mnuEditTime")
         '
         ' mnuEditPerform
         '
-        resources.ApplyResources(mnuEditPerform, "mnuEditPerform")
         mnuEditPerform.Name = "mnuEditPerform"
+        resources.ApplyResources(mnuEditPerform, "mnuEditPerform")
         '
         ' mnuHelp
         '
-        resources.ApplyResources(mnuHelp, "mnuHelp")
         mnuHelp.Name = "mnuHelp"
+        resources.ApplyResources(mnuHelp, "mnuHelp")
 
         '
         ' dlgOpen
@@ -158,7 +158,7 @@ Partial Class MainView
         '
         ' dlgSave
         '
-        dlgSave.DefaultExt = "。wmv"
+        dlgSave.DefaultExt = ".wmv"
 
         '
         ' fraInput
