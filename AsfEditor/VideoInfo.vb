@@ -16,14 +16,32 @@ Dim parts1 As String()
 Dim parts2 As String()
 Dim tpHour As Integer, tpMin As Integer, tpSec As Integer
 Dim tpMs As Integer
+Dim nParts1 As Integer
 
-    parts1 = Strings.Split(sTimeText, ": ", 3, CompareMethod.Binary)
-    parts2 = Strings.Split(parts1(2), ". ", 2, CompareMethod.Binary)
+    parts1 = sTimeText.Split(
+                 New String() {":", " "}, 3, StringSplitOptions.None)
+    nParts1 = parts1.Length
+    parts2 = parts1(nParts1 - 1).Split(
+                 New String() {".", " "}, 2, StringSplitOptions.None)
 
-    tpHour = CInt(Val(parts1(0)))
-    tpMin = CInt(Val(parts1(1)))
+    If nParts1 >= 3 Then
+        tpHour = CInt(Val(parts1(nParts1 - 3)))
+    Else
+        tpHour = 0
+    End If
+
+    If nParts1 >= 2 Then
+        tpMin = CInt(Val(parts1(nParts1 - 2)))
+    Else
+        tpMin = 0
+    End If
+
     tpSec = CInt(Val(parts2(0)))
-    tpMs = CInt(Val(parts2(1)))
+    If (parts2.Length >= 2) Then
+        tpMs = CInt(Val(parts2(1)))
+    Else
+        tpMs = 0
+    End If
 
     getMiliSeconds = ((tpHour * 60 + tpMin) * 60 + tpSec) * 1000 + tpMs
 End Function
