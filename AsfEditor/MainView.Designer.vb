@@ -173,7 +173,94 @@ Partial Class MainView
         fraInput.Controls.Add(btnEdit)
         fraInput.Name = "fraInput"
         fraInput.TabStop = False
+        '
+        ' dgvInputs
+        '
+        resources.ApplyResources(dgvInputs, "dgvInputs")
+        dgvInputs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvInputs.Columns.AddRange(New DataGridViewColumn() {colConcat, colFileName, colStart, colEnd, colDuration})
+        dgvInputs.Name = "dgvInputs"
+        dgvInputs.RowTemplate.Height = 25
+        '
+        ' btnAdd
+        '
+        resources.ApplyResources(btnAdd, "btnAdd")
+        btnAdd.Name = "btnAdd"
+        btnAdd.UseVisualStyleBackColor = True
+        '
+        ' btnRemove
+        '
+        resources.ApplyResources(btnRemove, "btnRemove")
+        btnRemove.Name = "btnRemove"
+        btnRemove.UseVisualStyleBackColor = True
+        '
+        ' btnClear
+        '
+        resources.ApplyResources(btnClear, "btnClear")
+        btnClear.Name = "btnClear"
+        btnClear.UseVisualStyleBackColor = True
+        '
+        ' btnUp
+        '
+        resources.ApplyResources(btnUp, "btnUp")
+        btnUp.Name = "btnUp"
+        btnUp.UseVisualStyleBackColor = True
+        '
+        ' btnDown
+        '
+        resources.ApplyResources(btnDown, "btnDown")
+        btnDown.Name = "btnDown"
+        btnDown.UseVisualStyleBackColor = True
+        '
+        ' btnEdit
+        '
+        resources.ApplyResources(btnEdit, "btnEdit")
+        btnEdit.Name = "btnEdit"
+        btnEdit.UseVisualStyleBackColor = True
 
+        '
+        ' colConcat
+        '
+        resources.ApplyResources(colConcat, "colConcat")
+        colConcat.Name = "colConcat"
+        colConcat.Resizable = DataGridViewTriState.True
+        colConcat.SortMode = DataGridViewColumnSortMode.NotSortable
+        '
+        ' colFileName
+        '
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        colFileName.DefaultCellStyle = DataGridViewCellStyle1
+        resources.ApplyResources(colFileName, "colFileName")
+        colFileName.Name = "colFileName"
+        colFileName.ReadOnly = True
+        colFileName.SortMode = DataGridViewColumnSortMode.NotSortable
+        '
+        ' colStart
+        '
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colStart.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(colStart, "colStart")
+        colStart.Name = "colStart"
+        colStart.ReadOnly = True
+        colStart.SortMode = DataGridViewColumnSortMode.NotSortable
+        '
+        ' colEnd
+        '
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colEnd.DefaultCellStyle = DataGridViewCellStyle3
+        resources.ApplyResources(colEnd, "colEnd")
+        colEnd.Name = "colEnd"
+        colEnd.ReadOnly = True
+        colEnd.SortMode = DataGridViewColumnSortMode.NotSortable
+        '
+        ' colDuration
+        '
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        colDuration.DefaultCellStyle = DataGridViewCellStyle4
+        resources.ApplyResources(colDuration, "colDuration")
+        colDuration.Name = "colDuration"
+        colDuration.ReadOnly = True
+        colDuration.SortMode = DataGridViewColumnSortMode.NotSortable
 
         '
         ' MainView
