@@ -17,13 +17,13 @@ Dim parts2 As String()
 Dim tpHour As Integer, tpMin As Integer, tpSec As Integer
 Dim tpMs As Integer
 
-    parts1 = Strings.Split(sTimeText, ".", 2, CompareMethod.Binary)
-    parts2 = Strings.Split(parts1(0), ":", 3, CompareMethod.Binary)
+    parts1 = Strings.Split(sTimeText, ": ", 3, CompareMethod.Binary)
+    parts2 = Strings.Split(parts1(2), ". ", 2, CompareMethod.Binary)
 
-    tpHour = CInt(Val(parts2(0)))
-    tpMin = CInt(Val(parts2(1)))
-    tpSec = CInt(Val(parts2(2)))
-    tpMs = CInt(Val(parts1(1)))
+    tpHour = CInt(Val(parts1(0)))
+    tpMin = CInt(Val(parts1(1)))
+    tpSec = CInt(Val(parts2(0)))
+    tpMs = CInt(Val(parts2(1)))
 
     getMiliSeconds = ((tpHour * 60 + tpMin) * 60 + tpSec) * 1000 + tpMs
 End Function
@@ -71,6 +71,8 @@ Dim tmEnd As Long
         .sEndTime = getTimeTextFromMiliSeconds(tmEnd)
         .sTimeDuration = getTimeTextFromMiliSeconds(tmEnd - tmStart)
     End With
+
+    setTimeInfo = True
 End Function
 
 End Module
