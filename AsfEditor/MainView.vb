@@ -12,7 +12,7 @@ Private Function addFileToList(ByVal fileName As String) As Boolean
     ReDim Preserve m_viInputList(m_nInputCount)
     m_viInputList(m_nInputCount) = New InputInfo()
     With m_viInputList(m_nInputCount)
-        .FileName = fileName
+        .sFileName = fileName
         .sStartTime = "00:00:00.000"
         .sEndTime = "00:00:00.000"
         .sTimeDuration = ""
@@ -66,13 +66,13 @@ Private Sub updateGridView()
 Dim i As Integer
 Dim srcInfo As InputInfo
 
-    With dlgInputs
+    With dgvInputs
         .Rows.Clear()
 
         For i = 0 To m_nInputCount - 1
             srcInfo = m_viInputList(i)
             .Rows.Add(
-                srcIinfo.bConcat,
+                srcInfo.bConcat,
                 srcInfo.sFileName,
                 srcInfo.sStartTime,
                 srcInfo.sEndTime,
