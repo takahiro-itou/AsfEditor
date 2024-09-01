@@ -102,7 +102,38 @@ Partial Class EditTimeForm
         resources.ApplyResources(btnSetEnd, "btnSetEnd")
         btnSetEnd.Name = "btnSetEnd"
         btnSetEnd.UseVisualStyleBackColor = True
-
+        '
+        ' Label1
+        '
+        resources.ApplyResources(Label1, "Label1")
+        Label1.Name = "Label1"
+        '
+        ' txtStartTime
+        '
+        resources.ApplyResources(txtStartTime, "txtStartTime")
+        txtStartTime.Name = "txtStartTime"
+        '
+        ' btnSeekStart
+        '
+        resources.ApplyResources(btnSeekStart, "btnSeekStart")
+        btnSeekStart.Name = "btnSeekStart"
+        btnSeekStart.UseVisualStyleBackColor = True
+        '
+        ' Label2
+        '
+        resources.ApplyResources(Label2, "Label2")
+        Label2.Name = "Label2"
+        '
+        ' txtEndTime
+        '
+        resources.ApplyResources(txtEndTime, "txtEndTime")
+        txtEndTime.Name = "txtEndTime"
+        '
+        ' btnSeekEnd
+        '
+        resources.ApplyResources(btnSeekEnd, "btnSeekEnd")
+        btnSeekEnd.Name = "btnSeekEnd"
+        btnSeekEnd.UseVisualStyleBackColor = True
 
         '
         ' EditTimeForm
