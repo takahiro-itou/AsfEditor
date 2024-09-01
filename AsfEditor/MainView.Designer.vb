@@ -71,86 +71,129 @@ Partial Class MainView
         Me.btnWorkDir = New System.Windows.Forms.Button()
         Me.btnPerform = New System.Windows.Forms.Button()
 
-        Me.mnuMain.SuspendLayout()
-        Me.SuspendLayout()
+        mnuMain.SuspendLayout()
+        fraInput.SuspendLayout()
+        fraOutput.SuspendLayout()
+        CType(dgvInputs, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
 
         '
         ' mnuMain
         '
         resources.ApplyResources(Me.mnuMain, "mnuMain")
-        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.mnuRun})
+        Me.mnuMain.Items.AddRange(New ToolStripItem() {mnuFile, mnuEdit, mnuHelp})
         Me.mnuMain.Name = "mnuMain"
         '
         ' mnuFile
         '
-        resources.ApplyResources(Me.mnuFile, "mnuFile")
-        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFileExit})
-        Me.mnuFile.Name = "mnuFile"
+        resources.ApplyResources(mnuFile, "mnuFile")
+        mnuFile.DropDownItems.AddRange(New ToolStripItem() {mnuFileAdd, mnuFileRemove, mnuFileClear, mnuFileSep0, mnuFileOutput, mnuFileWorkDir, mnuFileSep1, mnuFileExit})
+        mnuFile.Name = "mnuFile"
+        '
+        ' mnuFileAdd
+        '
+        resources.ApplyResources(mnuFileAdd, "mnuFileAdd")
+        mnuFileAdd.Name = "mnuFileAdd"
+        '
+        ' mnuFileRemove
+        '
+        resources.ApplyResources(mnuFileRemove, "mnuFileRemove")
+        mnuFileRemove.Name = "mnuFileRemove"
+        '
+        ' mnuFileClear
+        '
+        resources.ApplyResources(mnuFileClear, "mnuFileClear")
+        mnuFileClear.Name = "mnuFileClear"
+        '
+        ' mnuFileSep0
+        '
+        resources.ApplyResources(mnuFileSep0, "mnuFileSep0")
+        mnuFileSep0.Name = "mnuFileSep0"
+        '
+        ' mnuFileOutput
+        '
+        resources.ApplyResources(mnuFileOutput, "mnuFileOutput")
+        mnuFileOutput.Name = "mnuFileOutput"
+        '
+        ' mnuFileWorkDir
+        '
+        resources.ApplyResources(mnuFileWorkDir, "mnuFileWorkDir")
+        mnuFileWorkDir.Name = "mnuFileWorkDir"
+        '
+        ' mnuFileSep1
+        '
+        resources.ApplyResources(mnuFileSep1, "mnuFileSep1")
+        mnuFileSep1.Name = "mnuFileSep1"
         '
         ' mnuFileExit
         '
-        resources.ApplyResources(Me.mnuFileExit, "mnuFileExit")
-        Me.mnuFileExit.Name = "mnuFileExit"
+        resources.ApplyResources(mnuFileExit, "mnuFileExit")
+        mnuFileExit.Name = "mnuFileExit"
         '
-        ' mnuRun
+        ' mnuEdit
         '
-        resources.ApplyResources(Me.mnuRun, "mnuRun")
-        Me.mnuRun.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuRunCommand})
-        Me.mnuRun.Name = "mnuRun"
+        resources.ApplyResources(mnuEdit, "mnuEdit")
+        mnuEdit.DropDownItems.AddRange(New ToolStripItem() {mnuEditTime, mnuEditPerform})
+        mnuEdit.Name = "mnuEdit"
         '
-        ' mnuRunCommand
+        ' mnuEditTime
         '
-        resources.ApplyResources(Me.mnuRunCommand, "mnuRunCommand")
-        Me.mnuRunCommand.Name = "mnuRunCommand"
+        resources.ApplyResources(mnuEditTime, "mnuEditTime")
+        mnuEditTime.Name = "mnuEditTime"
+        '
+        ' mnuEditPerform
+        '
+        resources.ApplyResources(mnuEditPerform, "mnuEditPerform")
+        mnuEditPerform.Name = "mnuEditPerform"
+        '
+        ' mnuHelp
+        '
+        resources.ApplyResources(mnuHelp, "mnuHelp")
+        mnuHelp.Name = "mnuHelp"
 
         '
         ' dlgOpen
         '
         resources.ApplyResources(Me.dlgOpen, "dlgOpen")
-        Me.dlgOpen.FileName = "dlgOpen"
+        '
+        ' dlgSave
+        '
+        dlgSave.DefaultExt = "。wmv"
 
         '
-        ' Label1
+        ' fraInput
         '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
-        ' txtCommand
-        '
-        resources.ApplyResources(Me.txtCommand, "txtCommand")
-        Me.txtCommand.Name = "txtCommand"
-        '
-        ' btnRun
-        '
-        resources.ApplyResources(Me.btnRun, "btnRun")
-        Me.btnRun.Name = "btnRun"
-        Me.btnRun.UseVisualStyleBackColor = True
-        '
-        ' txtOutput
-        '
-        resources.ApplyResources(Me.txtOutput, "txtOutput")
-        Me.txtOutput.Name = "txtOutput"
-        Me.txtOutput.BackColor = SystemColors.Window
-        Me.txtOutput.ReadOnly = True
+        resources.ApplyResources(fraInput, "fraInput")
+        fraInput.Controls.Add(dgvInputs)
+        fraInput.Controls.Add(btnAdd)
+        fraInput.Controls.Add(btnRemove)
+        fraInput.Controls.Add(btnClear)
+        fraInput.Controls.Add(btnUp)
+        fraInput.Controls.Add(btnDown)
+        fraInput.Controls.Add(btnEdit)
+        fraInput.Name = "fraInput"
+        fraInput.TabStop = False
+
 
         '
         ' MainView
         '
         resources.ApplyResources(Me, "$this")
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.Controls.Add(Me.mnuMain)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtCommand)
-        Me.Controls.Add(Me.btnRun)
-        Me.Controls.Add(Me.txtOutput)
-        Me.MainMenuStrip = Me.mnuMain
-        Me.Name = "MainView"
+        AutoScaleMode = AutoScaleMode.None
+        Controls.Add(mnuMain)
+        Controls.Add(fraOutput)
+        Controls.Add(fraInput)
+        MainMenuStrip = mnuMain
+        Name = "MainView"
 
-        Me.mnuMain.ResumeLayout(False)
-        Me.mnuMain.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        mnuMain.ResumeLayout(False)
+        mnuMain.PerformLayout()
+        fraOutput.ResumeLayout(False)
+        fraOutput.PerformLayout()
+        fraInput.ResumeLayout(False)
+        CType(dgvInputs, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents mnuMain As System.Windows.Forms.MenuStrip
