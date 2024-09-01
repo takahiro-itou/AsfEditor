@@ -167,7 +167,9 @@ End Sub
 Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
             btnEdit.Click, mnuEditTime.Click
 ''--------------------------------------------------------------------
-''    「編集」ボタンのクリックイベントハンドラ。
+''    イベントハンドラ。
+''
+''    「編集」ボタンのクリックイベント
 ''    メニュー「ファイル」－「終了」
 ''--------------------------------------------------------------------
 Dim selIndex As Integer
@@ -178,7 +180,12 @@ Dim selIndex As Integer
 
     Using frmEdit As New EditTimeForm()
         With frmEdit
+             .setTargetInfo(m_viInputList(selIndex))
             .ShowDialog(Me)
+
+             If .DialogResult = DialogResult.OK Then
+                 updateGridView()
+             End If
 
             .Dispose()
         End With
