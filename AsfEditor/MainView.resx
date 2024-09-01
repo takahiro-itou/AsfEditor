@@ -73,230 +73,289 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>672, 448</value>
+    <value>752, 521</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>ＭＳ ゴシック, 9pt</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>688, 560</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Sample View</value>
+    <value>Main View</value>
   </data>
 
-  <data name="&gt;&gt;btnRun.Name" xml:space="preserve">
-    <value>btnRun</value>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
   </data>
-  <data name="&gt;&gt;btnRun.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>fraInput</value>
   </data>
-  <data name="&gt;&gt;btnRun.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnRun.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="btnRun.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 72</value>
+  <data name="btnAdd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="btnRun.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 280</value>
   </data>
-  <data name="btnRun.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 24</value>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
   </data>
-  <data name="btnRun.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="btnRun.Text" xml:space="preserve">
-    <value>Run</value>
-  </data>
-
-  <metadata name="dlgOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 16</value>
-  </metadata>
-  <data name="&gt;&gt;dlgOpen.Name" xml:space="preserve">
-    <value>dlgOpen</value>
-  </data>
-  <data name="&gt;&gt;dlgOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>&amp;Add</value>
   </data>
 
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="&gt;&gt;btnClear.Name" xml:space="preserve">
+    <value>btnClear</value>
   </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
+    <value>fraInput</value>
   </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnClear.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnClear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btnClear.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 280</value>
+  </data>
+  <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>&amp;Clear</value>
+  </data>
+
+  <data name="&gt;&gt;btnDown.Name" xml:space="preserve">
+    <value>btnDown</value>
+  </data>
+  <data name="&gt;&gt;btnDown.Parent" xml:space="preserve">
+    <value>fraInput</value>
+  </data>
+  <data name="&gt;&gt;btnDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDown.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDown.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btnDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>432, 280</value>
+  </data>
+  <data name="btnDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 32</value>
+  </data>
+  <data name="btnDown.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnDown.Text" xml:space="preserve">
+    <value>Down</value>
+  </data>
+
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Parent" xml:space="preserve">
+    <value>fraInput</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 44</value>
+  <data name="btnEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="btnEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 280</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+  <data name="btnEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
   </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>&amp;Command :</value>
-  </data>
-
-  <data name="&gt;&gt;mnuFile.Name" xml:space="preserve">
-    <value>mnuFile</value>
-  </data>
-  <data name="&gt;&gt;mnuFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="mnuFile.Text" xml:space="preserve">
-    <value>&amp;File</value>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
   </data>
 
-  <data name="&gt;&gt;mnuFileExit.Name" xml:space="preserve">
-    <value>mnuFileExit</value>
+  <data name="&gt;&gt;btnOutput.Name" xml:space="preserve">
+    <value>btnOutput</value>
   </data>
-  <data name="&gt;&gt;mnuFileExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnOutput.Parent" xml:space="preserve">
+    <value>fraOutput</value>
   </data>
-  <data name="mnuFileExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+  <data name="&gt;&gt;btnOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mnuFileExit.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
+  <data name="&gt;&gt;btnOutput.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-
-  <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="&gt;&gt;mnuMain.Name" xml:space="preserve">
-    <value>mnuMain</value>
+  <data name="btnOutput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;mnuMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mnuMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mnuMain.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="mnuMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mnuMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 2, 0, 2</value>
-  </data>
-  <data name="mnuMain.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>672, 24</value>
   </data>
-  <data name="mnuMain.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 20</value>
+  </data>
+  <data name="btnOutput.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="mnuMain.Text" xml:space="preserve">
-    <value>MainMenu</value>
+  <data name="btnOutput.Text" xml:space="preserve">
+    <value>...</value>
   </data>
 
-  <data name="&gt;&gt;mnuRun.Name" xml:space="preserve">
-    <value>mnuRun</value>
+  <data name="&gt;&gt;btnPerform.Name" xml:space="preserve">
+    <value>btnPerform</value>
   </data>
-  <data name="&gt;&gt;mnuRun.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnPerform.Parent" xml:space="preserve">
+    <value>fraOutput</value>
   </data>
-  <data name="mnuRun.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 20</value>
+  <data name="&gt;&gt;btnPerform.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mnuRun.Text" xml:space="preserve">
-    <value>&amp;Run</value>
+  <data name="&gt;&gt;btnPerform.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnPerform.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnPerform.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPerform.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 96</value>
+  </data>
+  <data name="btnPerform.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="btnPerform.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnPerform.Text" xml:space="preserve">
+    <value>&amp;Perform</value>
   </data>
 
-  <data name="&gt;&gt;mnuRunCommand.Name" xml:space="preserve">
-    <value>mnuRunCommand</value>
+  <data name="&gt;&gt;btnRemove.Name" xml:space="preserve">
+    <value>btnRemove</value>
   </data>
-  <data name="&gt;&gt;mnuRunCommand.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
+    <value>fraInput</value>
   </data>
-  <data name="mnuRunCommand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+  <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mnuRunCommand.Text" xml:space="preserve">
-    <value>Run &amp;Command</value>
+  <data name="&gt;&gt;btnRemove.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnRemove.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btnRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 280</value>
+  </data>
+  <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnRemove.Text" xml:space="preserve">
+    <value>&amp;Remove</value>
   </data>
 
-  <data name="&gt;&gt;txtCommand.Name" xml:space="preserve">
-    <value>txtCommand</value>
+  <data name="&gt;&gt;btnUp.Name" xml:space="preserve">
+    <value>btnUp</value>
   </data>
-  <data name="&gt;&gt;txtCommand.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnUp.Parent" xml:space="preserve">
+    <value>fraInput</value>
   </data>
-  <data name="&gt;&gt;txtCommand.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtCommand.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnUp.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnUp.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btnUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>352, 280</value>
+  </data>
+  <data name="btnUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 32</value>
+  </data>
+  <data name="btnUp.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnUp.Text" xml:space="preserve">
+    <value>Up</value>
+  </data>
+
+  <data name="&gt;&gt;btnWorkDir.Name" xml:space="preserve">
+    <value>btnWorkDir</value>
+  </data>
+  <data name="&gt;&gt;btnWorkDir.Parent" xml:space="preserve">
+    <value>fraOutput</value>
+  </data>
+  <data name="&gt;&gt;btnWorkDir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWorkDir.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtCommand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 48</value>
+  <data name="btnWorkDir.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
-  <data name="txtCommand.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="btnWorkDir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="txtCommand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 19</value>
+  <data name="btnWorkDir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>672, 56</value>
   </data>
-  <data name="txtCommand.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="btnWorkDir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 20</value>
   </data>
-
-  <data name="&gt;&gt;txtOutput.Name" xml:space="preserve">
-    <value>txtOutput</value>
+  <data name="btnWorkDir.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;txtOutput.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOutput.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txtOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 112</value>
-  </data>
-  <data name="txtOutput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="txtOutput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtOutput.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Both</value>
-  </data>
-  <data name="txtOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>640, 320</value>
-  </data>
-  <data name="txtOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="txtOutput.Text" xml:space="preserve">
-    <value>Outputs</value>
+  <data name="btnWorkDir.Text" xml:space="preserve">
+    <value>...</value>
   </data>
 
 </root>
