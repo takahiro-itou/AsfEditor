@@ -85,6 +85,34 @@
     <value>Edit Time</value>
   </data>
 
+  <data name="&gt;&gt;btnForward.Name" xml:space="preserve">
+    <value>btnForward</value>
+  </data>
+  <data name="&gt;&gt;btnForward.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnForward.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnForward.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnForward.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 256</value>
+  </data>
+  <data name="btnForward.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 24</value>
+  </data>
+  <data name="btnForward.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnForward.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+
   <data name="&gt;&gt;btnPlay.Name" xml:space="preserve">
     <value>btnPlay</value>
   </data>
@@ -113,6 +141,90 @@
     <value>Play</value>
   </data>
 
+  <data name="&gt;&gt;btnRewind.Name" xml:space="preserve">
+    <value>btnRewind</value>
+  </data>
+  <data name="&gt;&gt;btnRewind.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRewind.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRewind.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnRewind.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnRewind.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 256</value>
+  </data>
+  <data name="btnRewind.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 24</value>
+  </data>
+  <data name="btnRewind.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnRewind.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+
+  <data name="&gt;&gt;btnSetEnd.Name" xml:space="preserve">
+    <value>btnSetEnd</value>
+  </data>
+  <data name="&gt;&gt;btnSetEnd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSetEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetEnd.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnSetEnd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnSetEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 256</value>
+  </data>
+  <data name="btnSetEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 24</value>
+  </data>
+  <data name="btnSetEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnSetEnd.Text" xml:space="preserve">
+    <value>Set End</value>
+  </data>
+
+  <data name="&gt;&gt;btnSetStart.Name" xml:space="preserve">
+    <value>btnSetStart</value>
+  </data>
+  <data name="&gt;&gt;btnSetStart.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSetStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetStart.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnSetStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="btnSetStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 256</value>
+  </data>
+  <data name="btnSetStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 24</value>
+  </data>
+  <data name="btnSetStart.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSetStart.Text" xml:space="preserve">
+    <value>Set Start</value>
+  </data>
+
   <data name="&gt;&gt;btnStop.Name" xml:space="preserve">
     <value>btnStop</value>
   </data>
@@ -139,6 +251,37 @@
   </data>
   <data name="btnStop.Text" xml:space="preserve">
     <value>Stop</value>
+  </data>
+
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 288</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 24</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
 
   <data name="&gt;&gt;lblPos.Name" xml:space="preserve">
