@@ -25,6 +25,14 @@ Private Function addFileToList(ByVal fileName As String) As Boolean
 End Function
 
 
+Private Sub clearFileList()
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+
+End Sub
+
+
 Private Sub openInputFile()
 ''--------------------------------------------------------------------
 ''
