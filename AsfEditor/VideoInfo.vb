@@ -48,3 +48,29 @@ Dim tpQuat As Long
     getTimeTextFromMiliSeconds = String.Format(
             "{0:00}:{1:00}:{2:00}.{3:000}", tpHour, tpMin, tpSec, tpMs)
 End Function
+
+Public Function setTimeInfo(
+        ByVal targetInfo As InputInfo,
+        ByVal startTime As String,
+        ByVal endTime As String) As Boolean
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+Dim tmStart As Long
+Dim tmEnd As Long
+
+    tmStart = getMiliSeconds(startTime)
+    tmEnd = getMiliSeconds(endTime)
+    If (tmEnd <= tmStart) Then
+        setTimeInfo = False
+        Exit Function
+    End If
+
+    With targetInfo
+        .sStartTime = getTimeTextFromMiliSeconds(tmStart)
+        .sEndTime = getTimeTextFromMiliSeconds(tmEnd)
+        .sTimeDuration = getTimeTextFromMiliSeconds(tmEnd - tmStart)
+    End With
+End Function
+
+End Module
