@@ -66,6 +66,16 @@ Dim selIndex As Integer
 End Sub
 
 
+Private Sub handlePerformButton()
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+    performVideoEdit(
+        m_viInputList, txtOutFile.Text, txtWorkDir.Text
+    )
+End Sub
+
+
 Private Sub openInputFile()
 ''--------------------------------------------------------------------
 ''
@@ -92,13 +102,33 @@ Private Function removeFileFromList() As Boolean
 End Function
 
 
-Private Sub showSaveFileDialog(
-        ByRef targetTextBox As TextBox, ByVal bDir As Boolean)
+Private Function showSaveFileDialog(
+        ByRef targetTextBox As TextBox, ByVal bDir As Boolean) As String
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
+Dim selFile As String
+Dim sepDir As String = "\"  ' " ディレクトリの区切り
 
-End Sub
+    With dlgSave
+        .DefaultExt = ".wmv"
+        .Filter = "asf file(*.wmv;*.asf)|*.wmv;*.asf|All files(*.*)|*.*"
+        .FilterIndex = 1
+
+        If .ShowDialog() <> DialogResult.OK Then
+            showSaveFileDialog = ""
+            Exit Function
+        End If
+        selFile = .FileName
+    End With
+
+    If bDir Then
+        selFile = System.IO.Path.GetDirectoryName(selFile) & sepDir
+    End If
+
+    targetTextBox.Text = selFile
+    showSaveFileDialog = selFile
+End Function
 
 
 Private Sub updateGridView(ByVal selIndex As Integer)
@@ -155,12 +185,27 @@ Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles _
 End Sub
 
 
+Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
+            btnEdit.Click, mnuEditTime.Click
+''--------------------------------------------------------------------
+''    イベントハンドラ。
+''
+''    「編集」ボタンのクリックイベント
+''    メニュー「編集」－「時間範囲を指定」
+''--------------------------------------------------------------------
+    handleEditButton()
+End Sub
+
+
 Private Sub btnPerform_Click(sender As Object, e As EventArgs) Handles _
             btnPerform.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「実行」ボタンのクリックイベント
+''    メニュー「編集」－「実行」
 ''--------------------------------------------------------------------
-
+    handlePerformButton()
 End Sub
 
 
@@ -183,32 +228,33 @@ End Sub
 
 
 Private Sub btnOutput_Click(sender As Object, e As EventArgs) Handles _
-            btnOutput.Click
+            btnOutput.Click, mnuFileOutput.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「出力ファイル」の参照ボタンのクリックイベント
+''    メニュー「ファイル」－「出力」
 ''--------------------------------------------------------------------
-    showSaveFileDialog(txtOutFile, False)
+Dim selFile As String
+Dim sepDir As String = "\"  ' " ディレクトリの区切り
+
+    selFile = showSaveFileDialog(txtOutFile, False)
+    If txtWorkDir.Text = "" And selFile <> "" Then
+        txtWorkDir.Text = System.IO.Path.GetDirectoryName(selFile) & sepDir
+    End If
+
 End Sub
 
 
 Private Sub btnWorkDir_Click(sender As Object, e As EventArgs) Handles _
-            btnWorkDir.Click
-''--------------------------------------------------------------------
-''
-''--------------------------------------------------------------------
-    showSaveFileDialog(txtWorkDir, True)
-End Sub
-
-
-Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
-            btnEdit.Click, mnuEditTime.Click
+            btnWorkDir.Click, mnuFileWorkDir.Click
 ''--------------------------------------------------------------------
 ''    イベントハンドラ。
 ''
-''    「編集」ボタンのクリックイベント
-''    メニュー「ファイル」－「終了」
+''    「作業ディレクトリ」の参照ボタンのクリックイベント
+''    メニュー「ファイル」－「作業ディレクトリ」
 ''--------------------------------------------------------------------
-    handleEditButton()
+    showSaveFileDialog(txtWorkDir, True)
 End Sub
 
 
@@ -251,30 +297,12 @@ Private Sub mnuFileExit_Click(sender As Object, e As EventArgs) Handles _
 End Sub
 
 
-Private Sub mnuFileOutput_Click(sender As Object, e As EventArgs) Handles _
-    mnuFileOutput.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「出力」
-''--------------------------------------------------------------------
-    showSaveFileDialog(txtOutFile, False)
-End Sub
-
-
 Private Sub mnuFileRemove_Click(sender As Object, e As EventArgs) Handles _
             mnuFileRemove.Click
 ''--------------------------------------------------------------------
 ''    メニュー「ファイル」－「削除」
 ''--------------------------------------------------------------------
     removeFileFromList()
-End Sub
-
-
-Private Sub mnuFileWorkDir_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileWorkDir.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「作業ディレクトリ」
-''--------------------------------------------------------------------
-    showSaveFileDialog(txtWorkDir, True)
 End Sub
 
 
