@@ -8,19 +8,22 @@ Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
+Dim trgIndex As Integer
 
+    trgIndex = m_nInputCount
     ReDim Preserve m_viInputList(m_nInputCount)
-    m_viInputList(m_nInputCount) = New InputInfo()
-    With m_viInputList(m_nInputCount)
+    m_nInputCount = m_nInputCount + 1
+
+    m_viInputList(trgIndex) = New InputInfo()
+    With m_viInputList(trgIndex)
         .sFileName = fileName
         .sStartTime = "00:00:00.000"
         .sEndTime = "00:00:00.000"
         .sTimeDuration = ""
         .bConcat = True
     End With
-    m_nInputCount = m_nInputCount + 1
 
-    updateGridView()
+    updateGridView(trgIndex)
     addFileToList = True
 End Function
 
@@ -30,6 +33,36 @@ Private Sub clearFileList()
 ''
 ''--------------------------------------------------------------------
 
+End Sub
+
+
+Private Sub handleEditButton()
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
+Dim selIndex As Integer
+
+    With dgvInputs
+        selIndex = .CurrentRow.Index
+        For Each r As DataGridViewRow In .SelectedRows
+            selIndex = r.Index
+        Next r
+    End With
+
+    Using frmEdit As New EditTimeForm()
+        With frmEdit
+             .setTargetInfo(m_viInputList(selIndex))
+            .ShowDialog(Me)
+
+             If .DialogResult = DialogResult.OK Then
+
+             End If
+
+            .Dispose()
+        End With
+    End Using
+
+    updateGridView(selIndex)
 End Sub
 
 
@@ -59,7 +92,8 @@ Private Function removeFileFromList() As Boolean
 End Function
 
 
-Private Sub showSaveFileDialog(ByRef targetTextBox As TextBox)
+Private Sub showSaveFileDialog(
+        ByRef targetTextBox As TextBox, ByVal bDir As Boolean)
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
@@ -67,7 +101,7 @@ Private Sub showSaveFileDialog(ByRef targetTextBox As TextBox)
 End Sub
 
 
-Private Sub updateGridView()
+Private Sub updateGridView(ByVal selIndex As Integer)
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
@@ -87,6 +121,8 @@ Dim srcInfo As InputInfo
                 srcInfo.sTimeDuration
             )
         Next i
+
+        .CurrentCell = .Rows(selIndex).Cells(0)
     End With
 
 End Sub
@@ -151,7 +187,7 @@ Private Sub btnOutput_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
-    showSaveFileDialog(txtOutFile)
+    showSaveFileDialog(txtOutFile, False)
 End Sub
 
 
@@ -160,7 +196,7 @@ Private Sub btnWorkDir_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
-    showSaveFileDialog(txtWorkDir)
+    showSaveFileDialog(txtWorkDir, True)
 End Sub
 
 
@@ -172,27 +208,19 @@ Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles _
 ''    「編集」ボタンのクリックイベント
 ''    メニュー「ファイル」－「終了」
 ''--------------------------------------------------------------------
-Dim selIndex As Integer
-
-    For Each r As DataGridViewRow In dgvInputs.SelectedRows
-        selIndex = r.Index - 1
-    Next r
-
-    Using frmEdit As New EditTimeForm()
-        With frmEdit
-             .setTargetInfo(m_viInputList(selIndex))
-            .ShowDialog(Me)
-
-             If .DialogResult = DialogResult.OK Then
-                 updateGridView()
-             End If
-
-            .Dispose()
-        End With
-    End Using
-
+    handleEditButton()
 End Sub
 
+Private Sub dgvInputs_CellDoubleClick(
+        sender As Object, e As DataGridViewCellEventArgs) _
+    Handles dgvInputs.CellDoubleClick
+''--------------------------------------------------------------------
+''    イベントハンドラ。
+''
+''    グリッドビューのセルをダブルクリック
+''--------------------------------------------------------------------
+    handleEditButton()
+editButtonHandler()
 
 Private Sub mnuFileAdd_Click(sender As Object, e As EventArgs) Handles _
             mnuFileAdd.Click
@@ -226,7 +254,7 @@ Private Sub mnuFileOutput_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''    メニュー「ファイル」－「出力」
 ''--------------------------------------------------------------------
-    showSaveFileDialog(txtOutFile)
+    showSaveFileDialog(txtOutFile, False)
 End Sub
 
 
@@ -244,7 +272,7 @@ Private Sub mnuFileWorkDir_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''    メニュー「ファイル」－「作業ディレクトリ」
 ''--------------------------------------------------------------------
-    showSaveFileDialog(txtWorkDir)
+    showSaveFileDialog(txtWorkDir, True)
 End Sub
 
 
