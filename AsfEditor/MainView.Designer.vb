@@ -176,11 +176,15 @@ Partial Class MainView
         '
         ' dgvInputs
         '
+        dgvInputs.AllowUserToAddRows = False
+        dgvInputs.AllowUserToDeleteRows = False
+        dgvInputs.AllowUserToResizeRows = False
         resources.ApplyResources(dgvInputs, "dgvInputs")
         dgvInputs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvInputs.Columns.AddRange(New DataGridViewColumn() {colConcat, colFileName, colStart, colEnd, colDuration})
         dgvInputs.Name = "dgvInputs"
         dgvInputs.RowTemplate.Height = 25
+        dgvInputs.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         '
         ' btnAdd
         '
