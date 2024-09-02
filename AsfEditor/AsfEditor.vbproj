@@ -5,9 +5,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>
       net6.0-windows;
+      net35;
       net48;
     </TargetFrameworks>
-    <StartupObject>ViewVb.My.MyApplication</StartupObject>
+    <StartupObject>AsfEditor.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
