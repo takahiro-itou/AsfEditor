@@ -16,6 +16,7 @@ Dim trgIndex As Integer
 
     m_viInputList(trgIndex) = New InputInfo()
     With m_viInputList(trgIndex)
+        .bValidData = False
         .sFileName = fileName
         .sStartTime = "00:00:00.000"
         .sEndTime = "00:00:00.000"

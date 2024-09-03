@@ -1,6 +1,7 @@
 Public Module VideoInfo
 
 Public Class InputInfo
+    Public bValidData As Boolean
     Public sFileName As String
     Public sStartTime As String
     Public sEndTime As String
