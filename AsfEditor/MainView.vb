@@ -158,9 +158,12 @@ End Sub
 
 
 Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles _
-            btnAdd.Click
+            btnAdd.Click, mnuFileAdd.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「追加」ボタンのクリックイベント
+''    メニュー「ファイル」－「追加」
 ''--------------------------------------------------------------------
     openInputFile()
 End Sub
@@ -268,15 +271,6 @@ Private Sub dgvInputs_CellDoubleClick(
 ''    グリッドビューのセルをダブルクリック
 ''--------------------------------------------------------------------
     handleEditButton()
-End Sub
-
-
-Private Sub mnuFileAdd_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileAdd.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「追加」
-''--------------------------------------------------------------------
-    openInputFile()
 End Sub
 
 
