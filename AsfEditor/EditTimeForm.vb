@@ -2,6 +2,7 @@
 
 Private m_currentInfo As InputInfo
 
+
 Private Function applyEdit()
 ''--------------------------------------------------------------------
 ''
@@ -14,14 +15,26 @@ Dim workInfo As New InputInfo
         Exit Function
     End If
 
-    With m_currentInfo
-        .sStartTime = workInfo.sStartTime
-        .sEndTime = workInfo.sEndTime
-        .sTimeDuration = workInfo.sTimeDuration
-    End With
+    copyInputInfo(m_currentInfo, workInfo)
 
     applyEdit = True
 End Function
+
+
+Private Sub copyInputInfo( _
+        ByVal dstInfo As InputInfo, ByVal srcInfo As InputInfo)
+''--------------------------------------------------------------------
+''    入力情報の構造体をコピーする
+''--------------------------------------------------------------------
+
+    With dstInfo
+        .bValidData = srcInfo.bValidData
+        .sStartTime = srcInfo.sStartTime
+        .sEndTime = srcInfo.sEndTime
+        .sTimeDuration = srcInfo.sTimeDuration
+    End With
+
+End Sub
 
 
 Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
