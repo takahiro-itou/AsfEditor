@@ -172,9 +172,12 @@ End Sub
 
 
 Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles _
-            btnClear.Click
+            btnClear.Click, mnuFileClear.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「クリア」ボタンのクリックイベント
+''    メニュー「ファイル」－「クリア」
 ''--------------------------------------------------------------------
     clearFileList()
 End Sub
@@ -273,15 +276,6 @@ Private Sub dgvInputs_CellDoubleClick(
 ''    グリッドビューのセルをダブルクリック
 ''--------------------------------------------------------------------
     handleEditButton()
-End Sub
-
-
-Private Sub mnuFileClear_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileClear.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「クリア」
-''--------------------------------------------------------------------
-    clearFileList()
 End Sub
 
 
