@@ -119,7 +119,7 @@ Dim lastInputs As Integer
         m_viInputList(i - 1) = m_viInputList(i)
     Next i
 
-    m_nInputCont = lastInputs
+    m_nInputCount = lastInputs
     ReDim Preserve m_viInputList(lastInputs)
     updateGridView(0)
     removeFileFromList = True
