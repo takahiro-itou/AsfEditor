@@ -101,7 +101,28 @@ Private Function removeFileFromList() As Boolean
 ''
 ''    リストから除外するだけで、ファイル自体は消さない
 ''--------------------------------------------------------------------
+Dim selIndex As Integer
+Dim i As Integer
+Dim lastInputs As Integer
 
+    With dgvInputs
+        If .CurrentRow Is Nothing Then
+            removeFileFromList = False
+            Exit Function
+        End If
+        selIndex = .CurrentRow.Index
+    End With
+
+    ' 選択した番号を削除し、後ろのデータを詰める
+    lastInputs = m_nInputCount - 1
+    For i = selIndex + 1 To lastInputs
+        m_viInputList(i - 1) = m_viInputList(i)
+    Next i
+
+    m_nInputCont = lastInputs
+    ReDim Preserve m_viInputList(lastInputs)
+    updateGridView(0)
+    removeFileFromList = True
 End Function
 
 
