@@ -8,8 +8,10 @@ Private Function applyEdit()
 ''
 ''--------------------------------------------------------------------
 Dim workInfo As New InputInfo
+Dim bResult As Boolean
 
-    If setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text) = False Then
+    bResult = setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text)
+    If bResylt = False Then
         MessageBox.Show("Invalid Input")
         applyEdit = False
         Exit Function
@@ -17,7 +19,7 @@ Dim workInfo As New InputInfo
 
     copyInputInfo(m_currentInfo, workInfo)
 
-    applyEdit = True
+    applyEdit = bResult
 End Function
 
 
