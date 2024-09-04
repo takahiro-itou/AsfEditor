@@ -11,7 +11,7 @@ Dim workInfo As New InputInfo
 Dim bResult As Boolean
 
     bResult = setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text)
-    If bResylt = False Then
+    If bResult = False Then
         MessageBox.Show("Invalid Input")
         applyEdit = False
         Exit Function
