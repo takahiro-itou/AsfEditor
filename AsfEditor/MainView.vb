@@ -175,7 +175,9 @@ Dim srcInfo As InputInfo
             )
         Next i
 
-        .CurrentCell = .Rows(selIndex).Cells(0)
+        If (0 <= selIndex) And (selIndex < m_nInputCount) Then
+            .CurrentCell = .Rows(selIndex).Cells(0)
+        End If
     End With
 
 End Sub
