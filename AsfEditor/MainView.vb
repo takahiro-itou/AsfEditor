@@ -156,7 +156,7 @@ End Function
 
 Private Sub updateGridView(ByVal selIndex As Integer)
 ''--------------------------------------------------------------------
-''
+''    グリッドビューを更新する
 ''--------------------------------------------------------------------
 Dim i As Integer
 Dim srcInfo As InputInfo
