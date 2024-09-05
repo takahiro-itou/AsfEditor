@@ -241,9 +241,12 @@ End Sub
 
 
 Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles _
-            btnRemove.Click
+            btnRemove.Click, mnuFileRemove.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「除外」ボタンのクリックイベント
+''    メニュー「ファイル」－「除外」
 ''--------------------------------------------------------------------
     removeFileFromList()
 End Sub
@@ -309,15 +312,6 @@ Private Sub mnuFileExit_Click(sender As Object, e As EventArgs) Handles _
 ''    メニュー「ファイル」－「終了」
 ''--------------------------------------------------------------------
     Application.Exit()
-End Sub
-
-
-Private Sub mnuFileRemove_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileRemove.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「削除」
-''--------------------------------------------------------------------
-    removeFileFromList()
 End Sub
 
 
