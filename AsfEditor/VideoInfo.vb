@@ -115,6 +115,7 @@ Dim bResult As Boolean
         Else
             .sTimeDuration = ""
         End If
+        .bValidData = bResult
     End With
 
     setTimeInfo = bResult
