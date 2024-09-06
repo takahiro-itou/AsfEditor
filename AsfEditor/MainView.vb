@@ -83,7 +83,20 @@ Private Function moveListItem(
 ''--------------------------------------------------------------------
 ''    リスト内の項目を並べ替える
 ''--------------------------------------------------------------------
+Dim viSrc As InputInfo
 
+    If (posSrc < 0) Or (m_nInputCount <= posSrc) Then
+        ' 指定した移動元が範囲外
+        moveListItem = False
+        Exit Function
+    End If
+    If (posDst < 0) Or (m_nInputCount < podDst) Then
+        ' 指定した移動先が範囲外
+        moveListItem = False
+        Exit Function
+    End If
+
+    viSrc = m_viInputList(posSrc)
 End Function
 
 
