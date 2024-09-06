@@ -78,6 +78,15 @@ Private Sub handlePerformButton()
 End Sub
 
 
+Private Function moveListItem(
+        ByVal posSrc As Integer, ByVal posDst As Integer) As Boolean
+''--------------------------------------------------------------------
+''    リスト内の項目を並べ替える
+''--------------------------------------------------------------------
+
+End Function
+
+
 Private Sub openInputFile()
 ''--------------------------------------------------------------------
 ''    入力ファイルを指定する
