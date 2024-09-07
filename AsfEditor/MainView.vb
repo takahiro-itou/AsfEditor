@@ -267,7 +267,7 @@ Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
-
+    handleUpDownButton(1)
 End Sub
 
 
