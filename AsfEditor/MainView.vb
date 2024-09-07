@@ -107,7 +107,7 @@ Dim viSrc As InputInfo
         moveListItem = False
         Exit Function
     End If
-    If (posDst < 0) Or (m_nInputCount < posDst) Then
+    If (posDst < 0) Or (m_nInputCount <= posDst) Then
         ' 指定した移動先が範囲外
         moveListItem = False
         Exit Function
