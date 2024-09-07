@@ -124,7 +124,7 @@ Private Function isRunnable()
             isRunnable = False
             Exit Function
         End If
-    End If
+    Next i
 
     ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
     If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
