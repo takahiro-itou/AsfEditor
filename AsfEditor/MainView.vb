@@ -255,6 +255,12 @@ Dim srcInfo As InputInfo
                 srcInfo.sEndTime,
                 srcInfo.sTimeDuration
             )
+            If m_viInputList(i).bValidData = False Then
+                ' まだ設定が終わっていない入力があるときは、
+                ' 実行ボタンを押せないようにしておく
+                btnPerform.Enabled = False
+                mnuEditPerform.Enabled = False
+            End If
         Next i
 
         If (0 <= selIndex) And (selIndex < m_nInputCount) Then
