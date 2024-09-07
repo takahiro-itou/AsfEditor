@@ -1,7 +1,11 @@
 ﻿Public Class MainView
 
+' 入力
 Private m_nInputCount As Integer
 Private m_viInputList() As InputInfo
+
+' 変更があったかどうかを示すフラグ
+Private m_flagModified As Boolean
 
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
