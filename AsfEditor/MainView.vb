@@ -255,12 +255,6 @@ Dim srcInfo As InputInfo
                 srcInfo.sEndTime,
                 srcInfo.sTimeDuration
             )
-            If m_viInputList(i).bValidData = False Then
-                ' まだ設定が終わっていない入力があるときは、
-                ' 実行ボタンを押せないようにしておく
-                btnPerform.Enabled = False
-                mnuEditPerform.Enabled = False
-            End If
         Next i
 
         If (0 <= selIndex) And (selIndex < m_nInputCount) Then
@@ -275,12 +269,29 @@ Private Sub updateModifyFlag(ByVal flagNew As Boolean)
 ''--------------------------------------------------------------------
 ''    変更ありフラグの状態を設定する
 ''--------------------------------------------------------------------
+Dim flagRunnable As Boolean
 
     m_flagModified = flagNew
+    flagRunnable = flagNew
+
+    ' 設定が完了していない入力がある場合は、実行ボタンは無効にする
+    For i = 0 To m_nInputCount - 1
+        If m_viInputList(i).bValidData = False Then
+            ' まだ設定が終わっていない入力があるときは、
+            ' 実行ボタンを押せないようにしておく
+            flagRunnable = False
+            Exit For
+        End If
+    End If
+
+    ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
+    If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
+        flagRunnable = False
+    End If
 
     ' フラグの値に応じて、ボタンやメニューの状態を変更しておく
-    btnPerform.Enabled = flagNew
-    mnuEditPerform.Enabled = FlagNew
+    btnPerform.Enabled = flagRunnable
+    mnuEditPerform.Enabled = flagRunnable
 End Sub
 
 
