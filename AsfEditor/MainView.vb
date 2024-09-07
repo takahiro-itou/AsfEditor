@@ -108,6 +108,34 @@ Dim selIndex As Integer
     moveListItem(selIndex, selIndex + iDir)
 End Sub
 
+
+Private Function isRunnable()
+''--------------------------------------------------------------------
+''    実行可能な状態になっているか確認する
+''--------------------------------------------------------------------
+
+    isRunnable = True
+
+    ' 設定が完了していない入力がある場合は、実行ボタンは無効にする
+    For i = 0 To m_nInputCount - 1
+        If m_viInputList(i).bValidData = False Then
+            ' まだ設定が終わっていない入力があるときは、
+            ' 実行ボタンを押せないようにしておく
+            isRunnable = False
+            Exit Function
+        End If
+    End If
+
+    ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
+    If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
+        isRunnable = False
+        Exit Function
+    End If
+
+    isRunnable = True
+End Function
+
+
 Private Function moveListItem(
         ByVal posSrc As Integer, ByVal posDst As Integer) As Boolean
 ''--------------------------------------------------------------------
@@ -198,6 +226,8 @@ Dim lastInputs As Integer
 
     m_nInputCount = lastInputs
     ReDim Preserve m_viInputList(lastInputs)
+
+    updateModifyFlag(True)
     updateGridView(0)
 
     removeFileFromList = True
@@ -274,19 +304,8 @@ Dim flagRunnable As Boolean
     m_flagModified = flagNew
     flagRunnable = flagNew
 
-    ' 設定が完了していない入力がある場合は、実行ボタンは無効にする
-    For i = 0 To m_nInputCount - 1
-        If m_viInputList(i).bValidData = False Then
-            ' まだ設定が終わっていない入力があるときは、
-            ' 実行ボタンを押せないようにしておく
-            flagRunnable = False
-            Exit For
-        End If
-    End If
-
-    ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
-    If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
-        flagRunnable = False
+    If flagRunnable = True Then
+        flagRunnable = isRunnable()
     End If
 
     ' フラグの値に応じて、ボタンやメニューの状態を変更しておく
