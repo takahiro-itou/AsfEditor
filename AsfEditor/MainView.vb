@@ -152,7 +152,9 @@ End Function
 Private Function showSaveFileDialog(
         ByRef targetTextBox As TextBox, ByVal bDir As Boolean) As String
 ''--------------------------------------------------------------------
+''    「名前を付けて保存」ダイアログを表示する
 ''
+''    選択したファイル名を指定したテキストボックスに表示する
 ''--------------------------------------------------------------------
 Dim selFile As String
 
