@@ -6,7 +6,7 @@ Private m_viInputList() As InputInfo
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
-''
+''    ファイルをリストに追加する
 ''--------------------------------------------------------------------
 Dim trgIndex As Integer
 
@@ -16,6 +16,7 @@ Dim trgIndex As Integer
 
     m_viInputList(trgIndex) = New InputInfo()
     With m_viInputList(trgIndex)
+        .bValidData = False
         .sFileName = fileName
         .sStartTime = "00:00:00.000"
         .sEndTime = "00:00:00.000"
@@ -30,15 +31,16 @@ End Function
 
 Private Sub clearFileList()
 ''--------------------------------------------------------------------
-''
+''    ファイルリストを空にする
 ''--------------------------------------------------------------------
-
+    m_nInputCount = 0
+    updateGridView(-1)
 End Sub
 
 
 Private Sub handleEditButton()
 ''--------------------------------------------------------------------
-''
+''    編集ボタンまたはメニューのクリックイベントを処理する
 ''--------------------------------------------------------------------
 Dim selIndex As Integer
 
@@ -68,7 +70,7 @@ End Sub
 
 Private Sub handlePerformButton()
 ''--------------------------------------------------------------------
-''
+''    実行ボタンまたはメニューのクリックイベントを処理する
 ''--------------------------------------------------------------------
     performVideoEdit(
         m_viInputList, txtOutFile.Text, txtWorkDir.Text
@@ -76,9 +78,67 @@ Private Sub handlePerformButton()
 End Sub
 
 
+Private Sub handleUpDownButton(ByVal iDir As Integer)
+''--------------------------------------------------------------------
+''    「UP」「DOWN」ボタンのクリックイベントを処理する
+''--------------------------------------------------------------------
+Dim selIndex As Integer
+
+    With dgvInputs
+        If .CurrentRow Is Nothing Then
+            Exit Sub
+        End If
+        selIndex = .CurrentRow.Index
+    End With
+
+    moveListItem(selIndex, selIndex + iDir)
+End Sub
+
+Private Function moveListItem(
+        ByVal posSrc As Integer, ByVal posDst As Integer) As Boolean
+''--------------------------------------------------------------------
+''    リスト内の項目を並べ替える
+''--------------------------------------------------------------------
+Dim i As Integer, idxDir As Integer
+Dim viSrc As InputInfo
+
+    If (posSrc = posDst) Then
+        ' 移動先が移動元と同じなので何もすることがない
+        moveListItem = False
+        Exit Function
+    End If
+
+    If (posSrc < 0) Or (m_nInputCount <= posSrc) Then
+        ' 指定した移動元が範囲外
+        moveListItem = False
+        Exit Function
+    End If
+    If (posDst < 0) Or (m_nInputCount <= posDst) Then
+        ' 指定した移動先が範囲外
+        moveListItem = False
+        Exit Function
+    End If
+
+    viSrc = m_viInputList(posSrc)
+    If (posDst < posSrc) Then
+        idxDir = -1
+    Else
+        idxDir = 1
+    End If
+
+    For i = posSrc + idxDir To posDst Step idxDir
+        m_viInputList(i - idxDir) = m_viInputList(i)
+    Next i
+    m_viInputList(posDst) = viSrc
+
+    updateGridView(posDst)
+    moveListItem = True
+End Function
+
+
 Private Sub openInputFile()
 ''--------------------------------------------------------------------
-''
+''    入力ファイルを指定する
 ''--------------------------------------------------------------------
 
     With dlgOpen
@@ -96,16 +156,41 @@ End Sub
 
 Private Function removeFileFromList() As Boolean
 ''--------------------------------------------------------------------
+''    選択したファイルをリストから除外する
 ''
+''    リストから除外するだけで、ファイル自体は消さない
 ''--------------------------------------------------------------------
+Dim selIndex As Integer
+Dim i As Integer
+Dim lastInputs As Integer
 
+    With dgvInputs
+        If .CurrentRow Is Nothing Then
+            removeFileFromList = False
+            Exit Function
+        End If
+        selIndex = .CurrentRow.Index
+    End With
+
+    ' 選択した番号を削除し、後ろのデータを詰める
+    lastInputs = m_nInputCount - 1
+    For i = selIndex + 1 To lastInputs
+        m_viInputList(i - 1) = m_viInputList(i)
+    Next i
+
+    m_nInputCount = lastInputs
+    ReDim Preserve m_viInputList(lastInputs)
+    updateGridView(0)
+    removeFileFromList = True
 End Function
 
 
 Private Function showSaveFileDialog(
         ByRef targetTextBox As TextBox, ByVal bDir As Boolean) As String
 ''--------------------------------------------------------------------
+''    「名前を付けて保存」ダイアログを表示する
 ''
+''    選択したファイル名を指定したテキストボックスに表示する
 ''--------------------------------------------------------------------
 Dim selFile As String
 
@@ -132,7 +217,7 @@ End Function
 
 Private Sub updateGridView(ByVal selIndex As Integer)
 ''--------------------------------------------------------------------
-''
+''    グリッドビューを更新する
 ''--------------------------------------------------------------------
 Dim i As Integer
 Dim srcInfo As InputInfo
@@ -151,25 +236,33 @@ Dim srcInfo As InputInfo
             )
         Next i
 
-        .CurrentCell = .Rows(selIndex).Cells(0)
+        If (0 <= selIndex) And (selIndex < m_nInputCount) Then
+            .CurrentCell = .Rows(selIndex).Cells(0)
+        End If
     End With
 
 End Sub
 
 
 Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles _
-            btnAdd.Click
+            btnAdd.Click, mnuFileAdd.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「追加」ボタンのクリックイベント
+''    メニュー「ファイル」－「追加」
 ''--------------------------------------------------------------------
     openInputFile()
 End Sub
 
 
 Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles _
-            btnClear.Click
+            btnClear.Click, mnuFileClear.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「クリア」ボタンのクリックイベント
+''    メニュー「ファイル」－「クリア」
 ''--------------------------------------------------------------------
     clearFileList()
 End Sub
@@ -178,9 +271,9 @@ End Sub
 Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles _
             btnDown.Click
 ''--------------------------------------------------------------------
-''
+''    「DOWN」ボタンのクリックイベントハンドラ。
 ''--------------------------------------------------------------------
-
+    handleUpDownButton(1)
 End Sub
 
 
@@ -209,9 +302,12 @@ End Sub
 
 
 Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles _
-            btnRemove.Click
+            btnRemove.Click, mnuFileRemove.Click
 ''--------------------------------------------------------------------
+''    イベントハンドラ。
 ''
+''    「除外」ボタンのクリックイベント
+''    メニュー「ファイル」－「除外」
 ''--------------------------------------------------------------------
     removeFileFromList()
 End Sub
@@ -220,9 +316,9 @@ End Sub
 Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles _
             btnUp.Click
 ''--------------------------------------------------------------------
-''
+''    「UP」ボタンのクリックイベントハンドラ。
 ''--------------------------------------------------------------------
-
+    handleUpDownButton(-1)
 End Sub
 
 
@@ -271,39 +367,12 @@ Private Sub dgvInputs_CellDoubleClick(
 End Sub
 
 
-Private Sub mnuFileAdd_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileAdd.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「追加」
-''--------------------------------------------------------------------
-    openInputFile()
-End Sub
-
-
-Private Sub mnuFileClear_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileClear.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「クリア」
-''--------------------------------------------------------------------
-    clearFileList()
-End Sub
-
-
 Private Sub mnuFileExit_Click(sender As Object, e As EventArgs) Handles _
             mnuFileExit.Click
 ''--------------------------------------------------------------------
 ''    メニュー「ファイル」－「終了」
 ''--------------------------------------------------------------------
     Application.Exit()
-End Sub
-
-
-Private Sub mnuFileRemove_Click(sender As Object, e As EventArgs) Handles _
-            mnuFileRemove.Click
-''--------------------------------------------------------------------
-''    メニュー「ファイル」－「削除」
-''--------------------------------------------------------------------
-    removeFileFromList()
 End Sub
 
 

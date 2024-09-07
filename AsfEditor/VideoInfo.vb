@@ -1,6 +1,7 @@
 Public Module VideoInfo
 
 Public Class InputInfo
+    Public bValidData As Boolean
     Public sFileName As String
     Public sStartTime As String
     Public sEndTime As String
@@ -96,21 +97,28 @@ Public Function setTimeInfo(
 ''--------------------------------------------------------------------
 Dim tmStart As Long
 Dim tmEnd As Long
+Dim bResult As Boolean
 
     tmStart = getMiliSeconds(startTime)
     tmEnd = getMiliSeconds(endTime)
+    bResult = True
+
     If (tmEnd <= tmStart) Then
-        setTimeInfo = False
-        Exit Function
+        bResult = False
     End If
 
     With targetInfo
         .sStartTime = getTimeTextFromMiliSeconds(tmStart)
         .sEndTime = getTimeTextFromMiliSeconds(tmEnd)
-        .sTimeDuration = getTimeTextFromMiliSeconds(tmEnd - tmStart)
+        If bResult Then
+            .sTimeDuration = getTimeTextFromMiliSeconds(tmEnd - tmStart)
+        Else
+            .sTimeDuration = ""
+        End If
+        .bValidData = bResult
     End With
 
-    setTimeInfo = True
+    setTimeInfo = bResult
 End Function
 
 

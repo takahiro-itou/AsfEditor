@@ -8,8 +8,8 @@ Public Function launchProcess(
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
-Dim readerOut As System.IO.StreamReader
-Dim readerErr As System.IO.StreamReader
+' Dim readerOut As System.IO.StreamReader
+' Dim readerErr As System.IO.StreamReader
 Dim textOut As String
 Dim textErr As String
 Dim bResult As Boolean
