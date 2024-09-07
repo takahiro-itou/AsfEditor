@@ -109,6 +109,7 @@ Dim viSrc As InputInfo
     End If
 
     updateGridView(posDst)
+    moveListItem = True
 End Function
 
 
