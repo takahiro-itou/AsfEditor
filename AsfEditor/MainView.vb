@@ -407,6 +407,15 @@ Private Sub dgvInputs_CellDoubleClick(
 End Sub
 
 
+Private Sub MainView_Load(sender As Object, e As EventArgs) Handles _
+            MyBase.Load
+''--------------------------------------------------------------------
+''    フォームのロードイベントハンドラ
+''--------------------------------------------------------------------
+    updateModifyFlag(False)
+End Sub
+
+
 Private Sub mnuFileExit_Click(sender As Object, e As EventArgs) Handles _
             mnuFileExit.Click
 ''--------------------------------------------------------------------
