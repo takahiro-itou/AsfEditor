@@ -40,7 +40,7 @@ Private Sub clearFileList()
 ''    ファイルリストを空にする
 ''--------------------------------------------------------------------
     m_nInputCount = 0
-    updateModifyFlag(True)
+    updateModifyFlag(False)
     updateGridView(-1)
 End Sub
 
