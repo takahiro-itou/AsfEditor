@@ -2,26 +2,41 @@
 
 Private m_currentInfo As InputInfo
 
+
 Private Function applyEdit()
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
 Dim workInfo As New InputInfo
+Dim bResult As Boolean
 
-    If setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text) = False Then
+    bResult = setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text)
+    If bResult = False Then
         MessageBox.Show("Invalid Input")
         applyEdit = False
         Exit Function
     End If
 
-    With m_currentInfo
-        .sStartTime = workInfo.sStartTime
-        .sEndTime = workInfo.sEndTime
-        .sTimeDuration = workInfo.sTimeDuration
+    copyInputInfo(m_currentInfo, workInfo)
+
+    applyEdit = bResult
+End Function
+
+
+Private Sub copyInputInfo( _
+        ByVal dstInfo As InputInfo, ByVal srcInfo As InputInfo)
+''--------------------------------------------------------------------
+''    入力情報の構造体をコピーする
+''--------------------------------------------------------------------
+
+    With dstInfo
+        .bValidData = srcInfo.bValidData
+        .sStartTime = srcInfo.sStartTime
+        .sEndTime = srcInfo.sEndTime
+        .sTimeDuration = srcInfo.sTimeDuration
     End With
 
-    applyEdit = True
-End Function
+End Sub
 
 
 Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
