@@ -410,6 +410,7 @@ Dim selDir As String
         txtWorkDir.Text = selDir
     End If
 
+    updateModifyFlag(True)
 End Sub
 
 
@@ -422,6 +423,7 @@ Private Sub btnWorkDir_Click(sender As Object, e As EventArgs) Handles _
 ''    メニュー「ファイル」－「作業ディレクトリ」
 ''--------------------------------------------------------------------
     showSaveFileDialog(txtWorkDir, True)
+    updateModifyFlag(True)
 End Sub
 
 
