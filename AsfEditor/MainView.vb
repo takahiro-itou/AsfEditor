@@ -78,6 +78,22 @@ Private Sub handlePerformButton()
 End Sub
 
 
+Private Sub handleUpDownButton(ByVal iDir As Integer)
+''--------------------------------------------------------------------
+''    「UP」「DOWN」ボタンのクリックイベントを処理する
+''--------------------------------------------------------------------
+Dim selIndex As Integer
+
+    With dgvInputs
+        If .CurrentRow Is Nothing Then
+            Exit Sub
+        End If
+        selIndex = .CurrentRow.Index
+    End With
+
+    moveListItem(selIndex, selIndex + iDir)
+End Sub
+
 Private Function moveListItem(
         ByVal posSrc As Integer, ByVal posDst As Integer) As Boolean
 ''--------------------------------------------------------------------
@@ -296,7 +312,7 @@ Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
-
+    handleUpDownButton(-1)
 End Sub
 
 
