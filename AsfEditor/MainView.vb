@@ -271,7 +271,7 @@ End Sub
 Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles _
             btnDown.Click
 ''--------------------------------------------------------------------
-''
+''    「DOWN」ボタンのクリックイベントハンドラ。
 ''--------------------------------------------------------------------
     handleUpDownButton(1)
 End Sub
