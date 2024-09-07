@@ -100,14 +100,14 @@ Dim viSrc As InputInfo
     viSrc = m_viInputList(posSrc)
     If (posDst < posSrc) Then
         idxDir = -1
-        For i = posSrc To posDst + 1 Step idxDir
-            m_viInputList(i) = m_viInputList(i - 1)
+        For i = posSrc To posDst - idxDir Step idxDir
+            m_viInputList(i) = m_viInputList(i + idxDir)
         Next i
         m_viInputList(posDst) = viSrc
     ElseIf (posSrc < posDst) Then
         idxDir = 1
-        For i = posSrc To posDst - 1 Step idxDir
-            m_viInputList(i) = m_viInputList(i + 1)
+        For i = posSrc To posDst - idxDir Step idxDir
+            m_viInputList(i) = m_viInputList(i + idxDir)
         Next i
         m_viInputList(posDst) = viSrc
     End If
