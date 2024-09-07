@@ -83,6 +83,7 @@ Private Function moveListItem(
 ''--------------------------------------------------------------------
 ''    リスト内の項目を並べ替える
 ''--------------------------------------------------------------------
+Dim i As Integer, idxDir As Integer
 Dim viSrc As InputInfo
 
     If (posSrc < 0) Or (m_nInputCount <= posSrc) Then
@@ -97,6 +98,17 @@ Dim viSrc As InputInfo
     End If
 
     viSrc = m_viInputList(posSrc)
+    If (posDst < posSrc) Then
+        idxDir = -1
+        For i = posSrc To posDst Step idxDir
+        Next i
+    ElseIf (posSrc < posDst) Then
+        idxDir = 1
+        For i = posSrc To posDst Step idxDir
+        Next i
+    End If
+
+    updateGridView(posDst)
 End Function
 
 
