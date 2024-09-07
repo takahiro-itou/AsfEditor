@@ -102,6 +102,12 @@ Private Function moveListItem(
 Dim i As Integer, idxDir As Integer
 Dim viSrc As InputInfo
 
+    If (posSrc = posDst) Then
+        ' 移動先が移動元と同じなので何もすることがない
+        moveListItem = False
+        Exit Function
+    End If
+
     If (posSrc < 0) Or (m_nInputCount <= posSrc) Then
         ' 指定した移動元が範囲外
         moveListItem = False
@@ -116,7 +122,7 @@ Dim viSrc As InputInfo
     viSrc = m_viInputList(posSrc)
     If (posDst < posSrc) Then
         idxDir = -1
-    ElseIf (posSrc < posDst) Then
+    Else
         idxDir = 1
     End If
 
