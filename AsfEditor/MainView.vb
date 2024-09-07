@@ -248,6 +248,19 @@ Dim srcInfo As InputInfo
 End Sub
 
 
+Private Sub updateModifyFlag(ByVal flagNew As Boolean)
+''--------------------------------------------------------------------
+''    変更ありフラグの状態を設定する
+''--------------------------------------------------------------------
+
+    m_flagModified = flagNew
+
+    ' フラグの値に応じて、ボタンやメニューの状態を変更しておく
+    btnPerform.Enabled = flagNew
+    mnuEditPerform.Enabled = FlagNew
+End Sub
+
+
 Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles _
             btnAdd.Click, mnuFileAdd.Click
 ''--------------------------------------------------------------------
