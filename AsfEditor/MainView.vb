@@ -310,7 +310,7 @@ End Sub
 Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles _
             btnUp.Click
 ''--------------------------------------------------------------------
-''
+''    「UP」ボタンのクリックイベントハンドラ。
 ''--------------------------------------------------------------------
     handleUpDownButton(-1)
 End Sub
