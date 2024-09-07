@@ -104,8 +104,8 @@ Dim viSrc As InputInfo
         idxDir = 1
     End If
 
-    For i = posSrc To posDst - idxDir Step idxDir
-        m_viInputList(i) = m_viInputList(i + idxDir)
+    For i = posSrc + idxDir To posDst Step idxDir
+        m_viInputList(i - idxDir) = m_viInputList(i)
     Next i
     m_viInputList(posDst) = viSrc
 
