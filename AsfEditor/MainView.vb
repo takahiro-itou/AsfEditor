@@ -100,12 +100,16 @@ Dim viSrc As InputInfo
     viSrc = m_viInputList(posSrc)
     If (posDst < posSrc) Then
         idxDir = -1
-        For i = posSrc To posDst Step idxDir
+        For i = posSrcTo posDst + 1 Step idxDir
+            m_viInputList(i) = m_viInputList(i - 1)
         Next i
+        m_viInputList(posDst) = viSrc
     ElseIf (posSrc < posDst) Then
         idxDir = 1
-        For i = posSrc To posDst Step idxDir
+        For i = posSrc To posDst - 1 Step idxDir
+            m_viInputList(i) = m_viinputlist(i + 1)
         Next i
+        m_viinputlist(posDst) = viSrc
     End If
 
     updateGridView(posDst)
