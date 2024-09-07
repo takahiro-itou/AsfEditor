@@ -360,7 +360,7 @@ End Sub
 
 
 Private Sub btnPerform_Click(sender As Object, e As EventArgs) Handles _
-            btnPerform.Click
+            btnPerform.Click, mnuEditPerform.Click
 ''--------------------------------------------------------------------
 ''    イベントハンドラ。
 ''
