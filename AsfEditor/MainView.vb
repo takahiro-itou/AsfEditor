@@ -28,7 +28,9 @@ Dim trgIndex As Integer
         .bConcat = True
     End With
 
+    updateModifyFlag(True)
     updateGridView(trgIndex)
+
     addFileToList = True
 End Function
 
@@ -38,6 +40,7 @@ Private Sub clearFileList()
 ''    ファイルリストを空にする
 ''--------------------------------------------------------------------
     m_nInputCount = 0
+    updateModifyFlag(True)
     updateGridView(-1)
 End Sub
 
@@ -61,7 +64,7 @@ Dim selIndex As Integer
             .ShowDialog(Me)
 
              If .DialogResult = DialogResult.OK Then
-
+                 updateModifyFlag(True)
              End If
 
             .Dispose()
@@ -123,6 +126,8 @@ Dim viSrc As InputInfo
         Exit Function
     End If
 
+    updateModifyFlag(True)
+
     viSrc = m_viInputList(posSrc)
     If (posDst < posSrc) Then
         idxDir = -1
@@ -176,6 +181,8 @@ Dim lastInputs As Integer
         selIndex = .CurrentRow.Index
     End With
 
+    updateModifyFlag(True)
+
     ' 選択した番号を削除し、後ろのデータを詰める
     lastInputs = m_nInputCount - 1
     For i = selIndex + 1 To lastInputs
@@ -185,6 +192,7 @@ Dim lastInputs As Integer
     m_nInputCount = lastInputs
     ReDim Preserve m_viInputList(lastInputs)
     updateGridView(0)
+
     removeFileFromList = True
 End Function
 
@@ -209,6 +217,8 @@ Dim selFile As String
         End If
         selFile = .FileName
     End With
+
+    updateModifyFlag(True)
 
     If bDir Then
         selFile = uniformDirName(System.IO.Path.GetDirectoryName(selFile))
