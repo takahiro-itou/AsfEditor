@@ -1,7 +1,11 @@
 ﻿Public Class MainView
 
+' 入力
 Private m_nInputCount As Integer
 Private m_viInputList() As InputInfo
+
+' 変更があったかどうかを示すフラグ
+Private m_flagModified As Boolean
 
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
@@ -24,7 +28,9 @@ Dim trgIndex As Integer
         .bConcat = True
     End With
 
+    updateModifyFlag(True)
     updateGridView(trgIndex)
+
     addFileToList = True
 End Function
 
@@ -34,6 +40,7 @@ Private Sub clearFileList()
 ''    ファイルリストを空にする
 ''--------------------------------------------------------------------
     m_nInputCount = 0
+    updateModifyFlag(False)
     updateGridView(-1)
 End Sub
 
@@ -57,7 +64,7 @@ Dim selIndex As Integer
             .ShowDialog(Me)
 
              If .DialogResult = DialogResult.OK Then
-
+                 updateModifyFlag(True)
              End If
 
             .Dispose()
@@ -72,6 +79,13 @@ Private Sub handlePerformButton()
 ''--------------------------------------------------------------------
 ''    実行ボタンまたはメニューのクリックイベントを処理する
 ''--------------------------------------------------------------------
+
+    ' 実行前にボタンを無効にし、
+    ' 処理中に二度押しされないようにする。
+    ' 入出力に変化があるまでは、再実行しても意味がないので
+    ' そのまま無効にしたままにしておく。
+    updateModifyFlag(False)
+
     performVideoEdit(
         m_viInputList, txtOutFile.Text, txtWorkDir.Text
     )
@@ -93,6 +107,34 @@ Dim selIndex As Integer
 
     moveListItem(selIndex, selIndex + iDir)
 End Sub
+
+
+Private Function isRunnable()
+''--------------------------------------------------------------------
+''    実行可能な状態になっているか確認する
+''--------------------------------------------------------------------
+
+    isRunnable = True
+
+    ' 設定が完了していない入力がある場合は、実行ボタンは無効にする
+    For i = 0 To m_nInputCount - 1
+        If m_viInputList(i).bValidData = False Then
+            ' まだ設定が終わっていない入力があるときは、
+            ' 実行ボタンを押せないようにしておく
+            isRunnable = False
+            Exit Function
+        End If
+    Next i
+
+    ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
+    If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
+        isRunnable = False
+        Exit Function
+    End If
+
+    isRunnable = True
+End Function
+
 
 Private Function moveListItem(
         ByVal posSrc As Integer, ByVal posDst As Integer) As Boolean
@@ -118,6 +160,8 @@ Dim viSrc As InputInfo
         moveListItem = False
         Exit Function
     End If
+
+    updateModifyFlag(True)
 
     viSrc = m_viInputList(posSrc)
     If (posDst < posSrc) Then
@@ -172,6 +216,8 @@ Dim lastInputs As Integer
         selIndex = .CurrentRow.Index
     End With
 
+    updateModifyFlag(True)
+
     ' 選択した番号を削除し、後ろのデータを詰める
     lastInputs = m_nInputCount - 1
     For i = selIndex + 1 To lastInputs
@@ -180,7 +226,10 @@ Dim lastInputs As Integer
 
     m_nInputCount = lastInputs
     ReDim Preserve m_viInputList(lastInputs)
+
+    updateModifyFlag(True)
     updateGridView(0)
+
     removeFileFromList = True
 End Function
 
@@ -205,6 +254,8 @@ Dim selFile As String
         End If
         selFile = .FileName
     End With
+
+    updateModifyFlag(True)
 
     If bDir Then
         selFile = uniformDirName(System.IO.Path.GetDirectoryName(selFile))
@@ -241,6 +292,25 @@ Dim srcInfo As InputInfo
         End If
     End With
 
+End Sub
+
+
+Private Sub updateModifyFlag(ByVal flagNew As Boolean)
+''--------------------------------------------------------------------
+''    変更ありフラグの状態を設定する
+''--------------------------------------------------------------------
+Dim flagRunnable As Boolean
+
+    m_flagModified = flagNew
+    flagRunnable = flagNew
+
+    If flagRunnable = True Then
+        flagRunnable = isRunnable()
+    End If
+
+    ' フラグの値に応じて、ボタンやメニューの状態を変更しておく
+    btnPerform.Enabled = flagRunnable
+    mnuEditPerform.Enabled = flagRunnable
 End Sub
 
 
@@ -290,7 +360,7 @@ End Sub
 
 
 Private Sub btnPerform_Click(sender As Object, e As EventArgs) Handles _
-            btnPerform.Click
+            btnPerform.Click, mnuEditPerform.Click
 ''--------------------------------------------------------------------
 ''    イベントハンドラ。
 ''
@@ -340,6 +410,7 @@ Dim selDir As String
         txtWorkDir.Text = selDir
     End If
 
+    updateModifyFlag(True)
 End Sub
 
 
@@ -352,6 +423,7 @@ Private Sub btnWorkDir_Click(sender As Object, e As EventArgs) Handles _
 ''    メニュー「ファイル」－「作業ディレクトリ」
 ''--------------------------------------------------------------------
     showSaveFileDialog(txtWorkDir, True)
+    updateModifyFlag(True)
 End Sub
 
 
@@ -364,6 +436,15 @@ Private Sub dgvInputs_CellDoubleClick(
 ''    グリッドビューのセルをダブルクリック
 ''--------------------------------------------------------------------
     handleEditButton()
+End Sub
+
+
+Private Sub MainView_Load(sender As Object, e As EventArgs) Handles _
+            MyBase.Load
+''--------------------------------------------------------------------
+''    フォームのロードイベントハンドラ
+''--------------------------------------------------------------------
+    updateModifyFlag(False)
 End Sub
 
 
