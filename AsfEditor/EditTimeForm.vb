@@ -5,7 +5,7 @@ Private m_currentInfo As InputInfo
 
 Private Function applyEdit()
 ''--------------------------------------------------------------------
-''
+''    編集内容を一時保存する
 ''--------------------------------------------------------------------
 Dim workInfo As New InputInfo
 Dim bResult As Boolean
