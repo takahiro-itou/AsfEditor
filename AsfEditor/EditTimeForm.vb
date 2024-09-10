@@ -67,6 +67,17 @@ Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''
 ''--------------------------------------------------------------------
+Dim msgAns As System.Windows.Forms.DialogResult
+
+    msgAns = MessageBox.Show(
+        "途中で保存されたデータがあります。" & vbCrLf &
+        "そのデータを採用しますか？",
+        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+
+    If (msgAns = Windows.Forms.DialogResult.Cancel) Then
+        ' キャンセルされたのでダイアログを閉じるのをやめる
+        Exit Sub
+    End If
 
     Me.DialogResult = DialogResult.Cancel
     Me.Close()
