@@ -1,6 +1,7 @@
 ﻿Public Class EditTimeForm
 
 Private m_currentInfo As InputInfo
+Private m_savedInfo As InputInfo
 
 
 Private Function applyEdit()
@@ -11,13 +12,11 @@ Dim workInfo As New InputInfo
 Dim bResult As Boolean
 
     bResult = setTimeInfo(workInfo, txtStartTime.Text, txtEndTime.Text)
-    If bResult = False Then
-        MessageBox.Show("Invalid Input")
-        applyEdit = False
-        Exit Function
-    End If
 
-    copyInputInfo(m_currentInfo, workInfo)
+    If m_savedInfo Is Nothing Then
+        m_savedInfo = New InputInfo()
+    End If
+    copyInputInfo(m_savedInfo, workInfo)
 
     applyEdit = bResult
 End Function
@@ -81,9 +80,8 @@ Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles _
 ''    「OK」ボタンのクリックイベントハンドラ
 ''--------------------------------------------------------------------
 
-    If applyEdit() = False Then
-        Exit Sub
-    End If
+    applyEdit()
+    copyInputInfo(m_currentInfo, m_savedInfo)
 
     Me.DialogResult = DialogResult.OK
     Me.Close()
