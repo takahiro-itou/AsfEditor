@@ -72,6 +72,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
     msgAns = MessageBox.Show(
         "途中で保存されたデータがあります。" & vbCrLf &
         "そのデータを採用しますか？",
+        "Discard Modifications",
         MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
 
     If (msgAns = Windows.Forms.DialogResult.Cancel) Then
