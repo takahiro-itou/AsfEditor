@@ -78,7 +78,7 @@ End Sub
 Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles _
             btnOK.Click
 ''--------------------------------------------------------------------
-''
+''    「OK」ボタンのクリックイベントハンドラ
 ''--------------------------------------------------------------------
 
     If applyEdit() = False Then
