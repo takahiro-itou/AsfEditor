@@ -112,12 +112,16 @@ Dim msFirstPos As Long
 End Function
 
 
-Private Sub setPositionMiliSeconds(ByVal msCurPos As Long)
+Private Sub setPositionMiliSeconds(ByVal msCurPos As Long, ByVal bSeek As Boolean)
 Dim tsPos As String
 
     If m_msVideoLength <= msCurPos Then
         tmrVideo.Enabled = False
         msCurPos = m_msVideoLength
+    End If
+
+    If bSeek Then
+        m_workVideo.seekVideo(msCurPos)
     End If
 
     tsPos = getTimeTextFromMiliSeconds(msCurPos)
@@ -158,10 +162,10 @@ Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
             btnForward.Click
 
     If (m_msCurPosition >= m_msVideoLength - 100) Then
-        setPositionMiliSeconds(m_msVideoLength)
+        setPositionMiliSeconds(m_msVideoLength, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition + 100)
+    setPositionMiliSeconds(m_msCurPosition + 100, True)
 
 End Sub
 
@@ -192,10 +196,10 @@ Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
             btnRewind.Click
 
     If (m_msCurPosition <= 100) Then
-        setPositionMiliSeconds(0)
+        setPositionMiliSeconds(0, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition - 100)
+    setPositionMiliSeconds(m_msCurPosition - 100, True)
 
 End Sub
 
@@ -206,8 +210,7 @@ Dim msNewPos As Long
 
     tmrVideo.Enabled = False
     msNewPos = getMiliSeconds(txtEndTime.Text)
-    m_workVideo.seekVideo(msNewPos)
-    setPositionMiliSeconds(msNewPos)
+    setPositionMiliSeconds(msNewPos, True)
 
 End Sub
 
@@ -217,8 +220,7 @@ Dim msNewPos As Long
 
     tmrVideo.Enabled = False
     msNewPos = getMiliSeconds(txtStartTime.Text)
-    m_workVideo.seekVideo(msNewPos)
-    setPositionMiliSeconds(msNewPos)
+    setPositionMiliSeconds(msNewPos, True)
 
 End Sub
 
@@ -241,9 +243,10 @@ Dim msCurPos As Long
 
     tmrVideo.Enabled = False
     With m_workVideo
+        .stopVideo()
         msCurPos = .getCurrentPosition()
     End With
-    setPositionMiliSeconds(msCurPos)
+    setPositionMiliSeconds(msCurPos, False)
 
 End Sub
 
@@ -258,7 +261,7 @@ Dim msCurPos As Long
     With m_workVideo
         msCurPos = .getCurrentPosition()
     End With
-    setPositionMiliSeconds(msCurPos)
+    setPositionMiliSeconds(msCurPos, False)
 
 End Sub
 
