@@ -170,6 +170,7 @@ Public Function sendMciCommand(
 ''--------------------------------------------------------------------
 Dim commandResult As Integer
 Dim textBuf As System.Text.StringBuilder
+Dim errMsg As String
 
     textBuf = New System.Text.StringBuilder(512)
     commandResult = mciSendString(mciCmd, textBuf, textBuf.Capacity, IntPtr.Zero)
