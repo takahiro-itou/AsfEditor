@@ -84,6 +84,20 @@ End Sub
 ''    メンバ関数
 ''========================================================================
 
+Private Function getMciError(ByVal fdwError As Integer) As String
+''--------------------------------------------------------------------
+''    MCI エラー文字列を取得する
+''--------------------------------------------------------------------
+Dim textBuf As System.Text.StringBuilder
+Dim errorText As String
+
+    textBuf = New System.Text.StringBuilder(512)
+    mciGetErrorString(fdwError, textBuf, textBuf.Capacity)
+    errorText = textBuf.ToString()
+    getMciError = errorText
+End Function
+
+
 Public Function getVideoGuid(ByVal videoId As Integer) As String
 ''--------------------------------------------------------------------
 ''    ビデオにユニークな文字列を割り当てる
@@ -122,10 +136,35 @@ Dim errMsg As String
     cmd = "open """ + m_asfFileName + """ alias " + m_aliasName
     result = mciSendString(cmd, Nothing, 0, IntPtr.Zero)
     If result <> 0 Then
-        m_lastError = errMsg
         openAsfFile = OpenErrorCode.FILE_NOT_FOUND
         Exit Function
     End If
+
+End Function
+
+
+Public Function sendMciCommand(
+        ByVal mciCmd As String) As Boolean
+''--------------------------------------------------------------------
+''    MCI コマンド文字列を送信する
+''--------------------------------------------------------------------
+Dim commandResult As Integer
+Dim errMsg As String
+
+    commandResult = mciSendString(mciCmd, Nothing, 0, IntPtr.Zero)
+    If commandResult <> 0 Then
+        errMsg = getMciError(commandResult)
+        m_lastError = m_lastError & vbCrLf
+        sendMciCommand = commandResult
+        Exit Function
+    End If
+
+    sendMciCommand = commandResult
+End Function
+
+
+Public Function sendMciCommand(
+        ByVal mciCmd As String, ByRef retStr) As Boolean
 
 End Function
 
