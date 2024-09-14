@@ -114,7 +114,7 @@ Dim errMsg As String
 
     If m_aliasName = "" Then
         ' インスタンスが未初期化
-        openAsfFile = NOT_INITIALIZED
+        openAsfFile = OpenErrorCode.NOT_INITIALIZED
         Exit Function
     End If
 
@@ -123,7 +123,8 @@ Dim errMsg As String
     result = mciSendString(cmd, Nothing, 0, IntPtr.Zero)
     If result <> 0 Then
         m_lastError = errMsg
-        openAsfFile = FILE_NOT_FOUND
+        openAsfFile = OpenErrorCode.FILE_NOT_FOUND
+        Exit Function
     End If
 
 End Function
