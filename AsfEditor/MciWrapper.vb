@@ -29,7 +29,7 @@ End Function
 
 Public Enum OpenErrorCode
     SUCCESS = 0
-    ERR_FAILURE
+    FAILURE
     NOT_INITIALIZED
     FILE_NOT_FOUND
 End Enum
@@ -83,6 +83,38 @@ End Sub
 ''========================================================================
 ''    メンバ関数
 ''========================================================================
+
+Public Function bindToPictureBox(
+        ByVal targetWindow As PictureBox) As Boolean
+''--------------------------------------------------------------------
+''    指定したピクチャボックスにビューを割り当てる
+''--------------------------------------------------------------------
+Dim cmd As String
+Dim result As Integer
+Dim errMsg As String
+Dim cs As Drawing.Size = PictureBox1.ClientSize
+
+    cmd = "window " & m_aliasName & " handle " & targetWindow.Handle.ToString
+    result = sendMciCommand(cmd)
+    If result <> 0 Then
+        errMsg = getMciError(result)
+        bindToPictureBox = False
+        Exit Function
+    End If
+
+    cs = PictureBox1.ClientSize
+    cmd = String.Format("put {0} destination at 0 0 {1} {2}",
+            m_aliasName, cs.Width, cs.Height)
+    result = sendMciCommand(cmd)
+    If result <> 0 Then
+        errMsg = getMciError(result)
+        bindToPictureBox = False
+        Exit Function
+    End If
+
+    bindToPictureBox = True
+End Function
+
 
 Private Function getMciError(ByVal fdwError As Integer) As String
 ''--------------------------------------------------------------------
@@ -140,6 +172,29 @@ Dim errMsg As String
         Exit Function
     End If
 
+    openAsfFile = OpenErrorCode.SUCCESS
+End Function
+
+
+Public Function openAsfFile(
+        ByVal targetWindow As PictureBox) As OpenErrorCode
+''--------------------------------------------------------------------
+''    ファイルを開く
+''--------------------------------------------------------------------
+Dim result As OpenErrorCode
+
+    result = openAsfFile()
+    If (result <> OpenErrorCode.SUCCESS) Then
+        openAsfFile = result
+        Exit Function
+    End If
+
+    If bindToPictureBox(targetWindow) = False Then
+        openAsfFile = OpenErrorCode.FAILURE
+        Exit Function
+    End If
+
+    openAsfFile = True
 End Function
 
 
