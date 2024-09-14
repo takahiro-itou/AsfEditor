@@ -35,7 +35,7 @@ Dim msVideoLen As Long
         .msLength = msVideoLen
         .sStartTime = "00:00:00.000"
         .sEndTime = getTimeTextFromMiliSeconds(msVideoLen)
-        .sTimeDuration = ""
+        .sTimeDuration = .sEndTime
         .bConcat = True
     End With
 
