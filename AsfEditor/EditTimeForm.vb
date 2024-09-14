@@ -76,7 +76,7 @@ End Function
 
 Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''--------------------------------------------------------------------
-''
+''    設定内容を読み書きするインスタンスを指定する
 ''--------------------------------------------------------------------
 
     m_currentInfo = targetInfo
