@@ -32,6 +32,7 @@ Private m_videoId As Integer
 Private m_aliasName As String
 
 Private m_videoLength As Long
+Private m_curPosition As Long
 
 
 ''========================================================================
@@ -43,11 +44,31 @@ Private m_videoLength As Long
 ''    プロパティプロシージャ
 ''========================================================================
 
+Public Sub New()
+    m_asfFileName = ""
+    m_videoId = -1
+    m_aliasName = ""
+
+    m_videoLength = 0
+    m_curPosition = 0
+End Sub
+
+Public Sub New(ByVal asfFileName As String)
+    MyClass.New()
+    setFileName(asfFileName)
+    setVideoId(-1)
+End Sub
+
+Public Sub New(ByVal asfFileName As String, ByVal videoId As Integer)
+    MyClass.New()
+    setFileName(asfFileName)
+    setVideoId(videoId)
+End Sub
+
 
 ''========================================================================
 ''    メンバ関数
 ''========================================================================
-
 
 Public Function getVideoGuid(ByVal videoId As Integer) As String
 ''--------------------------------------------------------------------
@@ -68,13 +89,21 @@ Dim resultText As String
     getVideoGuid = resultText
 End Function
 
+
 Public Sub setFileName(ByVal asfFileName As String)
+''--------------------------------------------------------------------
+''    このインスタンスで扱うファイルを指定する
+''--------------------------------------------------------------------
     m_asfFileName = asfFileName
 End Sub
 
+
 Public Sub setVideoId(ByVal videoId As Integer)
+''--------------------------------------------------------------------
+''    このインスタンスで扱うビデオの ID を指定する
+''--------------------------------------------------------------------
     m_videoId = videoId
-    m_aliasName = String.Format("vid{0:000001}", videoId)
+    m_aliasName = getVideoGuid(videoId)
 End Sub
 
 
