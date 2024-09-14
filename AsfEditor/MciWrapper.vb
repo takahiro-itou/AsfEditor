@@ -1,5 +1,10 @@
 Public Class MciWrapper
 
+
+''========================================================================
+''    API 宣言
+''========================================================================
+
 <System.Runtime.InteropServices.DllImport("winmm.dll",
     CharSet:=System.Runtime.InteropServices.CharSet.Auto)>
 Private Shared Function mciSendString(
@@ -16,6 +21,16 @@ Private Shared Function mciGetErrorString(
         ByVal lpszErrorText As System.Text.StringBuilder,
         ByVal cchErrorText As Integer) As Integer
 End Function
+
+
+''========================================================================
+''    メンバ変数宣言
+''========================================================================
+
+Private m_asfFileName As String
+Private m_aliasName As String
+
+Private m_videoLength As Long
 
 
 End Class
