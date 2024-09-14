@@ -263,7 +263,7 @@ Public Function playVideo() As Integer
 Dim cmd As String
 
     cmd = "play " & m_aliasName
-    stopVideo = sendMciCommand(cmd)
+    playVideo = sendMciCommand(cmd)
 End Function
 
 

@@ -21,11 +21,11 @@ Dim msVideoLen As Long
     ReDim Preserve m_viInputList(m_nInputCount)
     m_nInputCount = m_nInputCount + 1
 
-    videoLen = 0
+    msVideoLen = 0
     With m_workVideo
         .setFileName(fileName)
         .openAsfFile()
-        mvVideoLen = .getVideoLength()
+        msVideoLen = .getVideoLength()
     End With
 
     m_viInputList(trgIndex) = New InputInfo()
