@@ -24,6 +24,18 @@ End Function
 
 
 ''========================================================================
+''    型宣言
+''========================================================================
+
+Public Enum OpenErrorCode
+    SUCCESS = 0
+    ERR_FAILURE
+    NOT_INITIALIZED
+    FILE_NOT_FOUND
+End Enum
+
+
+''========================================================================
 ''    メンバ変数宣言
 ''========================================================================
 
@@ -33,6 +45,8 @@ Private m_aliasName As String
 
 Private m_videoLength As Long
 Private m_curPosition As Long
+
+Private m_lastError As String
 
 
 ''========================================================================
@@ -87,6 +101,31 @@ Dim resultText As String
 
     resultText = String.Format("vid{0:000000}-{1}", videoId, guidString)
     getVideoGuid = resultText
+End Function
+
+
+Public Function openAsfFile() As OpenErrorCode
+''--------------------------------------------------------------------
+''    ファイルを開く
+''--------------------------------------------------------------------
+Dim cmd As String
+Dim result As Integer
+Dim errMsg As String
+
+    If m_aliasName = "" Then
+        ' インスタンスが未初期化
+        openAsfFile = NOT_INITIALIZED
+        Exit Function
+    End If
+
+    ' ファイルを開く
+    cmd = "open """ + m_asfFileName + """ alias " + m_aliasName
+    result = mciSendString(cmd, Nothing, 0, IntPtr.Zero)
+    If result <> 0 Then
+        m_lastError = errMsg
+        openAsfFile = FILE_NOT_FOUND
+    End If
+
 End Function
 
 
