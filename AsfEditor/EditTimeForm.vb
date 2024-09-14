@@ -38,6 +38,42 @@ Private Sub copyInputInfo( _
 End Sub
 
 
+Private Function handleCancelButton() As Boolean
+''--------------------------------------------------------------------
+''    キャンセルボタンを押したときの処理
+''
+''    一時保存されたデータがあるか確認し、
+''  それは採用するか、それも破棄するかダイアログを表示する。
+''  その時にキャンセルを選んだ場合は、
+''  フォームを閉じるのを取り消して、このフォームに留まる。
+''
+''  @retval     True  : フォームを閉じる処理を継続
+''  @retval     False : 閉じる処理をキャンセルした
+''--------------------------------------------------------------------
+Dim msgAns As System.Windows.Forms.DialogResult
+
+    msgAns = MessageBox.Show(
+        "途中で保存されたデータがあります。" & vbCrLf &
+        "そのデータを採用しますか？",
+        "Discard Modifications",
+        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+
+    If (msgAns = Windows.Forms.DialogResult.Cancel) Then
+        ' キャンセルされたのでダイアログを閉じるのをやめる
+        handleCancelButton = False
+        Exit Function
+    End If
+
+    If (msgAns =  Windows.Forms.DialogResult.No)
+        Me.DialogResult = DialogResult.Cancel
+    Else
+        Me.DialogResult = DialogResult.OK
+    End If
+    handleCancelButton = True
+
+End Function
+
+
 Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''--------------------------------------------------------------------
 ''
@@ -65,22 +101,17 @@ End Sub
 Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles _
             btnCancel.Click
 ''--------------------------------------------------------------------
-''
+''    「キャンセル」ボタンのクリックイベントハンドラ
 ''--------------------------------------------------------------------
-Dim msgAns As System.Windows.Forms.DialogResult
+Dim bClosing As Boolean
 
-    msgAns = MessageBox.Show(
-        "途中で保存されたデータがあります。" & vbCrLf &
-        "そのデータを採用しますか？",
-        "Discard Modifications",
-        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
-
-    If (msgAns = Windows.Forms.DialogResult.Cancel) Then
-        ' キャンセルされたのでダイアログを閉じるのをやめる
+    bClosing = handleCancelButton()
+    If (bClosing = False) Then
         Exit Sub
     End If
 
-    Me.DialogResult = DialogResult.Cancel
+    ' 上記の関数内で、ダイアログの戻り値は設定済みなので
+    ' ここに来た時は、フォームだけ閉じればよい。
     Me.Close()
 
 End Sub
