@@ -89,6 +89,17 @@ End Property
 ''    メンバ関数
 ''========================================================================
 
+Public Function closeVideo() As Integer
+''--------------------------------------------------------------------
+''    現在操作しているビデオを閉じる
+''--------------------------------------------------------------------
+Dim cmd As String
+
+    cmd = "close " & m_aliasName
+    closeVideo = sendMciCommand(cmd)
+End Function
+
+
 Public Function bindToPictureBox(
         ByVal targetWindow As PictureBox) As Boolean
 ''--------------------------------------------------------------------
@@ -132,7 +143,7 @@ Dim resText As String
         m_videoLength = parseTimeValue(resText)
     End If
 
-    getVideoLength = m_videoLength
+    getCurrentPosition = m_videoLength
 
 End Function
 

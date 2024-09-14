@@ -7,23 +7,34 @@ Private m_viInputList() As InputInfo
 ' 変更があったかどうかを示すフラグ
 Private m_flagModified As Boolean
 
+Private m_workVideo As New MciWrapper("", 0)
+
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
 ''    ファイルをリストに追加する
 ''--------------------------------------------------------------------
 Dim trgIndex As Integer
+Dim msVideoLen As Long
 
     trgIndex = m_nInputCount
     ReDim Preserve m_viInputList(m_nInputCount)
     m_nInputCount = m_nInputCount + 1
 
+    videoLen = 0
+    With m_workVideo
+        .setFileName(fileName)
+        .openAsfFile()
+        mvVideoLen = .getVideoLength()
+    End With
+
     m_viInputList(trgIndex) = New InputInfo()
     With m_viInputList(trgIndex)
         .bValidData = False
         .sFileName = fileName
+        .msLength = msVideoLen
         .sStartTime = "00:00:00.000"
-        .sEndTime = "00:00:00.000"
+        .sEndTime = getTimeTextFromMiliSeconds(msVideoLen)
         .sTimeDuration = ""
         .bConcat = True
     End With
