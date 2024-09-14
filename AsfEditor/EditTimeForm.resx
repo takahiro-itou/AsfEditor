@@ -515,6 +515,16 @@
     <value>0</value>
   </data>
 
+  <metadata name="tmrVideo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="&gt;&gt;tmrVideo.Name" xml:space="preserve">
+    <value>tmrVideo</value>
+  </data>
+  <data name="&gt;&gt;tmrVideo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+
   <data name="&gt;&gt;trbPos.Name" xml:space="preserve">
     <value>trbPos</value>
   </data>

@@ -22,6 +22,7 @@ Partial Class EditTimeForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = _
             New System.ComponentModel.ComponentResourceManager(GetType(EditTimeForm))
 
@@ -44,6 +45,7 @@ Partial Class EditTimeForm
         btnCancel = New Button()
         Label2 = New Label()
 
+        tmrVideo = New Timer(components)
         CType(picVideo, ComponentModel.ISupportInitialize).BeginInit()
         CType(trbPos, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -154,6 +156,10 @@ Partial Class EditTimeForm
         btnCancel.UseVisualStyleBackColor = True
 
         '
+        ' tmrVideo
+        '
+
+        '
         ' EditTimeForm
         '
         AcceptButton = btnOK
@@ -203,5 +209,6 @@ Partial Class EditTimeForm
     Friend WithEvents btnApply As Button
     Friend WithEvents btnOK As Button
     Friend WithEvents btnCancel As Button
+    Friend WithEvents tmrVideo As Timer
 
 End Class

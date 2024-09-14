@@ -132,4 +132,12 @@ Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles _
 End Sub
 
 
+Private Sub tmrVideo_Tick(sender As Object, e As EventArgs) Handles _
+            tmrVideo.Tick
+''--------------------------------------------------------------------
+''    タイマーのイベントハンドラ
+''--------------------------------------------------------------------
+
+End Sub
+
 End Class
