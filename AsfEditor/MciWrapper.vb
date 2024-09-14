@@ -28,9 +28,34 @@ End Function
 ''========================================================================
 
 Private m_asfFileName As String
+Private m_videoId As Integer
 Private m_aliasName As String
 
 Private m_videoLength As Long
+
+
+''========================================================================
+''    コンストラクタとデストラクタ
+''========================================================================
+
+
+''========================================================================
+''    プロパティプロシージャ
+''========================================================================
+
+
+''========================================================================
+''    メンバ関数
+''========================================================================
+
+Public Sub setFileName(ByVal asfFileName As String)
+    m_asfFileName = asfFileName
+End Sub
+
+Public Sub setVideoId(ByVal videoId As Integer)
+    m_videoId = videoId
+    m_aliasName = String.Format("vid{0:000001}", videoId)
+End Sub
 
 
 End Class
