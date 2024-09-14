@@ -48,6 +48,26 @@ Private m_videoLength As Long
 ''    メンバ関数
 ''========================================================================
 
+
+Public Function getVideoGuid(ByVal videoId As Integer) As String
+''--------------------------------------------------------------------
+''    ビデオにユニークな文字列を割り当てる
+''--------------------------------------------------------------------
+Dim videoGuid As Guid
+Dim guidString As String
+Dim resultText As String
+
+    videoGuid = System.Guid.NewGuid()
+    guidString = videoGuid.ToString()
+    If (videoId < 0) Then
+        getVideoGuid = guidString
+        Exit Function
+    End If
+
+    resultText = String.Format("vid{0:000000}-{1}", videoId, guidString)
+    getVideoGuid = resultText
+End Function
+
 Public Sub setFileName(ByVal asfFileName As String)
     m_asfFileName = asfFileName
 End Sub
