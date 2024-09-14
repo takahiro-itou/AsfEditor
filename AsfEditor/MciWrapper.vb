@@ -92,7 +92,7 @@ Public Function bindToPictureBox(
 Dim cmd As String
 Dim result As Integer
 Dim errMsg As String
-Dim cs As Drawing.Size = PictureBox1.ClientSize
+Dim cs As Drawing.Size
 
     cmd = "window " & m_aliasName & " handle " & targetWindow.Handle.ToString
     result = sendMciCommand(cmd)
@@ -102,7 +102,7 @@ Dim cs As Drawing.Size = PictureBox1.ClientSize
         Exit Function
     End If
 
-    cs = PictureBox1.ClientSize
+    cs = targetWindow.ClientSize
     cmd = String.Format("put {0} destination at 0 0 {1} {2}",
             m_aliasName, cs.Width, cs.Height)
     result = sendMciCommand(cmd)
