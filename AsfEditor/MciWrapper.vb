@@ -164,8 +164,24 @@ End Function
 
 
 Public Function sendMciCommand(
-        ByVal mciCmd As String, ByRef retStr) As Boolean
+        ByVal mciCmd As String, ByRef retStr As String) As Boolean
+''--------------------------------------------------------------------
+''    MCI コマンド文字列を送信し結果を得る
+''--------------------------------------------------------------------
+Dim commandResult As Integer
+Dim textBuf As System.Text.StringBuilder
 
+    textBuf = New System.Text.StringBuilder(512)
+    commandResult = mciSendString(mciCmd, textBuf, textBuf.Capacity, IntPtr.Zero)
+    If commandResult <> 0 Then
+        errMsg = getMciError(commandResult)
+        m_lastError = m_lastError & vbCrLf
+        sendMciCommand = commandResult
+        Exit Function
+    End If
+
+    retStr = textBuf.ToString()
+    sendMciCommand = commandResult
 End Function
 
 
