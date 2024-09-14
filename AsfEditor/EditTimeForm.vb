@@ -85,12 +85,14 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''    設定内容を読み書きするインスタンスを指定する
 ''--------------------------------------------------------------------
 Dim fileName As String
+Dim msFirstPos As Long
 
     m_currentInfo = targetInfo
     With m_currentInfo
         fileName = .sFileName
         txtStartTime.Text = .sStartTime
         txtEndTime.Text = .sEndTime
+        msFirstPos = getMiliSeconds(.sStartTime)
     End With
 
     If m_workVideo Is Nothing
@@ -103,7 +105,7 @@ Dim fileName As String
         m_msVideoLength = .getVideoLength()
         m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
 
-        .seekVideo(getMiliSeconds(.sStartTime))
+        .seekVideo(msFirstPos)
     End With
 
     setTargetInfo = True
@@ -112,6 +114,11 @@ End Function
 
 Private Sub setPositionMiliSeconds(ByVal msCurPos As Long)
 Dim tsPos As String
+
+    If m_msVideoLength <= msCurPos Then
+        tmrVideo.Enabled = False
+        msCurPos = m_msVideoLength
+    End If
 
     tsPos = getTimeTextFromMiliSeconds(msCurPos)
     lblPos.Text = String.Format("{0} / {1}", tsPos, m_sLengthText)
@@ -177,6 +184,7 @@ End Sub
 Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles _
             btnPlay.Click
     m_workVideo.playVideo()
+    tmrVideo.Enabled = True
 End Sub
 
 
@@ -197,7 +205,7 @@ Private Sub btnSeekEnd_Click(sender As Object, e As EventArgs) Handles _
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
-    msNewPos = getMiliSeconds(txtEnd.Text)
+    msNewPos = getMiliSeconds(txtEndTime.Text)
     m_workVideo.seekVideo(msNewPos)
     setPositionMiliSeconds(msNewPos)
 
@@ -208,7 +216,7 @@ Private Sub btnSeekStart_Click(sender As Object, e As EventArgs) Handles _
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
-    msNewPos = getMiliSeconds(txtStart.Text)
+    msNewPos = getMiliSeconds(txtStartTime.Text)
     m_workVideo.seekVideo(msNewPos)
     setPositionMiliSeconds(msNewPos)
 
