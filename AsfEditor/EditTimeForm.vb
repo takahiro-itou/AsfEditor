@@ -3,6 +3,12 @@
 Private m_currentInfo As InputInfo
 Private m_savedInfo As InputInfo
 
+Private m_workVideo As MciWrapper
+Private m_msVideoLength As Long
+Private m_sLengthText As String
+
+Private m_msCurPosition As Long
+
 
 Private Function applyEdit()
 ''--------------------------------------------------------------------
@@ -78,15 +84,50 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''--------------------------------------------------------------------
 ''    設定内容を読み書きするインスタンスを指定する
 ''--------------------------------------------------------------------
+Dim fileName As String
+Dim msFirstPos As Long
 
     m_currentInfo = targetInfo
     With m_currentInfo
+        fileName = .sFileName
         txtStartTime.Text = .sStartTime
         txtEndTime.Text = .sEndTime
+        msFirstPos = getMiliSeconds(.sStartTime)
+    End With
+
+    If m_workVideo Is Nothing
+        m_workVideo = New MciWrapper("", 1)
+    End If
+    With m_workVideo
+        .setFileName(fileName)
+        .openAsfFile(picVideo)
+
+        m_msVideoLength = .getVideoLength()
+        m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
+
+        .seekVideo(msFirstPos)
     End With
 
     setTargetInfo = True
 End Function
+
+
+Private Sub setPositionMiliSeconds(ByVal msCurPos As Long, ByVal bSeek As Boolean)
+Dim tsPos As String
+
+    If m_msVideoLength <= msCurPos Then
+        tmrVideo.Enabled = False
+        msCurPos = m_msVideoLength
+    End If
+
+    If bSeek Then
+        m_workVideo.seekVideo(msCurPos)
+    End If
+
+    tsPos = getTimeTextFromMiliSeconds(msCurPos)
+    lblPos.Text = String.Format("{0} / {1}", tsPos, m_sLengthText)
+    m_msCurPosition = msCurPos
+End Sub
 
 
 Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles _
@@ -117,6 +158,18 @@ Dim bClosing As Boolean
 End Sub
 
 
+Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
+            btnForward.Click
+
+    If (m_msCurPosition >= m_msVideoLength - 100) Then
+        setPositionMiliSeconds(m_msVideoLength, True)
+        Exit Sub
+    End If
+    setPositionMiliSeconds(m_msCurPosition + 100, True)
+
+End Sub
+
+
 Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles _
             btnOK.Click
 ''--------------------------------------------------------------------
@@ -131,5 +184,85 @@ Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles _
 
 End Sub
 
+
+Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles _
+            btnPlay.Click
+    m_workVideo.playVideo()
+    tmrVideo.Enabled = True
+End Sub
+
+
+Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
+            btnRewind.Click
+
+    If (m_msCurPosition <= 100) Then
+        setPositionMiliSeconds(0, True)
+        Exit Sub
+    End If
+    setPositionMiliSeconds(m_msCurPosition - 100, True)
+
+End Sub
+
+
+Private Sub btnSeekEnd_Click(sender As Object, e As EventArgs) Handles _
+            btnSeekEnd.Click
+Dim msNewPos As Long
+
+    tmrVideo.Enabled = False
+    msNewPos = getMiliSeconds(txtEndTime.Text)
+    setPositionMiliSeconds(msNewPos, True)
+
+End Sub
+
+Private Sub btnSeekStart_Click(sender As Object, e As EventArgs) Handles _
+            btnSeekStart.Click
+Dim msNewPos As Long
+
+    tmrVideo.Enabled = False
+    msNewPos = getMiliSeconds(txtStartTime.Text)
+    setPositionMiliSeconds(msNewPos, True)
+
+End Sub
+
+
+Private Sub btnSetEnd_Click(sender As Object, e As EventArgs) Handles _
+            btnSetEnd.Click
+    txtEndTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
+End Sub
+
+
+Private Sub btnSetStart_Click(sender As Object, e As EventArgs) Handles _
+            btnSetStart.Click
+    txtStartTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
+End Sub
+
+
+Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles _
+            btnStop.Click
+Dim msCurPos As Long
+
+    tmrVideo.Enabled = False
+    With m_workVideo
+        .stopVideo()
+        msCurPos = .getCurrentPosition()
+    End With
+    setPositionMiliSeconds(msCurPos, False)
+
+End Sub
+
+
+Private Sub tmrVideo_Tick(sender As Object, e As EventArgs) Handles _
+            tmrVideo.Tick
+''--------------------------------------------------------------------
+''    タイマーのイベントハンドラ
+''--------------------------------------------------------------------
+Dim msCurPos As Long
+
+    With m_workVideo
+        msCurPos = .getCurrentPosition()
+    End With
+    setPositionMiliSeconds(msCurPos, False)
+
+End Sub
 
 End Class
