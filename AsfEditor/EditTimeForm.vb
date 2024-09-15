@@ -278,6 +278,21 @@ Dim msCurPos As Long
 End Sub
 
 
+Private Sub EditTimeForm_Closed(sender As Object, e As EventArgs) Handles _
+            Me.Closed
+''--------------------------------------------------------------------
+''    フォームが閉じられた時のイベントハンドラ
+''--------------------------------------------------------------------
+
+    With m_workVideo
+        .stopVideo()
+        .closeVideo()
+    End With
+    m_workVideo = Nothing
+
+End Sub
+
+
 Private Sub tmrVideo_Tick(sender As Object, e As EventArgs) Handles _
             tmrVideo.Tick
 ''--------------------------------------------------------------------
