@@ -269,7 +269,7 @@
     <value>Bottom</value>
   </data>
   <data name="btnSeekEnd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>376, 320</value>
+    <value>248, 320</value>
   </data>
   <data name="btnSeekEnd.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 24</value>
@@ -565,7 +565,7 @@
     <value>Bottom</value>
   </data>
   <data name="txtEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 324</value>
+    <value>288, 324</value>
   </data>
   <data name="txtEndTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 19</value>
