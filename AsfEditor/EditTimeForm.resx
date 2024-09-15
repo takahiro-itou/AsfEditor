@@ -492,6 +492,31 @@
     <value>MiddleCenter</value>
   </data>
 
+  <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>119, 17</value>
+  </metadata>
+  <data name="&gt;&gt;mnuMain.Name" xml:space="preserve">
+    <value>mnuMain</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuMain.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="mnuMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mnuMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 24</value>
+  </data>
+  <data name="mnuMain.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+
   <data name="&gt;&gt;picVideo.Name" xml:space="preserve">
     <value>picVideo</value>
   </data>
@@ -514,6 +539,53 @@
     <value>240, 135</value>
   </data>
   <data name="picVideo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+
+  <data name="&gt;&gt;pnlDialog.Name" xml:space="preserve">
+    <value>pnlDialog</value>
+  </data>
+  <data name="&gt;&gt;pnlDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlDialog.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlDialog.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlDialog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="pnlDialog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 388</value>
+  </data>
+  <data name="pnlDialog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 44</value>
+  </data>
+  <data name="pnlDialog.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+
+  <data name="&gt;&gt;pnlVideo.Name" xml:space="preserve">
+    <value>pnlVideo</value>
+  </data>
+  <data name="&gt;&gt;pnlVideo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlVideo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlVideo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pnlVideo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlVideo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>432, 213</value>
+  </data>
+  <data name="pnlVideo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
 
