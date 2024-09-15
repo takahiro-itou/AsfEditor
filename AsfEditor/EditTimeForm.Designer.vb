@@ -25,12 +25,16 @@ Partial Class EditTimeForm
         components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = _
             New System.ComponentModel.ComponentResourceManager(GetType(EditTimeForm))
+        mnuMain = New MenuStrip()
 
+        pnlVideo = New Panel()
         picVideo = New PictureBox()
         btnPlay = New Button()
         btnStop = New Button()
         trbPos = New TrackBar()
         lblPos = New Label()
+
+        fraNavigate = New GroupBox()
         btnSetStart = New Button()
         btnRewind = New Button()
         btnForward = New Button()
@@ -41,6 +45,8 @@ Partial Class EditTimeForm
         txtEndTime = New TextBox()
         btnSeekEnd = New Button()
         btnApply = New Button()
+
+        pnlDialog = NewPanel()
         btnOK = New Button()
         btnCancel = New Button()
         Label2 = New Label()
@@ -48,8 +54,17 @@ Partial Class EditTimeForm
         tmrVideo = New Timer(components)
         CType(picVideo, ComponentModel.ISupportInitialize).BeginInit()
         CType(trbPos, ComponentModel.ISupportInitialize).BeginInit()
+        mnuMain.SuspendLayout()
+        pnlVideo.SuspendLayout()
+        fraNavigate.SuspendLayout()
+        pnlDialog.SuspendLayout()
         SuspendLayout()
 
+        '
+        ' pnlVideo
+        '
+        resources.ApplyResources(pnlVideo, "pnlVideo")
+        pnlVideo.Name = "pnlVideo"
         '
         ' picVideo
         '
@@ -80,6 +95,12 @@ Partial Class EditTimeForm
         resources.ApplyResources(lblPos, "lblPos")
         lblPos.BackColor = SystemColors.Window
         lblPos.Name = "lblPos"
+        '
+        ' fraNavigate
+        '
+        resources.ApplyResources(fraNavigate, "fraNavigate")
+        fraNavigate.Name = "fraNavigate"
+        fraNavigate.TabStop = False
         '
         ' btnSetStart
         '
@@ -137,6 +158,11 @@ Partial Class EditTimeForm
         btnSeekEnd.Name = "btnSeekEnd"
         btnSeekEnd.UseVisualStyleBackColor = True
         '
+        ' pnlDialog
+        '
+        resources.ApplyResources(pnlDialog, "pnlDialog")
+        pnlDialog.Name = "pnlDialog"
+        '
         ' btnApply
         '
         resources.ApplyResources(btnApply, "btnApply")
@@ -165,11 +191,14 @@ Partial Class EditTimeForm
         AcceptButton = btnOK
         AutoScaleMode = AutoScaleMode.None
         resources.ApplyResources(Me, "$this")
+        Controls.Add(mnuMain)
+        Controls.Add(pnlVideo)
         Controls.Add(picVideo)
+        Controls.Add(trbPos)
         Controls.Add(btnPlay)
         Controls.Add(btnStop)
-        Controls.Add(trbPos)
         Controls.Add(lblPos)
+        Controls.Add(fraNavigate)
         Controls.Add(btnSetStart)
         Controls.Add(btnRewind)
         Controls.Add(btnForward)
@@ -180,22 +209,36 @@ Partial Class EditTimeForm
         Controls.Add(Label2)
         Controls.Add(txtEndTime)
         Controls.Add(btnSeekEnd)
+        Controls.Add(pnlDialog)
         Controls.Add(btnApply)
         Controls.Add(btnOK)
         Controls.Add(btnCancel)
+        MainMenuStrip = mnuMain
         Name = "EditTimeForm"
 
+        mnuMain.ResumeLayout(False)
+        mnuMain.PerformLayout()
+        pnlVideo.ResumeLayout(False)
+        pnlVideo.PerformLayout()
+        fraNavigate.ResumeLayout(False)
+        fraNavigate.PerformLayout()
+        pnlDialog.ResumeLayout(False)
+        pnlDialog.PerformLayout()
         CType(picVideo, ComponentModel.ISupportInitialize).EndInit()
         CType(trbPos, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
+    Friend WithEvents mnuMain As MenuStrip
+
+    Friend WithEvents pnlVideo As Panel
     Friend WithEvents picVideo As PictureBox
     Friend WithEvents trbPos As TrackBar
     Friend WithEvents btnPlay As Button
     Friend WithEvents btnStop As Button
     Friend WithEvents lblPos As Label
+    Friend WithEvents fraNavigate As GroupBox
     Friend WithEvents btnSetStart As Button
     Friend WithEvents btnRewind As Button
     Friend WithEvents btnForward As Button
@@ -206,6 +249,7 @@ Partial Class EditTimeForm
     Friend WithEvents Label2 As Label
     Friend WithEvents txtEndTime As TextBox
     Friend WithEvents btnSeekEnd As Button
+    Friend WithEvents pnlDialog As Panel
     Friend WithEvents btnApply As Button
     Friend WithEvents btnOK As Button
     Friend WithEvents btnCancel As Button
