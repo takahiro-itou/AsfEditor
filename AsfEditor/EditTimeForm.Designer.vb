@@ -103,6 +103,16 @@ Partial Class EditTimeForm
         '
         ' fraNavigate
         '
+        fraNavigate.Controls.Add(btnSetStart)
+        fraNavigate.Controls.Add(btnRewind)
+        fraNavigate.Controls.Add(btnForward)
+        fraNavigate.Controls.Add(btnSetEnd)
+        fraNavigate.Controls.Add(Label1)
+        fraNavigate.Controls.Add(txtStartTime)
+        fraNavigate.Controls.Add(btnSeekStart)
+        fraNavigate.Controls.Add(Label2)
+        fraNavigate.Controls.Add(txtEndTime)
+        fraNavigate.Controls.Add(btnSeekEnd)
         resources.ApplyResources(fraNavigate, "fraNavigate")
         fraNavigate.Name = "fraNavigate"
         fraNavigate.TabStop = False
@@ -202,16 +212,6 @@ Partial Class EditTimeForm
         Controls.Add(mnuMain)
         Controls.Add(pnlVideo)
         Controls.Add(fraNavigate)
-        Controls.Add(btnSetStart)
-        Controls.Add(btnRewind)
-        Controls.Add(btnForward)
-        Controls.Add(btnSetEnd)
-        Controls.Add(Label1)
-        Controls.Add(txtStartTime)
-        Controls.Add(btnSeekStart)
-        Controls.Add(Label2)
-        Controls.Add(txtEndTime)
-        Controls.Add(btnSeekEnd)
         Controls.Add(pnlDialog)
         MainMenuStrip = mnuMain
         Name = "EditTimeForm"
