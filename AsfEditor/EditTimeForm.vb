@@ -180,12 +180,15 @@ Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
 ''
 ''    100 ミリ秒だけ進める
 ''--------------------------------------------------------------------
+Dim msStep As Long
 
-    If (m_msCurPosition >= m_msVideoLength - 100) Then
+    msStep = CLng(Val(cmbStep.Text) * 1000)
+
+    If (m_msCurPosition >= m_msVideoLength - msStep) Then
         setPositionMiliSeconds(m_msVideoLength, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition + 100, True)
+    setPositionMiliSeconds(m_msCurPosition + msStep, True)
 
 End Sub
 
@@ -222,12 +225,14 @@ Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
 ''
 ''    100 ミリ秒だけ戻す
 ''--------------------------------------------------------------------
+Dim msStep As Long
 
-    If (m_msCurPosition <= 100) Then
+    msStep = CLng(Val(cmbStep.Text) * 1000)
+    If (m_msCurPosition <= msStpe) Then
         setPositionMiliSeconds(0, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition - 100, True)
+    setPositionMiliSeconds(m_msCurPosition - msStep, True)
 
 End Sub
 
@@ -316,6 +321,25 @@ Private Sub EditTimeForm_Closed(sender As Object, e As EventArgs) Handles _
     End With
     m_workVideo = Nothing
 
+End Sub
+
+
+Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
+        MyBase.Load
+''--------------------------------------------------------------------
+''    フォームがロードされた時のイベントハンドラ
+''--------------------------------------------------------------------
+
+    With cmbStep
+        With .Items
+            .Clear()
+            .Add(" 0.100 s")
+            .Add("12.000 s")
+            .Add("30.000 s")
+            .Add("60.000 s")
+        End With
+        .SelectedIndex = 0
+    End With
 End Sub
 
 
