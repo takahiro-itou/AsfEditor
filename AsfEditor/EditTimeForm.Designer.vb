@@ -63,6 +63,11 @@ Partial Class EditTimeForm
         '
         ' pnlVideo
         '
+        pnlVideo.Controls.Add(picVideo)
+        pnlVideo.Controls.Add(trbPos)
+        pnlVideo.Controls.Add(btnPlay)
+        pnlVideo.Controls.Add(btnStop)
+        pnlVideo.Controls.Add(lblPos)
         resources.ApplyResources(pnlVideo, "pnlVideo")
         pnlVideo.Name = "pnlVideo"
         '
@@ -160,6 +165,9 @@ Partial Class EditTimeForm
         '
         ' pnlDialog
         '
+        pnlDialog.Controls.Add(btnApply)
+        pnlDialog.Controls.Add(btnOK)
+        pnlDialog.Controls.Add(btnCancel)
         resources.ApplyResources(pnlDialog, "pnlDialog")
         pnlDialog.Name = "pnlDialog"
         '
@@ -193,11 +201,6 @@ Partial Class EditTimeForm
         resources.ApplyResources(Me, "$this")
         Controls.Add(mnuMain)
         Controls.Add(pnlVideo)
-        Controls.Add(picVideo)
-        Controls.Add(trbPos)
-        Controls.Add(btnPlay)
-        Controls.Add(btnStop)
-        Controls.Add(lblPos)
         Controls.Add(fraNavigate)
         Controls.Add(btnSetStart)
         Controls.Add(btnRewind)
@@ -210,9 +213,6 @@ Partial Class EditTimeForm
         Controls.Add(txtEndTime)
         Controls.Add(btnSeekEnd)
         Controls.Add(pnlDialog)
-        Controls.Add(btnApply)
-        Controls.Add(btnOK)
-        Controls.Add(btnCancel)
         MainMenuStrip = mnuMain
         Name = "EditTimeForm"
 
