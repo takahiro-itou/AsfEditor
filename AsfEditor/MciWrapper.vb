@@ -192,12 +192,14 @@ Dim ret As Integer
 Dim resText As String
 
     cmd = "status " & m_aliasName & " length"
+    resText = ""
     ret = sendMciCommand(cmd, resText)
     If ret = 0 Then
         m_videoLength = parseTimeValue(resText)
     End If
 
     getVideoLength = m_videoLength
+
 End Function
 
 
