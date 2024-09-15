@@ -58,6 +58,13 @@ Private Function handleCancelButton() As Boolean
 ''--------------------------------------------------------------------
 Dim msgAns As System.Windows.Forms.DialogResult
 
+    If m_savedInfo Is Nothing Then
+        ' 一時保存されたデータはない
+        Me.DialogResult = DialogResult.Cancel
+        handleCancelButton = True
+        Exit Function
+    End If
+
     msgAns = MessageBox.Show(
         "途中で保存されたデータがあります。" & vbCrLf &
         "そのデータを採用しますか？",
@@ -73,6 +80,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
     If (msgAns =  Windows.Forms.DialogResult.No)
         Me.DialogResult = DialogResult.Cancel
     Else
+        copyInputInfo(m_currentInfo, m_savedInfo)
         Me.DialogResult = DialogResult.OK
     End If
     handleCancelButton = True
