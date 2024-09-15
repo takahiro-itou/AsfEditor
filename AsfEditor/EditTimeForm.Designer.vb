@@ -46,7 +46,7 @@ Partial Class EditTimeForm
         btnSeekEnd = New Button()
         btnApply = New Button()
 
-        pnlDialog = NewPanel()
+        pnlDialog = New Panel()
         btnOK = New Button()
         btnCancel = New Button()
         Label2 = New Label()
