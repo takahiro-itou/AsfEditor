@@ -235,7 +235,10 @@ End Sub
 Private Sub btnSeekEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSeekEnd.Click
 ''--------------------------------------------------------------------
+''    「Seek」ボタンのクリックイベントハンドラ
 ''
+''    テキストボックス End Time 左の Seek ボタン
+''    テキストボックスで指定された位置にシーク
 ''--------------------------------------------------------------------
 Dim msNewPos As Long
 
@@ -248,7 +251,10 @@ End Sub
 Private Sub btnSeekStart_Click(sender As Object, e As EventArgs) Handles _
             btnSeekStart.Click
 ''--------------------------------------------------------------------
+''    「Seek」ボタンのクリックイベントハンドラ
 ''
+''    テキストボックス Start Time 右の Seek ボタン
+''    テキストボックスで指定された位置にシーク
 ''--------------------------------------------------------------------
 Dim msNewPos As Long
 
