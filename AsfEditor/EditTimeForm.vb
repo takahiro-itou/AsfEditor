@@ -176,7 +176,9 @@ End Sub
 Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
             btnForward.Click
 ''--------------------------------------------------------------------
+''    「>」 ボタンのクリックイベントハンドラ
 ''
+''    100 ミリ秒だけ進める
 ''--------------------------------------------------------------------
 
     If (m_msCurPosition >= m_msVideoLength - 100) Then
@@ -216,8 +218,11 @@ End Sub
 Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
             btnRewind.Click
 ''--------------------------------------------------------------------
+''    「<」 ボタンのクリックイベントハンドラ
 ''
+''    100 ミリ秒だけ戻す
 ''--------------------------------------------------------------------
+
     If (m_msCurPosition <= 100) Then
         setPositionMiliSeconds(0, True)
         Exit Sub
