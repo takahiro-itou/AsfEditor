@@ -266,7 +266,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSeekEnd.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnSeekEnd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -278,7 +278,7 @@
     <value>40, 24</value>
   </data>
   <data name="btnSeekEnd.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnSeekEnd.Text" xml:space="preserve">
     <value>Seek</value>
@@ -294,7 +294,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSeekStart.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="btnSeekStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -306,7 +306,7 @@
     <value>40, 24</value>
   </data>
   <data name="btnSeekStart.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="btnSeekStart.Text" xml:space="preserve">
     <value>Seek</value>
@@ -396,6 +396,31 @@
     <value>Stop</value>
   </data>
 
+  <data name="&gt;&gt;cmbStep.Name" xml:space="preserve">
+    <value>cmbStep</value>
+  </data>
+  <data name="&gt;&gt;cmbStep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbStep.Parent" xml:space="preserve">
+    <value>fraNavigate</value>
+  </data>
+  <data name="&gt;&gt;cmbStep.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cmbStep.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="cmbStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 52</value>
+  </data>
+  <data name="cmbStep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 20</value>
+  </data>
+  <data name="cmbStep.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+
   <data name="&gt;&gt;fraNavigate.Name" xml:space="preserve">
     <value>fraNavigate</value>
   </data>
@@ -465,7 +490,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -480,7 +505,7 @@
     <value>128, 24</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>End Time</value>
@@ -662,7 +687,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtEndTime.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="txtEndTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -674,7 +699,7 @@
     <value>128, 19</value>
   </data>
   <data name="txtEndTime.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="txtEndTime.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -690,7 +715,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtStartTime.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txtStartTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -702,7 +727,7 @@
     <value>128, 19</value>
   </data>
   <data name="txtStartTime.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txtStartTime.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
