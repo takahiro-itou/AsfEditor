@@ -112,7 +112,11 @@ Dim msFirstPos As Long
 End Function
 
 
-Private Sub setPositionMiliSeconds(ByVal msCurPos As Long, ByVal bSeek As Boolean)
+Private Sub setPositionMiliSeconds(
+        ByVal msCurPos As Long, ByVal bSeek As Boolean)
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
 Dim tsPos As String
 
     If m_msVideoLength <= msCurPos Then
@@ -160,6 +164,9 @@ End Sub
 
 Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
             btnForward.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
 
     If (m_msCurPosition >= m_msVideoLength - 100) Then
         setPositionMiliSeconds(m_msVideoLength, True)
@@ -187,6 +194,9 @@ End Sub
 
 Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles _
             btnPlay.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
     m_workVideo.playVideo()
     tmrVideo.Enabled = True
 End Sub
@@ -194,7 +204,9 @@ End Sub
 
 Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
             btnRewind.Click
-
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
     If (m_msCurPosition <= 100) Then
         setPositionMiliSeconds(0, True)
         Exit Sub
@@ -206,6 +218,9 @@ End Sub
 
 Private Sub btnSeekEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSeekEnd.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
@@ -216,6 +231,9 @@ End Sub
 
 Private Sub btnSeekStart_Click(sender As Object, e As EventArgs) Handles _
             btnSeekStart.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
@@ -227,18 +245,27 @@ End Sub
 
 Private Sub btnSetEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSetEnd.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
     txtEndTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
 
 
 Private Sub btnSetStart_Click(sender As Object, e As EventArgs) Handles _
             btnSetStart.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
     txtStartTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
 
 
 Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles _
             btnStop.Click
+''--------------------------------------------------------------------
+''
+''--------------------------------------------------------------------
 Dim msCurPos As Long
 
     tmrVideo.Enabled = False
