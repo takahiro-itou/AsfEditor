@@ -209,7 +209,6 @@ Public Function openAsfFile() As OpenErrorCode
 ''--------------------------------------------------------------------
 Dim cmd As String
 Dim result As Integer
-Dim errMsg As String
 
     If m_aliasName = "" Then
         ' インスタンスが未初期化
