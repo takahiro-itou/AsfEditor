@@ -148,25 +148,25 @@
     <value>btnForward</value>
   </data>
   <data name="&gt;&gt;btnForward.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnForward.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnForward.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>2</value>
   </data>
   <data name="btnForward.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnForward.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 256</value>
+    <value>216, 16</value>
   </data>
   <data name="btnForward.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 24</value>
   </data>
   <data name="btnForward.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>2</value>
   </data>
   <data name="btnForward.Text" xml:space="preserve">
     <value>&gt;</value>
@@ -232,25 +232,25 @@
     <value>btnRewind</value>
   </data>
   <data name="&gt;&gt;btnRewind.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnRewind.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRewind.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>1</value>
   </data>
   <data name="btnRewind.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnRewind.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 256</value>
+    <value>152, 16</value>
   </data>
   <data name="btnRewind.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 24</value>
   </data>
   <data name="btnRewind.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>1</value>
   </data>
   <data name="btnRewind.Text" xml:space="preserve">
     <value>&lt;</value>
@@ -260,25 +260,25 @@
     <value>btnSeekEnd</value>
   </data>
   <data name="&gt;&gt;btnSeekEnd.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnSeekEnd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSeekEnd.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>8</value>
   </data>
   <data name="btnSeekEnd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnSeekEnd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 320</value>
+    <value>240, 80</value>
   </data>
   <data name="btnSeekEnd.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 24</value>
   </data>
   <data name="btnSeekEnd.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>8</value>
   </data>
   <data name="btnSeekEnd.Text" xml:space="preserve">
     <value>Seek</value>
@@ -288,25 +288,25 @@
     <value>btnSeekStart</value>
   </data>
   <data name="&gt;&gt;btnSeekStart.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnSeekStart.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSeekStart.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="btnSeekStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnSeekStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 320</value>
+    <value>136, 80</value>
   </data>
   <data name="btnSeekStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 24</value>
   </data>
   <data name="btnSeekStart.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="btnSeekStart.Text" xml:space="preserve">
     <value>Seek</value>
@@ -316,25 +316,25 @@
     <value>btnSetEnd</value>
   </data>
   <data name="&gt;&gt;btnSetEnd.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnSetEnd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSetEnd.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="btnSetEnd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnSetEnd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 256</value>
+    <value>280, 16</value>
   </data>
   <data name="btnSetEnd.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
   </data>
   <data name="btnSetEnd.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="btnSetEnd.Text" xml:space="preserve">
     <value>Set End</value>
@@ -344,25 +344,25 @@
     <value>btnSetStart</value>
   </data>
   <data name="&gt;&gt;btnSetStart.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;btnSetStart.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSetStart.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>0</value>
   </data>
   <data name="btnSetStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="btnSetStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 256</value>
+    <value>8, 16</value>
   </data>
   <data name="btnSetStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
   </data>
   <data name="btnSetStart.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>0</value>
   </data>
   <data name="btnSetStart.Text" xml:space="preserve">
     <value>Set Start</value>
@@ -428,25 +428,25 @@
     <value>Label1</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>4</value>
   </data>
   <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 288</value>
+    <value>8, 48</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>4</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>Start Time</value>
@@ -459,13 +459,13 @@
     <value>Label2</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>5</value>
   </data>
   <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -474,13 +474,13 @@
     <value>NoControl</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 288</value>
+    <value>280, 48</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>5</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>End Time</value>
@@ -684,25 +684,25 @@
     <value>txtStartTime</value>
   </data>
   <data name="&gt;&gt;txtStartTime.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>fraNavigate</value>
   </data>
   <data name="&gt;&gt;txtStartTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtStartTime.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="txtStartTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="txtStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 324</value>
+    <value>8, 84</value>
   </data>
   <data name="txtStartTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 19</value>
   </data>
   <data name="txtStartTime.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="txtStartTime.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
