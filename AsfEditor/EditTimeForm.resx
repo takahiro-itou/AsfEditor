@@ -396,6 +396,34 @@
     <value>Stop</value>
   </data>
 
+  <data name="&gt;&gt;fraNavigate.Name" xml:space="preserve">
+    <value>fraNavigate</value>
+  </data>
+  <data name="&gt;&gt;fraNavigate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fraNavigate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fraNavigate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fraNavigate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="fraNavigate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 272</value>
+  </data>
+  <data name="fraNavigate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 112</value>
+  </data>
+  <data name="fraNavigate.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="fraNavigate.Text" xml:space="preserve">
+    <value>Navigate</value>
+  </data>
+
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
@@ -552,7 +580,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlDialog.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pnlDialog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -564,7 +592,7 @@
     <value>432, 44</value>
   </data>
   <data name="pnlDialog.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>3</value>
   </data>
 
   <data name="&gt;&gt;pnlVideo.Name" xml:space="preserve">
@@ -580,10 +608,10 @@
     <value>1</value>
   </data>
   <data name="pnlVideo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 8</value>
+    <value>0, 24</value>
   </data>
   <data name="pnlVideo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 240</value>
+    <value>432, 248</value>
   </data>
   <data name="pnlVideo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
