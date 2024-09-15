@@ -203,7 +203,7 @@ End Sub
 Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles _
             btnPlay.Click
 ''--------------------------------------------------------------------
-''
+''    「再生」ボタンのクリックイベントハンドラ
 ''--------------------------------------------------------------------
     m_workVideo.playVideo()
     tmrVideo.Enabled = True
@@ -272,7 +272,7 @@ End Sub
 Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles _
             btnStop.Click
 ''--------------------------------------------------------------------
-''
+''    「停止」ボタンのクリックイベントハンドラ
 ''--------------------------------------------------------------------
 Dim msCurPos As Long
 
