@@ -123,7 +123,10 @@ End Function
 Private Sub setPositionMiliSeconds(
         ByVal msCurPos As Long, ByVal bSeek As Boolean)
 ''--------------------------------------------------------------------
+''    位置をミリ秒で指定する
 ''
+''  @param [in] msCurPos    ミリ秒
+''  @param [in] bSeek       Trueならシークも行う
 ''--------------------------------------------------------------------
 Dim tsPos As String
 
