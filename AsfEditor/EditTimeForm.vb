@@ -262,7 +262,9 @@ End Sub
 Private Sub btnSetEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSetEnd.Click
 ''--------------------------------------------------------------------
+''    「Set End」 ボタンのクリックイベントハンドラ
 ''
+''    現在位置を Start Time テキストボックスにセットする
 ''--------------------------------------------------------------------
     txtEndTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
@@ -271,7 +273,9 @@ End Sub
 Private Sub btnSetStart_Click(sender As Object, e As EventArgs) Handles _
             btnSetStart.Click
 ''--------------------------------------------------------------------
+''    「Set Start」 ボタンのクリックイベントハンドラ
 ''
+''    現在位置を Start Time テキストボックスにセットする
 ''--------------------------------------------------------------------
     txtStartTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
