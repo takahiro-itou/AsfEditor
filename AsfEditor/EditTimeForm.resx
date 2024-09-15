@@ -104,7 +104,7 @@
     <value>Bottom</value>
   </data>
   <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 388</value>
+    <value>16, 0</value>
   </data>
   <data name="btnApply.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 32</value>
@@ -132,7 +132,7 @@
     <value>Bottom</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 388</value>
+    <value>352, 0</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 32</value>
@@ -188,7 +188,7 @@
     <value>Bottom</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 388</value>
+    <value>160, 0</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 32</value>
@@ -554,7 +554,7 @@
   <data name="&gt;&gt;pnlDialog.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pnlDialog.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="pnlDialog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="pnlDialog.Location" type="System.Drawing.Point, System.Drawing">
@@ -580,7 +580,7 @@
     <value>1</value>
   </data>
   <data name="pnlVideo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 8</value>
   </data>
   <data name="pnlVideo.Size" type="System.Drawing.Size, System.Drawing">
     <value>432, 240</value>
