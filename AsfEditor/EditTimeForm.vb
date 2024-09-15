@@ -228,7 +228,7 @@ Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
 Dim msStep As Long
 
     msStep = CLng(Val(cmbStep.Text) * 1000)
-    If (m_msCurPosition <= msStpe) Then
+    If (m_msCurPosition <= msStep) Then
         setPositionMiliSeconds(0, True)
         Exit Sub
     End If
