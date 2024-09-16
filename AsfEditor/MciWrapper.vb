@@ -269,7 +269,7 @@ Dim cmd As String
 End Function
 
 
-Public Function seekVideo(ByVal toPos As Long) As Boolean
+Public Function seekVideo(ByVal toPos As Long) As Integer
 ''--------------------------------------------------------------------
 ''    再生位置を設定する
 ''--------------------------------------------------------------------
@@ -281,7 +281,7 @@ End Function
 
 
 Public Function sendMciCommand(
-        ByVal mciCmd As String) As Boolean
+        ByVal mciCmd As String) As Integer
 ''--------------------------------------------------------------------
 ''    MCI コマンド文字列を送信する
 ''--------------------------------------------------------------------
@@ -302,7 +302,7 @@ End Function
 
 
 Public Function sendMciCommand(
-        ByVal mciCmd As String, ByRef retStr As String) As Boolean
+        ByVal mciCmd As String, ByRef retStr As String) As Integer
 ''--------------------------------------------------------------------
 ''    MCI コマンド文字列を送信し結果を得る
 ''--------------------------------------------------------------------
