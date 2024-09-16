@@ -363,7 +363,7 @@ End Function
 
 Private Function parseTimeValue(ByVal tvText As String) As Long
 ''--------------------------------------------------------------------
-''
+''    ビデオの時間（位置や長さ）を表す文字列を解析する
 ''--------------------------------------------------------------------
 
     If Not IsNumeric(tvText) Then
