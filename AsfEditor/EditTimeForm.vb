@@ -58,6 +58,13 @@ Private Function handleCancelButton() As Boolean
 ''--------------------------------------------------------------------
 Dim msgAns As System.Windows.Forms.DialogResult
 
+    If m_savedInfo Is Nothing Then
+        ' 一時保存されたデータはない
+        Me.DialogResult = DialogResult.Cancel
+        handleCancelButton = True
+        Exit Function
+    End If
+
     msgAns = MessageBox.Show(
         "途中で保存されたデータがあります。" & vbCrLf &
         "そのデータを採用しますか？",
@@ -73,6 +80,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
     If (msgAns =  Windows.Forms.DialogResult.No)
         Me.DialogResult = DialogResult.Cancel
     Else
+        copyInputInfo(m_currentInfo, m_savedInfo)
         Me.DialogResult = DialogResult.OK
     End If
     handleCancelButton = True
@@ -105,14 +113,21 @@ Dim msFirstPos As Long
         m_msVideoLength = .getVideoLength()
         m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
 
-        .seekVideo(msFirstPos)
+        setPositionMiliSeconds(msFirstPos, True)
     End With
 
     setTargetInfo = True
 End Function
 
 
-Private Sub setPositionMiliSeconds(ByVal msCurPos As Long, ByVal bSeek As Boolean)
+Private Sub setPositionMiliSeconds(
+        ByVal msCurPos As Long, ByVal bSeek As Boolean)
+''--------------------------------------------------------------------
+''    位置をミリ秒で指定する
+''
+''  @param [in] msCurPos    ミリ秒
+''  @param [in] bSeek       Trueならシークも行う
+''--------------------------------------------------------------------
 Dim tsPos As String
 
     If m_msVideoLength <= msCurPos Then
@@ -160,12 +175,20 @@ End Sub
 
 Private Sub btnForward_Click(sender As Object, e As EventArgs) Handles _
             btnForward.Click
+''--------------------------------------------------------------------
+''    「>」 ボタンのクリックイベントハンドラ
+''
+''    100 ミリ秒だけ進める
+''--------------------------------------------------------------------
+Dim msStep As Long
 
-    If (m_msCurPosition >= m_msVideoLength - 100) Then
+    msStep = CLng(Val(cmbStep.Text) * 1000)
+
+    If (m_msCurPosition >= m_msVideoLength - msStep) Then
         setPositionMiliSeconds(m_msVideoLength, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition + 100, True)
+    setPositionMiliSeconds(m_msCurPosition + msStep, True)
 
 End Sub
 
@@ -187,6 +210,9 @@ End Sub
 
 Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles _
             btnPlay.Click
+''--------------------------------------------------------------------
+''    「再生」ボタンのクリックイベントハンドラ
+''--------------------------------------------------------------------
     m_workVideo.playVideo()
     tmrVideo.Enabled = True
 End Sub
@@ -194,18 +220,31 @@ End Sub
 
 Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles _
             btnRewind.Click
+''--------------------------------------------------------------------
+''    「<」 ボタンのクリックイベントハンドラ
+''
+''    100 ミリ秒だけ戻す
+''--------------------------------------------------------------------
+Dim msStep As Long
 
-    If (m_msCurPosition <= 100) Then
+    msStep = CLng(Val(cmbStep.Text) * 1000)
+    If (m_msCurPosition <= msStep) Then
         setPositionMiliSeconds(0, True)
         Exit Sub
     End If
-    setPositionMiliSeconds(m_msCurPosition - 100, True)
+    setPositionMiliSeconds(m_msCurPosition - msStep, True)
 
 End Sub
 
 
 Private Sub btnSeekEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSeekEnd.Click
+''--------------------------------------------------------------------
+''    「Seek」ボタンのクリックイベントハンドラ
+''
+''    テキストボックス End Time 左の Seek ボタン
+''    テキストボックスで指定された位置にシーク
+''--------------------------------------------------------------------
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
@@ -216,6 +255,12 @@ End Sub
 
 Private Sub btnSeekStart_Click(sender As Object, e As EventArgs) Handles _
             btnSeekStart.Click
+''--------------------------------------------------------------------
+''    「Seek」ボタンのクリックイベントハンドラ
+''
+''    テキストボックス Start Time 右の Seek ボタン
+''    テキストボックスで指定された位置にシーク
+''--------------------------------------------------------------------
 Dim msNewPos As Long
 
     tmrVideo.Enabled = False
@@ -227,18 +272,31 @@ End Sub
 
 Private Sub btnSetEnd_Click(sender As Object, e As EventArgs) Handles _
             btnSetEnd.Click
+''--------------------------------------------------------------------
+''    「Set End」 ボタンのクリックイベントハンドラ
+''
+''    現在位置を Start Time テキストボックスにセットする
+''--------------------------------------------------------------------
     txtEndTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
 
 
 Private Sub btnSetStart_Click(sender As Object, e As EventArgs) Handles _
             btnSetStart.Click
+''--------------------------------------------------------------------
+''    「Set Start」 ボタンのクリックイベントハンドラ
+''
+''    現在位置を Start Time テキストボックスにセットする
+''--------------------------------------------------------------------
     txtStartTime.Text = getTimeTextFromMiliSeconds(m_msCurPosition)
 End Sub
 
 
 Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles _
             btnStop.Click
+''--------------------------------------------------------------------
+''    「停止」ボタンのクリックイベントハンドラ
+''--------------------------------------------------------------------
 Dim msCurPos As Long
 
     tmrVideo.Enabled = False
@@ -248,6 +306,40 @@ Dim msCurPos As Long
     End With
     setPositionMiliSeconds(msCurPos, False)
 
+End Sub
+
+
+Private Sub EditTimeForm_Closed(sender As Object, e As EventArgs) Handles _
+            Me.Closed
+''--------------------------------------------------------------------
+''    フォームが閉じられた時のイベントハンドラ
+''--------------------------------------------------------------------
+
+    With m_workVideo
+        .stopVideo()
+        .closeVideo()
+    End With
+    m_workVideo = Nothing
+
+End Sub
+
+
+Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
+        MyBase.Load
+''--------------------------------------------------------------------
+''    フォームがロードされた時のイベントハンドラ
+''--------------------------------------------------------------------
+
+    With cmbStep
+        With .Items
+            .Clear()
+            .Add(" 0.100 s")
+            .Add("12.000 s")
+            .Add("30.000 s")
+            .Add("60.000 s")
+        End With
+        .SelectedIndex = 0
+    End With
 End Sub
 
 
