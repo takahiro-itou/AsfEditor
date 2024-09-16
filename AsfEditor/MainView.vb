@@ -26,6 +26,7 @@ Dim msVideoLen As Long
         .setFileName(fileName)
         .openAsfFile()
         msVideoLen = .getVideoLength()
+        .closeVideo()
     End With
 
     m_viInputList(trgIndex) = New InputInfo()
