@@ -93,10 +93,10 @@ Public Function closeVideo() As Integer
 ''--------------------------------------------------------------------
 ''    現在操作しているビデオを閉じる
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "close " & m_aliasName
-    closeVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("close {0}", m_aliasName)
+    closeVideo = sendMciCommand(mciCmd)
 End Function
 
 
