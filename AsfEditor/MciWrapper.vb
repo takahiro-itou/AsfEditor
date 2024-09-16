@@ -266,10 +266,10 @@ Public Function playVideo() As Integer
 ''--------------------------------------------------------------------
 ''    ビデオを再生する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "play " & m_aliasName
-    playVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("play {0}", m_aliasName)
+    playVideo = sendMciCommand(mciCmd)
 End Function
 
 
