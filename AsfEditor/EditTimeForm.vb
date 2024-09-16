@@ -92,31 +92,10 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''--------------------------------------------------------------------
 ''    設定内容を読み書きするインスタンスを指定する
 ''--------------------------------------------------------------------
-Dim fileName As String
-Dim msFirstPos As Long
 
     m_currentInfo = targetInfo
-    With m_currentInfo
-        fileName = .sFileName
-        txtStartTime.Text = .sStartTime
-        txtEndTime.Text = .sEndTime
-        msFirstPos = getMiliSeconds(.sStartTime)
-    End With
-
-    If m_workVideo Is Nothing
-        m_workVideo = New MciWrapper("", 1)
-    End If
-    With m_workVideo
-        .setFileName(fileName)
-        .openAsfFile(picVideo)
-
-        m_msVideoLength = .getVideoLength()
-        m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
-
-        setPositionMiliSeconds(msFirstPos, True)
-    End With
-
     setTargetInfo = True
+
 End Function
 
 
@@ -349,6 +328,29 @@ Private Sub EditTimeForm_Shown(sender As Object, e As EventArgs) Handles _
 ''--------------------------------------------------------------------
 ''    フォームが最初に表示された時のイベントハンドラ
 ''--------------------------------------------------------------------
+Dim fileName As String
+Dim msFirstPos As Long
+
+    With m_currentInfo
+        fileName = .sFileName
+        txtStartTime.Text = .sStartTime
+        txtEndTime.Text = .sEndTime
+        msFirstPos = getMiliSeconds(.sStartTime)
+    End With
+
+    If m_workVideo Is Nothing
+        m_workVideo = New MciWrapper("", 1)
+    End If
+
+    With m_workVideo
+        .setFileName(fileName)
+        .openAsfFile(picVideo)
+
+        m_msVideoLength = .getVideoLength()
+        m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
+
+        setPositionMiliSeconds(msFirstPos, True)
+    End With
 
 End Sub
 
