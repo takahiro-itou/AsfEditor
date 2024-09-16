@@ -277,10 +277,10 @@ Public Function seekVideo(ByVal toPos As Long) As Integer
 ''--------------------------------------------------------------------
 ''    再生位置を設定する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = String.Format("seek {0} to {1}", m_aliasName, toPos)
-    seekVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("seek {0} to {1}", m_aliasName, toPos)
+    seekVideo = sendMciCommand(mciCmd)
 End Function
 
 
@@ -350,10 +350,10 @@ Public Function stopVideo() As Integer
 ''--------------------------------------------------------------------
 ''    ビデオを停止する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "stop " & m_aliasName
-    stopVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("stop {0}", m_aliasName)
+    stopVideo = sendMciCommand(mciCmd)
 End Function
 
 
