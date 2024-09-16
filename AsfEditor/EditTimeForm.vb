@@ -325,7 +325,7 @@ End Sub
 
 
 Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
-        MyBase.Load
+            MyBase.Load
 ''--------------------------------------------------------------------
 ''    フォームがロードされた時のイベントハンドラ
 ''--------------------------------------------------------------------
@@ -340,6 +340,16 @@ Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
         End With
         .SelectedIndex = 0
     End With
+
+End Sub
+
+
+Private Sub EditTimeForm_Shown(sender As Object, e As EventArgs) Handles _
+            Me.Shown
+''--------------------------------------------------------------------
+''    フォームが最初に表示された時のイベントハンドラ
+''--------------------------------------------------------------------
+
 End Sub
 
 
