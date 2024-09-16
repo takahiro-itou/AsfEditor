@@ -220,7 +220,7 @@ Dim result As Integer
 
     ' ファイルを開く
     mciCmd = String.Format(
-                "open ""{0}"" alias {1}", m_asfFileName, m_aliasName,)
+                "open ""{0}"" alias {1}", m_asfFileName, m_aliasName)
 
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
