@@ -135,13 +135,13 @@ Public Function getCurrentPosition() As Long
 ''--------------------------------------------------------------------
 ''    ビデオの現在位置を取得する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim ret As Integer
 Dim resText As String
 
-    cmd = "status " & m_aliasName & " position"
+    mciCmd = String.Format("status {0} position", m_aliasName)
     resText = ""
-    ret = sendMciCommand(cmd, resText)
+    ret = sendMciCommand(mciCmd, resText)
     If ret = 0 Then
         m_videoLength = parseTimeValue(resText)
     End If
