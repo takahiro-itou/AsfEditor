@@ -209,7 +209,7 @@ Public Function openAsfFile() As OpenErrorCode
 ''--------------------------------------------------------------------
 ''    ファイルを開く
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim result As Integer
 
     If m_aliasName = "" Then
@@ -219,16 +219,18 @@ Dim result As Integer
     End If
 
     ' ファイルを開く
-    cmd = "open """ + m_asfFileName + """ alias " + m_aliasName
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format(
+                "open ""{0}"" alias {1}", m_asfFileName, m_aliasName,)
+
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         openAsfFile = OpenErrorCode.FILE_NOT_FOUND
         Exit Function
     End If
 
     ' 時間の単位をミリ秒に設定する
-    cmd = "set " & m_aliasName & " time format milliseconds"
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format( "set {0} time format milliseconds", m_aliasName)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         openAsfFile = OpenErrorCode.FAILURE
         Exit Function
