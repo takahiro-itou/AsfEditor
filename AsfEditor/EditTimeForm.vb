@@ -336,10 +336,10 @@ Private Sub EditTimeForm_Closed(sender As Object, e As EventArgs) Handles _
 End Sub
 
 
-Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
-            MyBase.Load
+Private Sub EditTimeForm_Shown(sender As Object, e As EventArgs) Handles _
+            Me.Shown
 ''--------------------------------------------------------------------
-''    フォームがロードされた時のイベントハンドラ
+''    フォームが最初に表示された時のイベントハンドラ
 ''--------------------------------------------------------------------
 
     With cmbStep
@@ -352,15 +352,6 @@ Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
         End With
         .SelectedIndex = 0
     End With
-
-End Sub
-
-
-Private Sub EditTimeForm_Shown(sender As Object, e As EventArgs) Handles _
-            Me.Shown
-''--------------------------------------------------------------------
-''    フォームが最初に表示された時のイベントハンドラ
-''--------------------------------------------------------------------
 
     initializeVideo()
 
