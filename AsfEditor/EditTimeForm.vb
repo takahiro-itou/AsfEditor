@@ -113,7 +113,7 @@ Dim msFirstPos As Long
         m_msVideoLength = .getVideoLength()
         m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
 
-        .seekVideo(msFirstPos)
+        setPositionMiliSeconds(msFirstPos, True)
     End With
 
     setTargetInfo = True
