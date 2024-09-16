@@ -189,13 +189,13 @@ Public Function getVideoLength() As Long
 ''--------------------------------------------------------------------
 ''    ビデオの長さを取得する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim ret As Integer
 Dim resText As String
 
-    cmd = "status " & m_aliasName & " length"
+    mciCmd = String.Format("status {0} length", m_aliasName)
     resText = ""
-    ret = sendMciCommand(cmd, resText)
+    ret = sendMciCommand(mciCmd, resText)
     If ret = 0 Then
         m_videoLength = parseTimeValue(resText)
     End If
