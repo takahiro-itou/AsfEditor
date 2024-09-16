@@ -107,7 +107,7 @@ Public Function bindToPictureBox(
 ''--------------------------------------------------------------------
 Dim mciCmd As String
 Dim result As Integer
-Dim cs As Drawing.Size
+Dim dsClientSize As Drawing.Size
 
     mciCmd = String.Format(
                 "window {0} handle {1}",
@@ -118,9 +118,9 @@ Dim cs As Drawing.Size
         Exit Function
     End If
 
-    cs = targetWindow.ClientSize
+    dsClientSize = targetWindow.ClientSize
     mciCmd = String.Format("put {0} destination at 0 0 {1} {2}",
-                m_aliasName, cs.Width, cs.Height)
+                m_aliasName, dsClientSize.Width, dsClientSize.Height)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
         bindToPictureBox = False
