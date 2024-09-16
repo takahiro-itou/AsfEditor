@@ -105,21 +105,23 @@ Public Function bindToPictureBox(
 ''--------------------------------------------------------------------
 ''    指定したピクチャボックスにビューを割り当てる
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim result As Integer
 Dim cs As Drawing.Size
 
-    cmd = "window " & m_aliasName & " handle " & targetWindow.Handle.ToString
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format(
+                "window {0} handle {1}",
+                m_aliasName, targetWindow.Handle.ToString)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         bindToPictureBox = False
         Exit Function
     End If
 
     cs = targetWindow.ClientSize
-    cmd = String.Format("put {0} destination at 0 0 {1} {2}",
-            m_aliasName, cs.Width, cs.Height)
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format("put {0} destination at 0 0 {1} {2}",
+                m_aliasName, cs.Width, cs.Height)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         bindToPictureBox = False
         Exit Function
