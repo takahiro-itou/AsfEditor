@@ -102,10 +102,6 @@ Dim msFirstPos As Long
         msFirstPos = getMiliSeconds(.sStartTime)
     End With
 
-    If m_workVideo Is Nothing
-        m_workVideo = New MciWrapper("", 1)
-    End If
-
     With m_workVideo
         .setFileName(fileName)
         .openAsfFile(picVideo)
@@ -127,6 +123,11 @@ Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
 ''--------------------------------------------------------------------
 
     m_currentInfo = targetInfo
+
+    If m_workVideo Is Nothing
+        m_workVideo = New MciWrapper("", 1)
+    End If
+
     setTargetInfo = True
 
 End Function
