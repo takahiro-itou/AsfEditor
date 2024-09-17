@@ -116,7 +116,7 @@ Dim msFirstPos As Long
         setPositionMiliSeconds(msFirstPos, True)
     End With
 
-    initializeVideo = True
+    Return  True
 
 End Function
 
