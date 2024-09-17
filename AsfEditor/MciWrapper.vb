@@ -249,16 +249,15 @@ Dim result As OpenErrorCode
 
     result = openAsfFile()
     If (result <> OpenErrorCode.SUCCESS) Then
-        openAsfFile = result
-        Exit Function
+        Return  result
     End If
 
     If bindToPictureBox(targetWindow) = False Then
-        openAsfFile = OpenErrorCode.FAILURE
-        Exit Function
+        Return  OpenErrorCode.FAILURE
     End If
 
-    openAsfFile = True
+    Return  True
+
 End Function
 
 
