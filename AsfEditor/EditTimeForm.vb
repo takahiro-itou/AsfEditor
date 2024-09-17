@@ -101,7 +101,7 @@ Dim msFirstPos As Long
     End With
 
     With m_workVideo
-        .openAsfFile(picVideo)
+        .bindToPictureBox(picVideo)
 
         m_msVideoLength = .getVideoLength()
         m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
@@ -131,6 +131,7 @@ Dim fileName As String
 
     With m_workVideo
         .setFileName(fileName)
+        .openAsfFile(picVideo)
     End With
 
     Return  True
