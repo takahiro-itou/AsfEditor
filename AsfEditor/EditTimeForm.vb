@@ -133,7 +133,7 @@ Dim fileName As String
         .setFileName(fileName)
     End With
 
-    setTargetInfo = True
+    Return  True
 
 End Function
 
