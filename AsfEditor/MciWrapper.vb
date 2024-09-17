@@ -254,7 +254,7 @@ Dim result As OpenErrorCode
         Return  OpenErrorCode.FAILURE
     End If
 
-    Return  OpenErrCode.SUCCESS
+    Return  OpenErrorCode.SUCCESS
 
 End Function
 
