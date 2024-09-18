@@ -214,8 +214,7 @@ Dim result As Integer
 
     If m_aliasName = "" Then
         ' インスタンスが未初期化
-        openAsfFile = OpenErrorCode.NOT_INITIALIZED
-        Exit Function
+        Return  OpenErrorCode.NOT_INITIALIZED
     End If
 
     ' ファイルを開く
@@ -224,19 +223,18 @@ Dim result As Integer
 
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        openAsfFile = OpenErrorCode.FILE_NOT_FOUND
-        Exit Function
+        Return  OpenErrorCode.FILE_NOT_FOUND
     End If
 
     ' 時間の単位をミリ秒に設定する
     mciCmd = String.Format( "set {0} time format milliseconds", m_aliasName)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        openAsfFile = OpenErrorCode.FAILURE
-        Exit Function
+        Return  OpenErrorCode.FAILURE
     End If
 
-    openAsfFile = OpenErrorCode.SUCCESS
+    Return  OpenErrorCode.SUCCESS
+
 End Function
 
 
@@ -249,16 +247,15 @@ Dim result As OpenErrorCode
 
     result = openAsfFile()
     If (result <> OpenErrorCode.SUCCESS) Then
-        openAsfFile = result
-        Exit Function
+        Return  result
     End If
 
     If bindToPictureBox(targetWindow) = False Then
-        openAsfFile = OpenErrorCode.FAILURE
-        Exit Function
+        Return  OpenErrorCode.FAILURE
     End If
 
-    openAsfFile = True
+    Return  OpenErrorCode.SUCCESS
+
 End Function
 
 

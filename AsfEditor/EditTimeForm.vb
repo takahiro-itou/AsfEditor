@@ -92,14 +92,37 @@ Public Function initializeVideo() As Boolean
 ''--------------------------------------------------------------------
 ''    ビデオを初期化する
 ''--------------------------------------------------------------------
-Dim fileName As String
 Dim msFirstPos As Long
 
     With m_currentInfo
-        fileName = .sFileName
         txtStartTime.Text = .sStartTime
         txtEndTime.Text = .sEndTime
         msFirstPos = getMiliSeconds(.sStartTime)
+    End With
+
+    With m_workVideo
+        .bindToPictureBox(picVideo)
+
+        m_msVideoLength = .getVideoLength()
+        m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
+
+        setPositionMiliSeconds(msFirstPos, True)
+    End With
+
+    Return  True
+
+End Function
+
+
+Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
+''--------------------------------------------------------------------
+''    設定内容を読み書きするインスタンスを指定する
+''--------------------------------------------------------------------
+Dim fileName As String
+
+    m_currentInfo = targetInfo
+    With targetInfo
+        fileName = .sFileName
     End With
 
     If m_workVideo Is Nothing
@@ -109,25 +132,9 @@ Dim msFirstPos As Long
     With m_workVideo
         .setFileName(fileName)
         .openAsfFile(picVideo)
-
-        m_msVideoLength = .getVideoLength()
-        m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
-
-        setPositionMiliSeconds(msFirstPos, True)
     End With
 
-    initializeVideo = True
-
-End Function
-
-
-Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
-''--------------------------------------------------------------------
-''    設定内容を読み書きするインスタンスを指定する
-''--------------------------------------------------------------------
-
-    m_currentInfo = targetInfo
-    setTargetInfo = True
+    Return  True
 
 End Function
 
