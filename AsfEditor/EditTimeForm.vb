@@ -88,27 +88,20 @@ Dim msgAns As System.Windows.Forms.DialogResult
 End Function
 
 
-Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
+Public Function initializeVideo() As Boolean
 ''--------------------------------------------------------------------
-''    設定内容を読み書きするインスタンスを指定する
+''    ビデオを初期化する
 ''--------------------------------------------------------------------
-Dim fileName As String
 Dim msFirstPos As Long
 
-    m_currentInfo = targetInfo
     With m_currentInfo
-        fileName = .sFileName
         txtStartTime.Text = .sStartTime
         txtEndTime.Text = .sEndTime
         msFirstPos = getMiliSeconds(.sStartTime)
     End With
 
-    If m_workVideo Is Nothing
-        m_workVideo = New MciWrapper("", 1)
-    End If
     With m_workVideo
-        .setFileName(fileName)
-        .openAsfFile(picVideo)
+        .bindToPictureBox(picVideo)
 
         m_msVideoLength = .getVideoLength()
         m_sLengthText = getTimeTextFromMiliSeconds(m_msVideoLength)
@@ -116,7 +109,33 @@ Dim msFirstPos As Long
         setPositionMiliSeconds(msFirstPos, True)
     End With
 
-    setTargetInfo = True
+    Return  True
+
+End Function
+
+
+Public Function setTargetInfo(ByVal targetInfo As InputInfo) As Boolean
+''--------------------------------------------------------------------
+''    設定内容を読み書きするインスタンスを指定する
+''--------------------------------------------------------------------
+Dim fileName As String
+
+    m_currentInfo = targetInfo
+    With targetInfo
+        fileName = .sFileName
+    End With
+
+    If m_workVideo Is Nothing
+        m_workVideo = New MciWrapper("", 1)
+    End If
+
+    With m_workVideo
+        .setFileName(fileName)
+        .openAsfFile(picVideo)
+    End With
+
+    Return  True
+
 End Function
 
 
@@ -324,10 +343,10 @@ Private Sub EditTimeForm_Closed(sender As Object, e As EventArgs) Handles _
 End Sub
 
 
-Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
-        MyBase.Load
+Private Sub EditTimeForm_Shown(sender As Object, e As EventArgs) Handles _
+            Me.Shown
 ''--------------------------------------------------------------------
-''    フォームがロードされた時のイベントハンドラ
+''    フォームが最初に表示された時のイベントハンドラ
 ''--------------------------------------------------------------------
 
     With cmbStep
@@ -340,6 +359,9 @@ Private Sub EditTimeForm_Load(sender As Object, e As EventArgs) Handles _
         End With
         .SelectedIndex = 0
     End With
+
+    initializeVideo()
+
 End Sub
 
 

@@ -93,10 +93,10 @@ Public Function closeVideo() As Integer
 ''--------------------------------------------------------------------
 ''    現在操作しているビデオを閉じる
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "close " & m_aliasName
-    closeVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("close {0}", m_aliasName)
+    closeVideo = sendMciCommand(mciCmd)
 End Function
 
 
@@ -105,21 +105,23 @@ Public Function bindToPictureBox(
 ''--------------------------------------------------------------------
 ''    指定したピクチャボックスにビューを割り当てる
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim result As Integer
-Dim cs As Drawing.Size
+Dim dsClientSize As Drawing.Size
 
-    cmd = "window " & m_aliasName & " handle " & targetWindow.Handle.ToString
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format(
+                "window {0} handle {1}",
+                m_aliasName, targetWindow.Handle.ToString)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         bindToPictureBox = False
         Exit Function
     End If
 
-    cs = targetWindow.ClientSize
-    cmd = String.Format("put {0} destination at 0 0 {1} {2}",
-            m_aliasName, cs.Width, cs.Height)
-    result = sendMciCommand(cmd)
+    dsClientSize = targetWindow.ClientSize
+    mciCmd = String.Format("put {0} destination at 0 0 {1} {2}",
+                m_aliasName, dsClientSize.Width, dsClientSize.Height)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
         bindToPictureBox = False
         Exit Function
@@ -133,13 +135,13 @@ Public Function getCurrentPosition() As Long
 ''--------------------------------------------------------------------
 ''    ビデオの現在位置を取得する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim ret As Integer
 Dim resText As String
 
-    cmd = "status " & m_aliasName & " position"
+    mciCmd = String.Format("status {0} position", m_aliasName)
     resText = ""
-    ret = sendMciCommand(cmd, resText)
+    ret = sendMciCommand(mciCmd, resText)
     If ret = 0 Then
         m_videoLength = parseTimeValue(resText)
     End If
@@ -187,13 +189,13 @@ Public Function getVideoLength() As Long
 ''--------------------------------------------------------------------
 ''    ビデオの長さを取得する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim ret As Integer
 Dim resText As String
 
-    cmd = "status " & m_aliasName & " length"
+    mciCmd = String.Format("status {0} length", m_aliasName)
     resText = ""
-    ret = sendMciCommand(cmd, resText)
+    ret = sendMciCommand(mciCmd, resText)
     If ret = 0 Then
         m_videoLength = parseTimeValue(resText)
     End If
@@ -207,32 +209,32 @@ Public Function openAsfFile() As OpenErrorCode
 ''--------------------------------------------------------------------
 ''    ファイルを開く
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 Dim result As Integer
 
     If m_aliasName = "" Then
         ' インスタンスが未初期化
-        openAsfFile = OpenErrorCode.NOT_INITIALIZED
-        Exit Function
+        Return  OpenErrorCode.NOT_INITIALIZED
     End If
 
     ' ファイルを開く
-    cmd = "open """ + m_asfFileName + """ alias " + m_aliasName
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format(
+                "open ""{0}"" alias {1}", m_asfFileName, m_aliasName)
+
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        openAsfFile = OpenErrorCode.FILE_NOT_FOUND
-        Exit Function
+        Return  OpenErrorCode.FILE_NOT_FOUND
     End If
 
     ' 時間の単位をミリ秒に設定する
-    cmd = "set " & m_aliasName & " time format milliseconds"
-    result = sendMciCommand(cmd)
+    mciCmd = String.Format( "set {0} time format milliseconds", m_aliasName)
+    result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        openAsfFile = OpenErrorCode.FAILURE
-        Exit Function
+        Return  OpenErrorCode.FAILURE
     End If
 
-    openAsfFile = OpenErrorCode.SUCCESS
+    Return  OpenErrorCode.SUCCESS
+
 End Function
 
 
@@ -245,16 +247,15 @@ Dim result As OpenErrorCode
 
     result = openAsfFile()
     If (result <> OpenErrorCode.SUCCESS) Then
-        openAsfFile = result
-        Exit Function
+        Return  result
     End If
 
     If bindToPictureBox(targetWindow) = False Then
-        openAsfFile = OpenErrorCode.FAILURE
-        Exit Function
+        Return  OpenErrorCode.FAILURE
     End If
 
-    openAsfFile = True
+    Return  OpenErrorCode.SUCCESS
+
 End Function
 
 
@@ -262,26 +263,26 @@ Public Function playVideo() As Integer
 ''--------------------------------------------------------------------
 ''    ビデオを再生する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "play " & m_aliasName
-    playVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("play {0}", m_aliasName)
+    playVideo = sendMciCommand(mciCmd)
 End Function
 
 
-Public Function seekVideo(ByVal toPos As Long) As Boolean
+Public Function seekVideo(ByVal toPos As Long) As Integer
 ''--------------------------------------------------------------------
 ''    再生位置を設定する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = String.Format("seek {0} to {1}", m_aliasName, toPos)
-    seekVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("seek {0} to {1}", m_aliasName, toPos)
+    seekVideo = sendMciCommand(mciCmd)
 End Function
 
 
 Public Function sendMciCommand(
-        ByVal mciCmd As String) As Boolean
+        ByVal mciCmd As String) As Integer
 ''--------------------------------------------------------------------
 ''    MCI コマンド文字列を送信する
 ''--------------------------------------------------------------------
@@ -302,7 +303,7 @@ End Function
 
 
 Public Function sendMciCommand(
-        ByVal mciCmd As String, ByRef retStr As String) As Boolean
+        ByVal mciCmd As String, ByRef retStr As String) As Integer
 ''--------------------------------------------------------------------
 ''    MCI コマンド文字列を送信し結果を得る
 ''--------------------------------------------------------------------
@@ -346,10 +347,10 @@ Public Function stopVideo() As Integer
 ''--------------------------------------------------------------------
 ''    ビデオを停止する
 ''--------------------------------------------------------------------
-Dim cmd As String
+Dim mciCmd As String
 
-    cmd = "stop " & m_aliasName
-    stopVideo = sendMciCommand(cmd)
+    mciCmd = String.Format("stop {0}", m_aliasName)
+    stopVideo = sendMciCommand(mciCmd)
 End Function
 
 
@@ -359,7 +360,7 @@ End Function
 
 Private Function parseTimeValue(ByVal tvText As String) As Long
 ''--------------------------------------------------------------------
-''
+''    ビデオの時間（位置や長さ）を表す文字列を解析する
 ''--------------------------------------------------------------------
 
     If Not IsNumeric(tvText) Then
