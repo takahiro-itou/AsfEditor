@@ -24,7 +24,8 @@ Dim bResult As Boolean
     End If
     copyInputInfo(m_savedInfo, workInfo)
 
-    applyEdit = bResult
+    Return  bResult
+
 End Function
 
 
