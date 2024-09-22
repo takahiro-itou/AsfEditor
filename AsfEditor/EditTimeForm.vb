@@ -62,8 +62,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
     If m_savedInfo Is Nothing Then
         ' 一時保存されたデータはない
         Me.DialogResult = DialogResult.Cancel
-        handleCancelButton = True
-        Exit Function
+        Return  True
     End If
 
     msgAns = MessageBox.Show(
@@ -74,8 +73,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
 
     If (msgAns = Windows.Forms.DialogResult.Cancel) Then
         ' キャンセルされたのでダイアログを閉じるのをやめる
-        handleCancelButton = False
-        Exit Function
+        Return  False
     End If
 
     If (msgAns =  Windows.Forms.DialogResult.No)
@@ -84,7 +82,7 @@ Dim msgAns As System.Windows.Forms.DialogResult
         copyInputInfo(m_currentInfo, m_savedInfo)
         Me.DialogResult = DialogResult.OK
     End If
-    handleCancelButton = True
+    Return  True
 
 End Function
 
