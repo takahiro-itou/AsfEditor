@@ -144,8 +144,7 @@ Dim resText As String
         m_videoLength = parseTimeValue(resText)
     End If
 
-    getCurrentPosition = m_videoLength
-
+    Return  m_videoLength
 End Function
 
 
