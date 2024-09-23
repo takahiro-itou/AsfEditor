@@ -25,7 +25,6 @@ Dim bResult As Boolean
     copyInputInfo(m_savedInfo, workInfo)
 
     Return  bResult
-
 End Function
 
 
@@ -82,8 +81,8 @@ Dim msgAns As System.Windows.Forms.DialogResult
         copyInputInfo(m_currentInfo, m_savedInfo)
         Me.DialogResult = DialogResult.OK
     End If
-    Return  True
 
+    Return  True
 End Function
 
 
@@ -109,7 +108,6 @@ Dim msFirstPos As Long
     End With
 
     Return  True
-
 End Function
 
 
@@ -134,7 +132,6 @@ Dim fileName As String
     End With
 
     Return  True
-
 End Function
 
 

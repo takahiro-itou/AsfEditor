@@ -114,8 +114,7 @@ Dim dsClientSize As Drawing.Size
                 m_aliasName, targetWindow.Handle.ToString)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        bindToPictureBox = False
-        Exit Function
+        Return  False
     End If
 
     dsClientSize = targetWindow.ClientSize
@@ -123,11 +122,10 @@ Dim dsClientSize As Drawing.Size
                 m_aliasName, dsClientSize.Width, dsClientSize.Height)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        bindToPictureBox = False
-        Exit Function
+        Return  False
     End If
 
-    bindToPictureBox = True
+    Return  True
 End Function
 
 
