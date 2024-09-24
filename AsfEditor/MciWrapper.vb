@@ -158,7 +158,7 @@ Dim errorText As String
     textBuf = New System.Text.StringBuilder(512)
     mciGetErrorString(fdwError, textBuf, textBuf.Capacity)
     errorText = textBuf.ToString()
-    getMciError = errorText
+    Return  errorText
 End Function
 
 
