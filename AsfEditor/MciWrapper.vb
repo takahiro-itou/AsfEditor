@@ -173,12 +173,11 @@ Dim resultText As String
     videoGuid = System.Guid.NewGuid()
     guidString = videoGuid.ToString()
     If (videoId < 0) Then
-        getVideoGuid = guidString
-        Exit Function
+        Return  guidString
     End If
 
     resultText = String.Format("vid{0:000000}-{1}", videoId, guidString)
-    getVideoGuid = resultText
+    Return  resultText
 End Function
 
 
