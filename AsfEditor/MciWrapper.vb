@@ -114,8 +114,7 @@ Dim dsClientSize As Drawing.Size
                 m_aliasName, targetWindow.Handle.ToString)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        bindToPictureBox = False
-        Exit Function
+        Return  False
     End If
 
     dsClientSize = targetWindow.ClientSize
@@ -123,11 +122,10 @@ Dim dsClientSize As Drawing.Size
                 m_aliasName, dsClientSize.Width, dsClientSize.Height)
     result = sendMciCommand(mciCmd)
     If result <> 0 Then
-        bindToPictureBox = False
-        Exit Function
+        Return  False
     End If
 
-    bindToPictureBox = True
+    Return  True
 End Function
 
 
@@ -146,8 +144,7 @@ Dim resText As String
         m_videoLength = parseTimeValue(resText)
     End If
 
-    getCurrentPosition = m_videoLength
-
+    Return  m_videoLength
 End Function
 
 
@@ -161,7 +158,7 @@ Dim errorText As String
     textBuf = New System.Text.StringBuilder(512)
     mciGetErrorString(fdwError, textBuf, textBuf.Capacity)
     errorText = textBuf.ToString()
-    getMciError = errorText
+    Return  errorText
 End Function
 
 
@@ -176,12 +173,11 @@ Dim resultText As String
     videoGuid = System.Guid.NewGuid()
     guidString = videoGuid.ToString()
     If (videoId < 0) Then
-        getVideoGuid = guidString
-        Exit Function
+        Return  guidString
     End If
 
     resultText = String.Format("vid{0:000000}-{1}", videoId, guidString)
-    getVideoGuid = resultText
+    Return  resultText
 End Function
 
 

@@ -121,7 +121,7 @@ Dim selIndex As Integer
 End Sub
 
 
-Private Function isRunnable()
+Private Function isRunnable() As Boolean
 ''--------------------------------------------------------------------
 ''    実行可能な状態になっているか確認する
 ''--------------------------------------------------------------------
