@@ -9,6 +9,10 @@ Private m_flagModified As Boolean
 
 Private m_workVideo As New MciWrapper("", 0)
 
+' 最後に開いた入力ファイル名とその長さのキャッシュ
+Private m_lastOpenInputPath As String
+Private m_lastOpenLength As Long
+
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
