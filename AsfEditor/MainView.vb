@@ -133,18 +133,16 @@ Private Function isRunnable() As Boolean
         If m_viInputList(i).bValidData = False Then
             ' まだ設定が終わっていない入力があるときは、
             ' 実行ボタンを押せないようにしておく
-            isRunnable = False
-            Exit Function
+            Return  False
         End If
     Next i
 
     ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
     If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
-        isRunnable = False
-        Exit Function
+        Return  False
     End If
 
-    isRunnable = True
+    Return  True
 End Function
 
 
