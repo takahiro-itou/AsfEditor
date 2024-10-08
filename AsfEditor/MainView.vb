@@ -9,6 +9,10 @@ Private m_flagModified As Boolean
 
 Private m_workVideo As New MciWrapper("", 0)
 
+' 最後に開いた入力ファイル名とその長さのキャッシュ
+Private m_lastOpenInputPath As String
+Private m_lastOpenLength As Long
+
 
 Private Function addFileToList(ByVal fileName As String) As Boolean
 ''--------------------------------------------------------------------
@@ -22,12 +26,26 @@ Dim msVideoLen As Long
     m_nInputCount = m_nInputCount + 1
 
     msVideoLen = 0
-    With m_workVideo
-        .setFileName(fileName)
-        .openAsfFile()
-        msVideoLen = .getVideoLength()
-        .closeVideo()
-    End With
+    If fileName = m_lastOpenInputPath Then
+        ' 最後に開いた入力ファイルと同じならキャッシュを利用する
+        msVideoLen = m_lastOpenLength
+    End If
+
+    If msVideoLen = 0 Then
+        ' キャッシュが利用できなかった時と
+        ' キャッシュに保管された値がゼロだった時は、
+        ' 実際にファイルを開いて長さを確認する。
+        With m_workVideo
+            .setFileName(fileName)
+            .openAsfFile()
+            msVideoLen = .getVideoLength()
+            .closeVideo()
+        End With
+
+        ' 結果をキャッシュに保管する
+        m_lastOpenInputPath = fileName
+        m_lastOpenLength = msVideoLen
+    End If
 
     m_viInputList(trgIndex) = New InputInfo()
     With m_viInputList(trgIndex)
@@ -133,18 +151,16 @@ Private Function isRunnable() As Boolean
         If m_viInputList(i).bValidData = False Then
             ' まだ設定が終わっていない入力があるときは、
             ' 実行ボタンを押せないようにしておく
-            isRunnable = False
-            Exit Function
+            Return  False
         End If
     Next i
 
     ' 出力ファイルが指定されていない時も、実行ボタンは無効にする
     If txtOutFile.Text = "" Or txtWorkDir.Text = "" Then
-        isRunnable = False
-        Exit Function
+        Return  False
     End If
 
-    isRunnable = True
+    Return  True
 End Function
 
 
