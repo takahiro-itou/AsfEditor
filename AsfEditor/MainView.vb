@@ -117,7 +117,7 @@ Private Sub handlePerformButton()
     updateModifyFlag(False)
 
     performVideoEdit(
-        m_viInputList, txtOutFile.Text, txtWorkDir.Text
+        m_viInputList, m_nInputCount, txtOutFile.Text, txtWorkDir.Text
     )
 End Sub
 
@@ -145,6 +145,11 @@ Private Function isRunnable() As Boolean
 ''--------------------------------------------------------------------
 
     isRunnable = True
+
+    ' 入力が何も無いときは、実行ボタンは無効にする
+    If m_nInputCount <= 0 Then
+        Return  False
+    End If
 
     ' 設定が完了していない入力がある場合は、実行ボタンは無効にする
     For i = 0 To m_nInputCount - 1
@@ -253,7 +258,7 @@ Dim lastInputs As Integer
     Next i
 
     m_nInputCount = lastInputs
-    ReDim Preserve m_viInputList(lastInputs)
+    ReDim Preserve m_viInputList(lastInputs - 1)
 
     updateModifyFlag(True)
     updateGridView(0)

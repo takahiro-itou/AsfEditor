@@ -6,7 +6,7 @@
     <TargetFrameworks>
       net6.0-windows;
       net35;
-      net48;
+      net45;
     </TargetFrameworks>
     <StartupObject>AsfEditor.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
