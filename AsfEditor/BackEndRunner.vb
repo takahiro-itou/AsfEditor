@@ -57,6 +57,7 @@ End Function
 
 Public Function performVideoEdit(
         ByVal viInputs() As InputInfo,
+        Byval numInputs As Integer,
         ByVal outFile As String,
         ByVal workDir As String) As Boolean
 ''--------------------------------------------------------------------
@@ -69,7 +70,7 @@ Dim bResult As Boolean
 
     workDir = uniformDirName(workDir)
 
-    lastInputs = viInputs.Length - 1
+    lastInputs = numInputs - 1
     ReDim workFiles(lastInputs)
     For i = 0 To lastInputs
         outWork = workDir & String.Format("Part{0:000}.wmv", i)

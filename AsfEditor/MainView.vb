@@ -117,7 +117,7 @@ Private Sub handlePerformButton()
     updateModifyFlag(False)
 
     performVideoEdit(
-        m_viInputList, txtOutFile.Text, txtWorkDir.Text
+        m_viInputList, m_nInputCount, txtOutFile.Text, txtWorkDir.Text
     )
 End Sub
 
@@ -253,7 +253,7 @@ Dim lastInputs As Integer
     Next i
 
     m_nInputCount = lastInputs
-    ReDim Preserve m_viInputList(lastInputs)
+    ReDim Preserve m_viInputList(lastInputs - 1)
 
     updateModifyFlag(True)
     updateGridView(0)
